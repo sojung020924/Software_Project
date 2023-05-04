@@ -75,14 +75,23 @@ namespace Software_Project
         public void Make_button(List<List<string>> list) //동적으로 메뉴 버튼 만들기
         {
             int num = list.Count;
-            while (num > 0)
+            List<Button> buttonList = new List<Button>();
+
+            // 버튼 생성 및 속성 설정 후 리스트에 추가
+            for (int i = 0; i < num; i++)
             {
-                Button dynamicButton = new Button();
-                dynamicButton.Name = "dynamicButton";
-                dynamicButton.Text = "Click Me";
-                dynamicButton.Location = new Point(50, 50);
-                dynamicButton.Size = new Size(100, 30);
-                this.Controls.Add(dynamicButton);
+                Button button = new Button();
+                button.Name = "button" + i.ToString();
+                button.Text = list[i][1];
+                button.Size = new Size(100, 50);
+                button.Location = new Point(10, 10 + (i * 50));
+                buttonList.Add(button);
+            }
+
+            // 생성한 버튼들을 Form에 추가
+            foreach (Button button in buttonList)
+            {
+                this.Controls.Add(button);
             }
         }
     }
