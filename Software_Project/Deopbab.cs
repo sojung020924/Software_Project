@@ -20,7 +20,7 @@ namespace Software_Project
 
         private void Deopbab_Load(object sender, EventArgs e)
         {
-
+            ReadCsvFile("menu1.csv",flowLayoutPanel1);
         }
 
         private void choose_bockbab_Click(object sender, EventArgs e)
@@ -52,7 +52,7 @@ namespace Software_Project
             drink.Location = new Point(parentPoint.X, parentPoint.Y);
             drink.ShowDialog();
         }
-        public static List<List<string>> ReadCsvFile(string filePath) //메뉴 csv 파일 읽기
+        public static void ReadCsvFile(string filePath, FlowLayoutPanel panel) //메뉴 csv 파일 읽기
         {
             List<List<string>> data = new List<List<string>>();
             using (var reader = new StreamReader(filePath))
@@ -70,13 +70,12 @@ namespace Software_Project
                     data.Add(rowData);
                 }
             }
-            return data;
+            Make_button(data,panel);
         }
-        public void Make_button(List<List<string>> list) //동적으로 메뉴 버튼 만들기
+        public static void Make_button(List<List<string>> list, FlowLayoutPanel panel) //동적으로 메뉴 버튼 만들기
         {
             int num = list.Count;
             List<Button> buttonList = new List<Button>();
-
             // 버튼 생성 및 속성 설정 후 리스트에 추가
             for (int i = 0; i < num; i++)
             {
@@ -84,14 +83,7 @@ namespace Software_Project
                 button.Name = "button" + i.ToString();
                 button.Text = list[i][1];
                 button.Size = new Size(100, 50);
-                button.Location = new Point(10, 10 + (i * 50));
-                buttonList.Add(button);
-            }
-
-            // 생성한 버튼들을 Form에 추가
-            foreach (Button button in buttonList)
-            {
-                this.Controls.Add(button);
+                panel.Controls.Add(button);
             }
         }
     }
