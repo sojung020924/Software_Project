@@ -150,6 +150,7 @@
             this.Controls.Add(this.choose_bockbab);
             this.Controls.Add(this.bag);
             this.Controls.Add(this.choose_deopbab);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Main_ui";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();

@@ -134,8 +134,10 @@
             this.Controls.Add(this.choose_bockbab);
             this.Controls.Add(this.bag);
             this.Controls.Add(this.choose_deopbab);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Bockbab";
             this.Text = "bockbab";
+            this.Load += new System.EventHandler(this.Bockbab_Load);
             this.ResumeLayout(false);
 
         }

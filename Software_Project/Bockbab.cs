@@ -46,5 +46,10 @@ namespace Software_Project
             drink.Location = new Point(parentPoint.X, parentPoint.Y);
             drink.ShowDialog();
         }
+
+        private void Bockbab_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

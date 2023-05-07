@@ -73,6 +73,7 @@
             // choose_bockbab
             // 
             this.choose_bockbab.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.choose_bockbab.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.choose_bockbab.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.choose_bockbab.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.choose_bockbab.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -129,8 +130,10 @@
             // 
             // flowLayoutPanel1
             // 
+            this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(177, 1);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.flowLayoutPanel1.Size = new System.Drawing.Size(505, 548);
             this.flowLayoutPanel1.TabIndex = 13;
             // 
@@ -146,6 +149,7 @@
             this.Controls.Add(this.choose_bockbab);
             this.Controls.Add(this.bag);
             this.Controls.Add(this.choose_deopbab);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Deopbab";
             this.Text = "Deopbab";
             this.Load += new System.EventHandler(this.Deopbab_Load);
