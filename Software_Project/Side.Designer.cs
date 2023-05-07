@@ -33,6 +33,7 @@
             this.choose_bockbab = new Guna.UI2.WinForms.Guna2Button();
             this.bag = new Guna.UI2.WinForms.Guna2TextBox();
             this.choose_deopbab = new Guna.UI2.WinForms.Guna2Button();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.SuspendLayout();
             // 
             // choose_drink
@@ -126,10 +127,19 @@
             this.choose_deopbab.Text = "덮밥";
             this.choose_deopbab.Click += new System.EventHandler(this.choose_deopbab_Click);
             // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(181, 0);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(502, 550);
+            this.flowLayoutPanel1.TabIndex = 18;
+            // 
             // Side
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.ClientSize = new System.Drawing.Size(682, 753);
+            this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.choose_drink);
             this.Controls.Add(this.choose_side);
             this.Controls.Add(this.choose_bockbab);
@@ -138,6 +148,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Side";
             this.Text = "Side";
+            this.Load += new System.EventHandler(this.Side_Load);
             this.ResumeLayout(false);
 
         }
@@ -149,5 +160,6 @@
         private Guna.UI2.WinForms.Guna2Button choose_bockbab;
         private Guna.UI2.WinForms.Guna2TextBox bag;
         private Guna.UI2.WinForms.Guna2Button choose_deopbab;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }

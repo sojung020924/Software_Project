@@ -33,6 +33,7 @@
             this.choose_bockbab = new Guna.UI2.WinForms.Guna2Button();
             this.bag = new Guna.UI2.WinForms.Guna2TextBox();
             this.choose_deopbab = new Guna.UI2.WinForms.Guna2Button();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.SuspendLayout();
             // 
             // choose_drink
@@ -125,10 +126,20 @@
             this.choose_deopbab.Text = "덮밥";
             this.choose_deopbab.Click += new System.EventHandler(this.choose_deopbab_Click);
             // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(178, 2);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(505, 548);
+            this.flowLayoutPanel1.TabIndex = 14;
+            // 
             // Bockbab
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.ClientSize = new System.Drawing.Size(682, 753);
+            this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.choose_drink);
             this.Controls.Add(this.choose_side);
             this.Controls.Add(this.choose_bockbab);
@@ -148,5 +159,6 @@
         private Guna.UI2.WinForms.Guna2Button choose_bockbab;
         private Guna.UI2.WinForms.Guna2TextBox bag;
         private Guna.UI2.WinForms.Guna2Button choose_deopbab;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }

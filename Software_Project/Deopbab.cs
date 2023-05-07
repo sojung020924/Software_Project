@@ -11,6 +11,7 @@ using System.IO;
 using Guna.UI2.WinForms;
 using System.Net;
 
+
 namespace Software_Project
 {
     public partial class Deopbab : Form
@@ -22,7 +23,7 @@ namespace Software_Project
 
         private void Deopbab_Load(object sender, EventArgs e)
         {
-            ReadCsvFile("menu1.csv",flowLayoutPanel1);
+            ReadCsvFile("menu.csv",flowLayoutPanel1);
         }
 
         private void choose_bockbab_Click(object sender, EventArgs e)
@@ -67,7 +68,11 @@ namespace Software_Project
                 {
                     string[] row = reader.ReadLine().Split(',');
                     List<string> rowData = new List<string>(row);
-                    data.Add(rowData);
+                    if (row[2] == "덮밥")
+                    {
+                       data.Add(rowData);
+                    }
+                    
                 }
             }
             catch
@@ -81,40 +86,32 @@ namespace Software_Project
         {
             int num = list.Count;
             List<Guna2Button> buttonList = new List<Guna2Button>();
+
             // 버튼 생성 및 속성 설정 후 리스트에 추가
             for (int i = 0; i < num; i++)
             {
-                //이미지 불러오기
-                using (var webClient = new WebClient())
-                {
-                    byte[] imageBytes = webClient.DownloadData(list[i][2]);
-                    using (MemoryStream memoryStream = new MemoryStream(imageBytes))
-                    {
-                        //버튼 생성
-                        Guna2Button button = new Guna2Button();
-                        button.Name = "button" + i.ToString();
-                        button.Text = list[i][0];
-                        button.Size = new Size(237, 180);
-                        button.BorderThickness = 1;
+                //버튼 생성
+                Guna2Button button = new Guna2Button();
+                button.Name = "button" + i.ToString();
+                button.Text = list[i][0] + "\n[" + list[i][1] + "원]";
+                button.Size = new Size(237, 180);
+                button.BorderThickness = 1;
 
-                        //폰트 설정
-                        button.ForeColor = Color.DimGray;
-                        button.FillColor = Color.AntiqueWhite;
-                        button.Font = new Font("휴먼둥근헤드라인", 10);
-                        button.TextAlign = HorizontalAlignment.Center;
-                        
+                //폰트 설정
+                button.ForeColor = Color.DimGray;
+                button.FillColor = Color.AntiqueWhite;
+                button.Font = new Font("휴먼둥근헤드라인", 10);
+                button.TextAlign = HorizontalAlignment.Center;
 
-                        //이미지 설정+s
-                        button.Image = Image.FromStream(memoryStream);
-                        button.ImageSize = new Size(150, 90);
-                        //button.ImageOffset = new Point(35, -35);
-                        //button.TextOffset = new Point(button.Image.Width + 20, (button.Height - button.Font.Height) / 2);
-                        button.ImageAlign = HorizontalAlignment.Left;
-                        panel.Controls.Add(button);
-                    }
-                }
+
+                //이미지 설정+s
+                button.Image = Image.FromFile(list[i][0] + ".jpg");
+                button.ImageSize = new Size(150, 90);
+                button.ImageOffset = new Point(35, -15);
+                button.TextOffset = new Point(0, 55);
+                button.ImageAlign = HorizontalAlignment.Left;
+                panel.Controls.Add(button);
             }
-
         }
     }
 }
