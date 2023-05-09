@@ -31,9 +31,9 @@
             this.choose_drink = new Guna.UI2.WinForms.Guna2Button();
             this.choose_side = new Guna.UI2.WinForms.Guna2Button();
             this.choose_bockbab = new Guna.UI2.WinForms.Guna2Button();
-            this.bag = new Guna.UI2.WinForms.Guna2TextBox();
             this.choose_deopbab = new Guna.UI2.WinForms.Guna2Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.SuspendLayout();
             // 
             // choose_drink
@@ -87,29 +87,6 @@
             this.choose_bockbab.Text = "볶음밥";
             this.choose_bockbab.Click += new System.EventHandler(this.choose_bockbab_Click);
             // 
-            // bag
-            // 
-            this.bag.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.bag.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.bag.DefaultText = "";
-            this.bag.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.bag.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.bag.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.bag.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.bag.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.bag.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.bag.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.bag.Location = new System.Drawing.Point(-1, 549);
-            this.bag.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.bag.Name = "bag";
-            this.bag.PasswordChar = '\0';
-            this.bag.PlaceholderText = "";
-            this.bag.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.bag.SelectedText = "";
-            this.bag.Size = new System.Drawing.Size(684, 204);
-            this.bag.TabIndex = 14;
-            // 
             // choose_deopbab
             // 
             this.choose_deopbab.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -131,18 +108,27 @@
             // 
             this.flowLayoutPanel1.Location = new System.Drawing.Point(178, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(505, 547);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(505, 550);
             this.flowLayoutPanel1.TabIndex = 18;
+            // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.AutoScroll = true;
+            this.flowLayoutPanel2.BackColor = System.Drawing.Color.Wheat;
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 551);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(683, 131);
+            this.flowLayoutPanel2.TabIndex = 19;
             // 
             // Drink
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.ClientSize = new System.Drawing.Size(682, 753);
+            this.Controls.Add(this.flowLayoutPanel2);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.choose_drink);
             this.Controls.Add(this.choose_side);
             this.Controls.Add(this.choose_bockbab);
-            this.Controls.Add(this.bag);
             this.Controls.Add(this.choose_deopbab);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Drink";
@@ -157,8 +143,8 @@
         private Guna.UI2.WinForms.Guna2Button choose_drink;
         private Guna.UI2.WinForms.Guna2Button choose_side;
         private Guna.UI2.WinForms.Guna2Button choose_bockbab;
-        private Guna.UI2.WinForms.Guna2TextBox bag;
         private Guna.UI2.WinForms.Guna2Button choose_deopbab;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
     }
 }

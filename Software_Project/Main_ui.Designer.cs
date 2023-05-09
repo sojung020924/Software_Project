@@ -30,11 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main_ui));
             this.choose_deopbab = new Guna.UI2.WinForms.Guna2Button();
-            this.bag = new Guna.UI2.WinForms.Guna2TextBox();
             this.choose_bockbab = new Guna.UI2.WinForms.Guna2Button();
             this.choose_side = new Guna.UI2.WinForms.Guna2Button();
             this.choose_drink = new Guna.UI2.WinForms.Guna2Button();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,29 +54,6 @@
             this.choose_deopbab.TabIndex = 0;
             this.choose_deopbab.Text = "덮밥";
             this.choose_deopbab.Click += new System.EventHandler(this.choose_deopbab_Click);
-            // 
-            // bag
-            // 
-            this.bag.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.bag.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.bag.DefaultText = "";
-            this.bag.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.bag.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.bag.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.bag.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.bag.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.bag.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.bag.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.bag.Location = new System.Drawing.Point(0, 548);
-            this.bag.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.bag.Name = "bag";
-            this.bag.PasswordChar = '\0';
-            this.bag.PlaceholderText = "";
-            this.bag.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.bag.SelectedText = "";
-            this.bag.Size = new System.Drawing.Size(684, 204);
-            this.bag.TabIndex = 3;
             // 
             // choose_bockbab
             // 
@@ -139,16 +116,24 @@
             this.guna2PictureBox1.TabIndex = 7;
             this.guna2PictureBox1.TabStop = false;
             // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.BackColor = System.Drawing.SystemColors.Info;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(1, 554);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(681, 199);
+            this.flowLayoutPanel1.TabIndex = 8;
+            // 
             // Main_ui
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(682, 753);
+            this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.guna2PictureBox1);
             this.Controls.Add(this.choose_drink);
             this.Controls.Add(this.choose_side);
             this.Controls.Add(this.choose_bockbab);
-            this.Controls.Add(this.bag);
             this.Controls.Add(this.choose_deopbab);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Main_ui";
@@ -161,11 +146,11 @@
         #endregion
 
         private Guna.UI2.WinForms.Guna2Button choose_deopbab;
-        private Guna.UI2.WinForms.Guna2TextBox bag;
         private Guna.UI2.WinForms.Guna2Button choose_bockbab;
         private Guna.UI2.WinForms.Guna2Button choose_side;
         private Guna.UI2.WinForms.Guna2Button choose_drink;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }
 

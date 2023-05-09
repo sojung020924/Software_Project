@@ -58,6 +58,12 @@
     <Compile Include="Bockbab.Designer.cs">
       <DependentUpon>Bockbab.cs</DependentUpon>
     </Compile>
+    <Compile Include="Choose.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Choose.Designer.cs">
+      <DependentUpon>Choose.cs</DependentUpon>
+    </Compile>
     <Compile Include="Deopbab.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +92,9 @@
     </Compile>
     <EmbeddedResource Include="Bockbab.resx">
       <DependentUpon>Bockbab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Choose.resx">
+      <DependentUpon>Choose.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Deopbab.resx">
       <DependentUpon>Deopbab.cs</DependentUpon>

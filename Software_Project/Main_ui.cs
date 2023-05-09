@@ -12,6 +12,15 @@ using System.Windows.Forms;
 
 namespace Software_Project
 {
+    public struct Jangbaguni
+        {
+            public string menu_name;
+            public int total_price;
+            public string memo;
+            public List<List<string>> options;
+            public int count;
+        }
+
     public partial class Main_ui : Form
     {
         
