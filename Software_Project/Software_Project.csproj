@@ -76,6 +76,12 @@
     <Compile Include="Drink.Designer.cs">
       <DependentUpon>Drink.cs</DependentUpon>
     </Compile>
+    <Compile Include="gyeoljae.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gyeoljae.Designer.cs">
+      <DependentUpon>gyeoljae.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main_ui.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +107,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Drink.resx">
       <DependentUpon>Drink.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gyeoljae.resx">
+      <DependentUpon>gyeoljae.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main_ui.resx">
       <DependentUpon>Main_ui.cs</DependentUpon>
