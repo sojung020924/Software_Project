@@ -27,9 +27,16 @@ namespace Software_Project
             for (int i = 0; i < jan_btn_combi.Count; i++)
             {   
                 string s="";
+                string p = "";
                 TextBox box = new TextBox();
+                TextBox box2 = new TextBox();
                 box.Multiline = true;
-                box.Size = new Size(flowLayoutPanel1.Width-20, 80);
+                box.Size = new Size(flowLayoutPanel1.Width-20, 120);
+                box2.Multiline = true;
+                box2.Dock = DockStyle.Right;
+                box2.Size = new Size(120, 80);
+                box2.TextAlign = HorizontalAlignment.Center;
+                box2.BorderStyle = BorderStyle.None;
                 string option = "";
                 int num = jan_btn_combi[i].jangbaguni.options.Count;
                 for (int j = 0; j < num; j++) 
@@ -42,14 +49,18 @@ namespace Software_Project
                 }
                 if (jan_btn_combi[i].jangbaguni.memo != "")
                 {
-                    option += "\"" + jan_btn_combi[i].jangbaguni.memo+"\"\r\n";
+                    option += "\"" + jan_btn_combi[i].jangbaguni.memo +"\"\r\n";
                 }
                 sum += jan_btn_combi[i].jangbaguni.total_price;
-                s += jan_btn_combi[i].jangbaguni.menu_name + " " + jan_btn_combi[i].jangbaguni.count + "개\r\n" + option + jan_btn_combi[i].jangbaguni.total_price + "원\r\n";
+                s += "\r\n"+jan_btn_combi[i].jangbaguni.menu_name + " " + jan_btn_combi[i].jangbaguni.count + "개\r\n" + option;
+                p = jan_btn_combi[i].jangbaguni.total_price + "원\r\n";
                 box.Text = s;
+                box2.Text ="\r\n\r\n" + p;
+
+                box.Controls.Add(box2);
                 flowLayoutPanel1.Controls.Add(box);
             }
-            total.Text = "total: " + sum.ToString(); 
+            total.Text = "total: " + sum.ToString() + "원"; 
         }
         
 
@@ -71,6 +82,16 @@ namespace Software_Project
             d.StartPosition = FormStartPosition.Manual;
             d.Location = new Point(parentPoint.X, parentPoint.Y);
             d.ShowDialog();
+        }
+
+        private void gyeoljoeng_hagi_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void flowLayoutPanel1_Paint_1(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
