@@ -20,10 +20,15 @@ namespace Software_Project
             public List<List<string>> options;
             public int count;
         }
-
+    public struct Jangbaguni_button_set
+    {
+        public Jangbaguni jangbaguni;
+        public Button btn;
+    }
     public partial class Main_ui : Form
     {
-        
+        public List<Jangbaguni_button_set> jan_btn_combi = new List<Jangbaguni_button_set>();
+
         public Main_ui()
         {
             InitializeComponent();
@@ -38,7 +43,7 @@ namespace Software_Project
         private void choose_deopbab_Click(object sender, EventArgs e)
         {
             this.Visible = false; //현재창 숨김
-            Deopbab deopbab = new Deopbab(); //객체 생성
+            Deopbab deopbab = new Deopbab(jan_btn_combi); //객체 생성
             Point parentPoint = this.Location; //폼 열리는 위치 설정
             deopbab.StartPosition = FormStartPosition.Manual;  
             deopbab.Location = new Point(parentPoint.X, parentPoint.Y);
@@ -49,7 +54,7 @@ namespace Software_Project
         private void choose_bockbab_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-            Bockbab bockbab = new Bockbab();
+            Bockbab bockbab = new Bockbab(jan_btn_combi);
             Point parentPoint = this.Location;
             bockbab.StartPosition = FormStartPosition.Manual; 
             bockbab.Location = new Point(parentPoint.X, parentPoint.Y);
@@ -60,7 +65,7 @@ namespace Software_Project
         private void choose_side_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-            Side side = new Side();
+            Side side = new Side(jan_btn_combi);
             Point parentPoint = this.Location;
             side.StartPosition = FormStartPosition.Manual;
             side.Location = new Point(parentPoint.X, parentPoint.Y);
@@ -71,7 +76,7 @@ namespace Software_Project
         private void choose_drink_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-            Drink drink = new Drink();
+            Drink drink = new Drink(jan_btn_combi);
             Point parentPoint = this.Location;
             drink.StartPosition = FormStartPosition.Manual;  
             drink.Location = new Point(parentPoint.X, parentPoint.Y);

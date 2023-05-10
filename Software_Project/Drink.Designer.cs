@@ -28,11 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Drink));
             this.choose_drink = new Guna.UI2.WinForms.Guna2Button();
             this.choose_side = new Guna.UI2.WinForms.Guna2Button();
             this.choose_bockbab = new Guna.UI2.WinForms.Guna2Button();
             this.choose_deopbab = new Guna.UI2.WinForms.Guna2Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.Total_cost = new System.Windows.Forms.TextBox();
+            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.SuspendLayout();
             // 
@@ -111,30 +115,83 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(505, 550);
             this.flowLayoutPanel1.TabIndex = 18;
             // 
+            // Total_cost
+            // 
+            this.Total_cost.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.Total_cost.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Total_cost.Font = new System.Drawing.Font("휴먼둥근헤드라인", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.Total_cost.Location = new System.Drawing.Point(553, 556);
+            this.Total_cost.Multiline = true;
+            this.Total_cost.Name = "Total_cost";
+            this.Total_cost.Size = new System.Drawing.Size(128, 83);
+            this.Total_cost.TabIndex = 26;
+            this.Total_cost.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Total_cost.TextChanged += new System.EventHandler(this.Total_cost_TextChanged);
+            // 
+            // guna2Button2
+            // 
+            this.guna2Button2.BorderColor = System.Drawing.Color.Gainsboro;
+            this.guna2Button2.BorderThickness = 1;
+            this.guna2Button2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.guna2Button2.Font = new System.Drawing.Font("휴먼둥근헤드라인", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.guna2Button2.ForeColor = System.Drawing.Color.DimGray;
+            this.guna2Button2.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button2.Image")));
+            this.guna2Button2.Location = new System.Drawing.Point(553, 712);
+            this.guna2Button2.Name = "guna2Button2";
+            this.guna2Button2.Size = new System.Drawing.Size(128, 41);
+            this.guna2Button2.TabIndex = 25;
+            this.guna2Button2.Text = "메인으로";
+            this.guna2Button2.Click += new System.EventHandler(this.guna2Button2_Click);
+            // 
+            // guna2Button1
+            // 
+            this.guna2Button1.BorderColor = System.Drawing.Color.Gray;
+            this.guna2Button1.BorderThickness = 1;
+            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.guna2Button1.Font = new System.Drawing.Font("휴먼둥근헤드라인", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.guna2Button1.ForeColor = System.Drawing.Color.White;
+            this.guna2Button1.Location = new System.Drawing.Point(553, 645);
+            this.guna2Button1.Name = "guna2Button1";
+            this.guna2Button1.Size = new System.Drawing.Size(128, 65);
+            this.guna2Button1.TabIndex = 24;
+            this.guna2Button1.Text = "결정하기";
+            // 
             // flowLayoutPanel2
             // 
             this.flowLayoutPanel2.AutoScroll = true;
             this.flowLayoutPanel2.BackColor = System.Drawing.Color.Wheat;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 551);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 550);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(683, 131);
-            this.flowLayoutPanel2.TabIndex = 19;
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(551, 204);
+            this.flowLayoutPanel2.TabIndex = 23;
             // 
             // Drink
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.ClientSize = new System.Drawing.Size(682, 753);
+            this.Controls.Add(this.choose_deopbab);
+            this.Controls.Add(this.Total_cost);
+            this.Controls.Add(this.guna2Button2);
+            this.Controls.Add(this.guna2Button1);
             this.Controls.Add(this.flowLayoutPanel2);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.choose_drink);
             this.Controls.Add(this.choose_side);
             this.Controls.Add(this.choose_bockbab);
-            this.Controls.Add(this.choose_deopbab);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Drink";
             this.Text = "DrinkForm1";
             this.Load += new System.EventHandler(this.Drink_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -145,6 +202,9 @@
         private Guna.UI2.WinForms.Guna2Button choose_bockbab;
         private Guna.UI2.WinForms.Guna2Button choose_deopbab;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.TextBox Total_cost;
+        private Guna.UI2.WinForms.Guna2Button guna2Button2;
+        private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
     }
 }

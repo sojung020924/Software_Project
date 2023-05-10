@@ -129,12 +129,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(682, 753);
+            this.Controls.Add(this.choose_deopbab);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.guna2PictureBox1);
             this.Controls.Add(this.choose_drink);
             this.Controls.Add(this.choose_side);
             this.Controls.Add(this.choose_bockbab);
-            this.Controls.Add(this.choose_deopbab);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Main_ui";
             this.Load += new System.EventHandler(this.Form1_Load);

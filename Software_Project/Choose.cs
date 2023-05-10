@@ -24,12 +24,6 @@ namespace Software_Project
         List<List<string>> option_list = new List<List<string>>();
         List<TextBox> option_txt = new List<TextBox>(); //추가된 버튼 리스트
         int price = 0;
-        string option_memo;
-        public event EventHandler Child_Close;
-        public Choose()
-        {
-            InitializeComponent();
-        }
 
         public Choose(string name)
         {
@@ -134,7 +128,7 @@ namespace Software_Project
                 txt.Name = name;
                 txt.Multiline= true;
                 txt.Height = 60;
-                txt.Width = 170;
+                txt.Width = 164;
                 txt.Text = "\r\n" + name + "\r\n수량: " + num + "개";
                 txt.ForeColor = System.Drawing.Color.SlateGray;
                 txt.HideSelection= false;
@@ -267,7 +261,7 @@ namespace Software_Project
             Jangbaguni j = new Jangbaguni();
             j.menu_name = Current_menu;
             j.total_price = price;
-            j.options = option_list;
+            j.options = option_list; //옵션들 넣기 (옵션이름, 옵션 총 가격, "옵션" ,옵션 총 수량)
             j.memo = guna2TextBox1.Text;
             j.count = 1;
             this.chooseSendEvent(j);
