@@ -22,34 +22,55 @@ namespace Software_Project
         private void gyeoljae_Load(object sender, EventArgs e)
         {
 
+            int sum = 0;
+            
+            for (int i = 0; i < jan_btn_combi.Count; i++)
+            {   
+                string s="";
+                TextBox box = new TextBox();
+                box.Multiline = true;
+                box.Size = new Size(flowLayoutPanel1.Width-20, 80);
+                string option = "";
+                int num = jan_btn_combi[i].jangbaguni.options.Count;
+                for (int j = 0; j < num; j++) 
+                {
+                    if (jan_btn_combi[i].jangbaguni.options[j][3] != "0")
+                    {
+                        option += jan_btn_combi[i].jangbaguni.options[j][0] + "" + jan_btn_combi[i].jangbaguni.options[j][3] + "개 \r\n";
+                    }
+
+                }
+                if (jan_btn_combi[i].jangbaguni.memo != "")
+                {
+                    option += "\"" + jan_btn_combi[i].jangbaguni.memo+"\"\r\n";
+                }
+                sum += jan_btn_combi[i].jangbaguni.total_price;
+                s += jan_btn_combi[i].jangbaguni.menu_name + " " + jan_btn_combi[i].jangbaguni.count + "개\r\n" + option + jan_btn_combi[i].jangbaguni.total_price + "원\r\n";
+                box.Text = s;
+                flowLayoutPanel1.Controls.Add(box);
+            }
+            total.Text = "total: " + sum.ToString(); 
         }
-
-        private void card_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cash_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cancel_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void total_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
-            for(int i=0; i<jan_btn_combi.Count; i++)
-            {
 
-            }
+        }
+
+        private void backbutton_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            Deopbab d = new Deopbab(jan_btn_combi);
+            Point parentPoint = this.Location; //폼 열리는 위치 설정
+            d.StartPosition = FormStartPosition.Manual;
+            d.Location = new Point(parentPoint.X, parentPoint.Y);
+            d.ShowDialog();
         }
     }
 }

@@ -74,6 +74,7 @@
             this.guna2Button1.Size = new System.Drawing.Size(128, 65);
             this.guna2Button1.TabIndex = 15;
             this.guna2Button1.Text = "결정하기";
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
             // guna2Button2
             // 

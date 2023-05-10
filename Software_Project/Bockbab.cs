@@ -337,5 +337,15 @@ namespace Software_Project
             main.Location = new Point(parentPoint.X, parentPoint.Y);
             main.ShowDialog();
         }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            gyeoljae g = new gyeoljae(jan_btn_combi);
+            Point parentPoint = this.Location; //폼 열리는 위치 설정
+            g.StartPosition = FormStartPosition.Manual;
+            g.Location = new Point(parentPoint.X, parentPoint.Y);
+            g.ShowDialog();
+        }
     }
 }
