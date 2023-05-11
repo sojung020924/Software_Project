@@ -16,6 +16,7 @@ namespace Software_Project
     {
         public Jangbaguni jangbaguni = new Jangbaguni();
         public List<Jangbaguni_button_set> jan_btn_combi = new List<Jangbaguni_button_set>(); //장바구니와 버튼을 쌍으로 저장
+        public List<location> location_list = new List<location>();
         public Bockbab(List<Jangbaguni_button_set> list)
         {
             InitializeComponent();
@@ -341,7 +342,7 @@ namespace Software_Project
         private void guna2Button1_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-            gyeoljae g = new gyeoljae(jan_btn_combi);
+            gyeoljae g = new gyeoljae(jan_btn_combi,location_list);
             Point parentPoint = this.Location; //폼 열리는 위치 설정
             g.StartPosition = FormStartPosition.Manual;
             g.Location = new Point(parentPoint.X, parentPoint.Y);

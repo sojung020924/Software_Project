@@ -33,9 +33,12 @@
             this.choose_bockbab = new Guna.UI2.WinForms.Guna2Button();
             this.choose_side = new Guna.UI2.WinForms.Guna2Button();
             this.choose_drink = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2ContextMenuStrip1 = new Guna.UI2.WinForms.Guna2ContextMenuStrip();
+            this.테이블설정ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
+            this.guna2ContextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // choose_deopbab
@@ -106,6 +109,14 @@
             this.choose_drink.Text = "음료";
             this.choose_drink.Click += new System.EventHandler(this.choose_drink_Click);
             // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.BackColor = System.Drawing.SystemColors.Info;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(1, 554);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(681, 199);
+            this.flowLayoutPanel1.TabIndex = 8;
+            // 
             // guna2PictureBox1
             // 
             this.guna2PictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.Image")));
@@ -115,15 +126,7 @@
             this.guna2PictureBox1.Size = new System.Drawing.Size(500, 550);
             this.guna2PictureBox1.TabIndex = 7;
             this.guna2PictureBox1.TabStop = false;
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.BackColor = System.Drawing.SystemColors.Info;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(1, 554);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(681, 199);
-            this.flowLayoutPanel1.TabIndex = 8;
-            // 
+          
             // Main_ui
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
@@ -139,6 +142,7 @@
             this.Name = "Main_ui";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
+            this.guna2ContextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -149,8 +153,10 @@
         private Guna.UI2.WinForms.Guna2Button choose_bockbab;
         private Guna.UI2.WinForms.Guna2Button choose_side;
         private Guna.UI2.WinForms.Guna2Button choose_drink;
-        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
+        private Guna.UI2.WinForms.Guna2ContextMenuStrip guna2ContextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem 테이블설정ToolStripMenuItem;
     }
 }
 

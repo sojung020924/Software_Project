@@ -12,6 +12,13 @@ using System.Windows.Forms;
 
 namespace Software_Project
 {
+    public struct location
+    {
+        public int location_x; 
+        public int location_y;
+        public Boolean used;
+
+    }
     public struct Jangbaguni
         {
             public string menu_name;
@@ -28,6 +35,7 @@ namespace Software_Project
     public partial class Main_ui : Form
     {
         public List<Jangbaguni_button_set> jan_btn_combi = new List<Jangbaguni_button_set>();
+        public List<location> location_list = new List<location>();
 
         public Main_ui()
         {
@@ -88,5 +96,7 @@ namespace Software_Project
         {
 
         }
+
+       
     }
 }

@@ -96,6 +96,18 @@
     <Compile Include="Side.Designer.cs">
       <DependentUpon>Side.cs</DependentUpon>
     </Compile>
+    <Compile Include="table.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="table.Designer.cs">
+      <DependentUpon>table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="table_setting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="table_setting.Designer.cs">
+      <DependentUpon>table_setting.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Bockbab.resx">
       <DependentUpon>Bockbab.cs</DependentUpon>
     </EmbeddedResource>
@@ -125,6 +137,12 @@
     </Compile>
     <EmbeddedResource Include="Side.resx">
       <DependentUpon>Side.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="table.resx">
+      <DependentUpon>table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="table_setting.resx">
+      <DependentUpon>table_setting.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

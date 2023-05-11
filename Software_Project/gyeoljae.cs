@@ -13,10 +13,12 @@ namespace Software_Project
     public partial class gyeoljae : Form
     {
         public List<Jangbaguni_button_set> jan_btn_combi = new List<Jangbaguni_button_set>();
-        public gyeoljae(List<Jangbaguni_button_set> list)
+        public List<location> location_list = new List<location>();
+        public gyeoljae(List<Jangbaguni_button_set> list, List<location> loc_list)
         {
             InitializeComponent();
             jan_btn_combi = list;
+            location_list = loc_list;
         }
 
         private void gyeoljae_Load(object sender, EventArgs e)
@@ -63,7 +65,6 @@ namespace Software_Project
             total.Text = "total: " + sum.ToString() + "원"; 
         }
         
-
         private void total_TextChanged(object sender, EventArgs e)
         {
 
@@ -78,7 +79,7 @@ namespace Software_Project
         {
             this.Visible = false;
             Deopbab d = new Deopbab(jan_btn_combi);
-            Point parentPoint = this.Location; //폼 열리는 위치 설정
+            Point parentPoint = this.Location; 
             d.StartPosition = FormStartPosition.Manual;
             d.Location = new Point(parentPoint.X, parentPoint.Y);
             d.ShowDialog();
@@ -86,7 +87,12 @@ namespace Software_Project
 
         private void gyeoljoeng_hagi_Click(object sender, EventArgs e)
         {
-
+            this.Visible = false;
+            table g = new table(jan_btn_combi,location_list);
+            Point parentPoint = this.Location;
+            g.StartPosition = FormStartPosition.Manual;
+            g.Location = new Point(parentPoint.X, parentPoint.Y);
+            g.ShowDialog();
         }
 
         private void flowLayoutPanel1_Paint_1(object sender, PaintEventArgs e)
