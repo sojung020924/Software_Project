@@ -42,9 +42,9 @@
             this.backbutton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.backbutton.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.backbutton.ForeColor = System.Drawing.Color.White;
-            this.backbutton.Location = new System.Drawing.Point(452, 614);
+            this.backbutton.Location = new System.Drawing.Point(487, 631);
             this.backbutton.Name = "backbutton";
-            this.backbutton.Size = new System.Drawing.Size(218, 104);
+            this.backbutton.Size = new System.Drawing.Size(182, 86);
             this.backbutton.TabIndex = 1;
             this.backbutton.Text = "뒤로가기";
             this.backbutton.Click += new System.EventHandler(this.backbutton_Click);
@@ -57,9 +57,9 @@
             this.tablegola.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.tablegola.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.tablegola.ForeColor = System.Drawing.Color.White;
-            this.tablegola.Location = new System.Drawing.Point(218, 614);
+            this.tablegola.Location = new System.Drawing.Point(263, 631);
             this.tablegola.Name = "tablegola";
-            this.tablegola.Size = new System.Drawing.Size(218, 104);
+            this.tablegola.Size = new System.Drawing.Size(182, 86);
             this.tablegola.TabIndex = 2;
             this.tablegola.Text = "고르기";
             this.tablegola.Click += new System.EventHandler(this.tablegola_Click);
@@ -72,9 +72,9 @@
             this.table_setting.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.table_setting.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.table_setting.ForeColor = System.Drawing.Color.White;
-            this.table_setting.Location = new System.Drawing.Point(-6, 614);
+            this.table_setting.Location = new System.Drawing.Point(39, 631);
             this.table_setting.Name = "table_setting";
-            this.table_setting.Size = new System.Drawing.Size(218, 104);
+            this.table_setting.Size = new System.Drawing.Size(182, 86);
             this.table_setting.TabIndex = 3;
             this.table_setting.Text = "설정";
             this.table_setting.Click += new System.EventHandler(this.table_setting_Click);
@@ -90,7 +90,7 @@
             this.table_num.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.table_num.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.table_num.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.table_num.Location = new System.Drawing.Point(391, 524);
+            this.table_num.Location = new System.Drawing.Point(441, 559);
             this.table_num.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.table_num.Name = "table_num";
             this.table_num.PasswordChar = '\0';

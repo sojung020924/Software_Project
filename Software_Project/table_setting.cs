@@ -29,8 +29,18 @@ namespace Software_Project
             table_num=location_list.Count;
             Button button = new Button();
             button.Size = new Size(131,62);
-            button.Text = "table" + table_num;
-           
+            button.Name = table_num.ToString();
+            button.Text = "테이블 "+table_num;
+            
+
+            location loc = new location
+            {
+                location_x = button.Location.X,
+                location_y = button.Location.Y
+            };
+            location_list.Add(loc);
+
+
             button.MouseDown += new MouseEventHandler(button_MouseDown);
             button.MouseMove += new MouseEventHandler(button_MouseMove);
             button.MouseUp += new MouseEventHandler(button_MouseUp);
@@ -42,26 +52,12 @@ namespace Software_Project
 
         private bool isDragging = false;
         private Point lastLocation;
-        int a = 0;
 
          private void button_MouseDown(object sender, MouseEventArgs e)
          {
             isDragging = true;
-             lastLocation = e.Location;
-            for(int i=0; i<location_list.Count;i++)
-            {
-                if (lastLocation.X == location_list[i].location_x && lastLocation.Y == location_list[i].location_y)
-                {
-                    
-                    a = i;
-                    break;
-                }
-            }
-          
-
-
+            lastLocation = e.Location;
         }
-
 
         private void button_MouseMove(object sender, MouseEventArgs e)
          {
@@ -82,23 +78,7 @@ namespace Software_Project
                  location_x = btn.Location.X,
                  location_y = btn.Location.Y
              };
-            foreach (Control c in Controls)
-            {
-                if (c is Button && c != btn && c.Location == lastLocation)
-                {
-                    Controls.Remove(c);
-                    break;
-                }
-            }
-            if (a != 0)
-            {
-                location_list[a] = loc;
-                a = 0;
-            }
-            else
-                location_list.Add(loc);
-                          
-    
+            location_list[int.Parse(btn.Name)] = loc;                 
         }
 
 
@@ -108,7 +88,8 @@ namespace Software_Project
             {
                 Button button = new Button();
                 button.Size = new Size(131, 62);
-                button.Text = "table" + i;
+                button.Text = "테이블 " + i;
+                button.Name = i.ToString();
                 button.MouseDown += new MouseEventHandler(button_MouseDown);
                 button.MouseMove += new MouseEventHandler(button_MouseMove);
                 button.MouseUp += new MouseEventHandler(button_MouseUp);

@@ -35,10 +35,8 @@
             this.choose_drink = new Guna.UI2.WinForms.Guna2Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.guna2ContextMenuStrip1 = new Guna.UI2.WinForms.Guna2ContextMenuStrip();
             this.테이블설정ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
-            this.guna2ContextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // choose_deopbab
@@ -126,7 +124,12 @@
             this.guna2PictureBox1.Size = new System.Drawing.Size(500, 550);
             this.guna2PictureBox1.TabIndex = 7;
             this.guna2PictureBox1.TabStop = false;
-          
+            // 
+            // 테이블설정ToolStripMenuItem
+            // 
+            this.테이블설정ToolStripMenuItem.Name = "테이블설정ToolStripMenuItem";
+            this.테이블설정ToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
+            // 
             // Main_ui
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
@@ -140,9 +143,9 @@
             this.Controls.Add(this.choose_bockbab);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Main_ui";
+            this.Text = "Main_ui";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
-            this.guna2ContextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -155,7 +158,6 @@
         private Guna.UI2.WinForms.Guna2Button choose_drink;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
-        private Guna.UI2.WinForms.Guna2ContextMenuStrip guna2ContextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem 테이블설정ToolStripMenuItem;
     }
 }

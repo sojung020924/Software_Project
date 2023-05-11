@@ -56,7 +56,7 @@
             this.table_save.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.table_save.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.table_save.ForeColor = System.Drawing.Color.White;
-            this.table_save.Location = new System.Drawing.Point(286, 644);
+            this.table_save.Location = new System.Drawing.Point(306, 644);
             this.table_save.Name = "table_save";
             this.table_save.Size = new System.Drawing.Size(163, 97);
             this.table_save.TabIndex = 1;
@@ -71,7 +71,7 @@
             this.backbutton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.backbutton.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.backbutton.ForeColor = System.Drawing.Color.White;
-            this.backbutton.Location = new System.Drawing.Point(97, 630);
+            this.backbutton.Location = new System.Drawing.Point(125, 644);
             this.backbutton.Name = "backbutton";
             this.backbutton.Size = new System.Drawing.Size(163, 97);
             this.backbutton.TabIndex = 2;

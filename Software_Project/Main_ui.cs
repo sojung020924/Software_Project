@@ -16,7 +16,7 @@ namespace Software_Project
     {
         public int location_x; 
         public int location_y;
-        public Boolean used;
+        public Boolean used; //테이블이 사용 중이 아니면 false, 사용 중이면 true
 
     }
     public struct Jangbaguni
