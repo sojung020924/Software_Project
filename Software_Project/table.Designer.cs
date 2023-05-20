@@ -30,7 +30,6 @@
         {
             this.backbutton = new Guna.UI2.WinForms.Guna2Button();
             this.tablegola = new Guna.UI2.WinForms.Guna2Button();
-            this.table_setting = new Guna.UI2.WinForms.Guna2Button();
             this.table_num = new Guna.UI2.WinForms.Guna2TextBox();
             this.SuspendLayout();
             // 
@@ -42,9 +41,10 @@
             this.backbutton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.backbutton.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.backbutton.ForeColor = System.Drawing.Color.White;
-            this.backbutton.Location = new System.Drawing.Point(487, 631);
+            this.backbutton.Location = new System.Drawing.Point(426, 505);
+            this.backbutton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.backbutton.Name = "backbutton";
-            this.backbutton.Size = new System.Drawing.Size(182, 86);
+            this.backbutton.Size = new System.Drawing.Size(159, 69);
             this.backbutton.TabIndex = 1;
             this.backbutton.Text = "뒤로가기";
             this.backbutton.Click += new System.EventHandler(this.backbutton_Click);
@@ -57,27 +57,13 @@
             this.tablegola.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.tablegola.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.tablegola.ForeColor = System.Drawing.Color.White;
-            this.tablegola.Location = new System.Drawing.Point(263, 631);
+            this.tablegola.Location = new System.Drawing.Point(230, 505);
+            this.tablegola.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tablegola.Name = "tablegola";
-            this.tablegola.Size = new System.Drawing.Size(182, 86);
+            this.tablegola.Size = new System.Drawing.Size(159, 69);
             this.tablegola.TabIndex = 2;
             this.tablegola.Text = "고르기";
             this.tablegola.Click += new System.EventHandler(this.tablegola_Click);
-            // 
-            // table_setting
-            // 
-            this.table_setting.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.table_setting.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.table_setting.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.table_setting.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.table_setting.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.table_setting.ForeColor = System.Drawing.Color.White;
-            this.table_setting.Location = new System.Drawing.Point(39, 631);
-            this.table_setting.Name = "table_setting";
-            this.table_setting.Size = new System.Drawing.Size(182, 86);
-            this.table_setting.TabIndex = 3;
-            this.table_setting.Text = "설정";
-            this.table_setting.Click += new System.EventHandler(this.table_setting_Click);
             // 
             // table_num
             // 
@@ -90,24 +76,23 @@
             this.table_num.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.table_num.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.table_num.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.table_num.Location = new System.Drawing.Point(441, 559);
-            this.table_num.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.table_num.Location = new System.Drawing.Point(386, 447);
             this.table_num.Name = "table_num";
             this.table_num.PasswordChar = '\0';
             this.table_num.PlaceholderText = "";
             this.table_num.SelectedText = "";
-            this.table_num.Size = new System.Drawing.Size(229, 48);
+            this.table_num.Size = new System.Drawing.Size(200, 38);
             this.table_num.TabIndex = 4;
             // 
             // table
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(682, 753);
+            this.ClientSize = new System.Drawing.Size(597, 602);
             this.Controls.Add(this.table_num);
-            this.Controls.Add(this.table_setting);
             this.Controls.Add(this.tablegola);
             this.Controls.Add(this.backbutton);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "table";
             this.Text = "table";
             this.Load += new System.EventHandler(this.table_Load);
@@ -118,7 +103,6 @@
         #endregion
         private Guna.UI2.WinForms.Guna2Button backbutton;
         private Guna.UI2.WinForms.Guna2Button tablegola;
-        private Guna.UI2.WinForms.Guna2Button table_setting;
         private Guna.UI2.WinForms.Guna2TextBox table_num;
     }
 }

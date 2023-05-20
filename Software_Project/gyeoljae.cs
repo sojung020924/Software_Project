@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ClassLibrary2;
 
 namespace Software_Project
 {
@@ -14,11 +15,17 @@ namespace Software_Project
     {
         public List<Jangbaguni_button_set> jan_btn_combi = new List<Jangbaguni_button_set>();
         public List<location> location_list = new List<location>();
-        public gyeoljae(List<Jangbaguni_button_set> list, List<location> loc_list)
+
+        public shared_list sharedlist = new shared_list();
+
+
+        public gyeoljae(List<Jangbaguni_button_set> list, List<location> loc_list, shared_list sharedlist)
         {
             InitializeComponent();
             jan_btn_combi = list;
             location_list = loc_list;
+            this.sharedlist = sharedlist;
+            location_list = sharedlist.GetList();
         }
 
         private void gyeoljae_Load(object sender, EventArgs e)
@@ -78,7 +85,7 @@ namespace Software_Project
         private void backbutton_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-            Deopbab d = new Deopbab(jan_btn_combi);
+            Deopbab d = new Deopbab(jan_btn_combi, sharedlist);
             Point parentPoint = this.Location; 
             d.StartPosition = FormStartPosition.Manual;
             d.Location = new Point(parentPoint.X, parentPoint.Y);
@@ -88,7 +95,7 @@ namespace Software_Project
         private void gyeoljoeng_hagi_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-            table g = new table(jan_btn_combi,location_list);
+            table g = new table(jan_btn_combi,location_list, sharedlist);
             Point parentPoint = this.Location;
             g.StartPosition = FormStartPosition.Manual;
             g.Location = new Point(parentPoint.X, parentPoint.Y);

@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.tablechuga = new Guna.UI2.WinForms.Guna2Button();
-            this.table_save = new Guna.UI2.WinForms.Guna2Button();
+            this.reset = new Guna.UI2.WinForms.Guna2Button();
             this.backbutton = new Guna.UI2.WinForms.Guna2Button();
             this.SuspendLayout();
             // 
@@ -41,27 +41,29 @@
             this.tablechuga.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.tablechuga.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.tablechuga.ForeColor = System.Drawing.Color.White;
-            this.tablechuga.Location = new System.Drawing.Point(486, 646);
+            this.tablechuga.Location = new System.Drawing.Point(625, 49);
+            this.tablechuga.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tablechuga.Name = "tablechuga";
-            this.tablechuga.Size = new System.Drawing.Size(162, 95);
+            this.tablechuga.Size = new System.Drawing.Size(143, 78);
             this.tablechuga.TabIndex = 0;
             this.tablechuga.Text = "테이블 추가";
             this.tablechuga.Click += new System.EventHandler(this.tablechuga_Click);
             // 
-            // table_save
+            // reset
             // 
-            this.table_save.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.table_save.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.table_save.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.table_save.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.table_save.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.table_save.ForeColor = System.Drawing.Color.White;
-            this.table_save.Location = new System.Drawing.Point(306, 644);
-            this.table_save.Name = "table_save";
-            this.table_save.Size = new System.Drawing.Size(163, 97);
-            this.table_save.TabIndex = 1;
-            this.table_save.Text = "저장하기";
-            this.table_save.Click += new System.EventHandler(this.table_save_Click);
+            this.reset.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.reset.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.reset.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.reset.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.reset.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.reset.ForeColor = System.Drawing.Color.White;
+            this.reset.Location = new System.Drawing.Point(625, 174);
+            this.reset.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.reset.Name = "reset";
+            this.reset.Size = new System.Drawing.Size(143, 78);
+            this.reset.TabIndex = 1;
+            this.reset.Text = "초기화";
+            this.reset.Click += new System.EventHandler(this.reset_Click);
             // 
             // backbutton
             // 
@@ -71,21 +73,23 @@
             this.backbutton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.backbutton.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.backbutton.ForeColor = System.Drawing.Color.White;
-            this.backbutton.Location = new System.Drawing.Point(125, 644);
+            this.backbutton.Location = new System.Drawing.Point(625, 297);
+            this.backbutton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.backbutton.Name = "backbutton";
-            this.backbutton.Size = new System.Drawing.Size(163, 97);
+            this.backbutton.Size = new System.Drawing.Size(143, 78);
             this.backbutton.TabIndex = 2;
             this.backbutton.Text = "뒤로가기";
             this.backbutton.Click += new System.EventHandler(this.backbutton_Click);
             // 
             // table_setting
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(682, 753);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.backbutton);
-            this.Controls.Add(this.table_save);
+            this.Controls.Add(this.reset);
             this.Controls.Add(this.tablechuga);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "table_setting";
             this.Text = "table_setting";
             this.Load += new System.EventHandler(this.table_setting_Load);
@@ -96,7 +100,7 @@
         #endregion
 
         private Guna.UI2.WinForms.Guna2Button tablechuga;
-        private Guna.UI2.WinForms.Guna2Button table_save;
+        private Guna.UI2.WinForms.Guna2Button reset;
         private Guna.UI2.WinForms.Guna2Button backbutton;
     }
 }

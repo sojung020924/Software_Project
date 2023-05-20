@@ -6,18 +6,22 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ClassLibrary2;
 
 namespace Software_Project
 {
     public partial class Drink : Form
     {
-        public Jangbaguni jangbaguni = new Jangbaguni();
         public List<Jangbaguni_button_set> jan_btn_combi = new List<Jangbaguni_button_set>(); //장바구니와 버튼을 쌍으로 저장
         public List<location> location_list = new List<location>();
-        public Drink(List<Jangbaguni_button_set> list)
+
+        public shared_list sharedlist = new shared_list();
+
+        public Drink(List<Jangbaguni_button_set> list, shared_list sharedlist)
         {
             InitializeComponent();
             jan_btn_combi = list;
@@ -27,6 +31,8 @@ namespace Software_Project
                 jan_btn_combi[i].btn.Controls[2].Controls[0].Click += push_plus_button;
                 jan_btn_combi[i].btn.Controls[2].Controls[1].Click += push_minus_button;
             }
+
+            this.sharedlist = sharedlist;
         }
         public void Drink_Load(object sender, EventArgs e)
         {
@@ -47,7 +53,7 @@ namespace Software_Project
                 jan_btn_combi[i].btn.Controls[2].Controls[0].Click -= push_plus_button;
                 jan_btn_combi[i].btn.Controls[2].Controls[1].Click -= push_minus_button;
             }
-            Deopbab deopbab = new Deopbab(jan_btn_combi); 
+            Deopbab deopbab = new Deopbab(jan_btn_combi, sharedlist); 
             Point parentPoint = this.Location; 
             deopbab.StartPosition = FormStartPosition.Manual;
             deopbab.Location = new Point(parentPoint.X, parentPoint.Y);
@@ -64,7 +70,7 @@ namespace Software_Project
                 jan_btn_combi[i].btn.Controls[2].Controls[0].Click -= push_plus_button;
                 jan_btn_combi[i].btn.Controls[2].Controls[1].Click -= push_minus_button;
             }
-            Bockbab bockbab = new Bockbab(jan_btn_combi);
+            Bockbab bockbab = new Bockbab(jan_btn_combi, sharedlist);
             Point parentPoint = this.Location;
             bockbab.StartPosition = FormStartPosition.Manual;
             bockbab.Location = new Point(parentPoint.X, parentPoint.Y);
@@ -81,7 +87,7 @@ namespace Software_Project
                 jan_btn_combi[i].btn.Controls[2].Controls[0].Click -= push_plus_button;
                 jan_btn_combi[i].btn.Controls[2].Controls[1].Click -= push_minus_button;
             }
-            Side side = new Side(jan_btn_combi);
+            Side side = new Side(jan_btn_combi, sharedlist);
             Point parentPoint = this.Location;
             side.StartPosition = FormStartPosition.Manual;
             side.Location = new Point(parentPoint.X, parentPoint.Y);
@@ -330,7 +336,7 @@ namespace Software_Project
         {
             this.Visible = false;
             jan_btn_combi.Clear();
-            Main_ui main = new Main_ui();
+            Main_ui main = new Main_ui(sharedlist);
             Point parentPoint = this.Location; //폼 열리는 위치 설정
             main.StartPosition = FormStartPosition.Manual;
             main.Location = new Point(parentPoint.X, parentPoint.Y);
@@ -345,7 +351,7 @@ namespace Software_Project
         private void guna2Button1_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-            gyeoljae g = new gyeoljae(jan_btn_combi, location_list);
+            gyeoljae g = new gyeoljae(jan_btn_combi, location_list, sharedlist);
             Point parentPoint = this.Location; //폼 열리는 위치 설정
             g.StartPosition = FormStartPosition.Manual;
             g.Location = new Point(parentPoint.X, parentPoint.Y);
