@@ -33,6 +33,8 @@
             this.cardbtn = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.kioskOn = new Guna.UI2.WinForms.Guna2Button();
+            this.totalcost = new Guna.UI2.WinForms.Guna2TextBox();
+            this.menupanel = new Guna.UI2.WinForms.Guna2Panel();
             this.SuspendLayout();
             // 
             // loadtablebtn
@@ -63,7 +65,7 @@
             this.cardbtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.cardbtn.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.cardbtn.ForeColor = System.Drawing.Color.White;
-            this.cardbtn.Location = new System.Drawing.Point(603, 390);
+            this.cardbtn.Location = new System.Drawing.Point(605, 390);
             this.cardbtn.Name = "cardbtn";
             this.cardbtn.Size = new System.Drawing.Size(81, 51);
             this.cardbtn.TabIndex = 3;
@@ -98,11 +100,41 @@
             this.kioskOn.Text = "키오스크 실행";
             this.kioskOn.Click += new System.EventHandler(this.kioskOn_Click);
             // 
+            // totalcost
+            // 
+            this.totalcost.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.totalcost.DefaultText = "";
+            this.totalcost.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.totalcost.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.totalcost.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.totalcost.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.totalcost.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.totalcost.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.totalcost.ForeColor = System.Drawing.Color.Black;
+            this.totalcost.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.totalcost.Location = new System.Drawing.Point(605, 348);
+            this.totalcost.Name = "totalcost";
+            this.totalcost.PasswordChar = '\0';
+            this.totalcost.PlaceholderText = "";
+            this.totalcost.SelectedText = "";
+            this.totalcost.Size = new System.Drawing.Size(174, 36);
+            this.totalcost.TabIndex = 7;
+            // 
+            // menupanel
+            // 
+            this.menupanel.AutoScroll = true;
+            this.menupanel.Location = new System.Drawing.Point(605, 206);
+            this.menupanel.Name = "menupanel";
+            this.menupanel.Size = new System.Drawing.Size(174, 136);
+            this.menupanel.TabIndex = 8;
+            // 
             // pos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.menupanel);
+            this.Controls.Add(this.totalcost);
             this.Controls.Add(this.kioskOn);
             this.Controls.Add(this.guna2Button2);
             this.Controls.Add(this.cardbtn);
@@ -121,5 +153,7 @@
         private Guna.UI2.WinForms.Guna2Button cardbtn;
         private Guna.UI2.WinForms.Guna2Button guna2Button2;
         private Guna.UI2.WinForms.Guna2Button kioskOn;
+        private Guna.UI2.WinForms.Guna2TextBox totalcost;
+        private Guna.UI2.WinForms.Guna2Panel menupanel;
     }
 }

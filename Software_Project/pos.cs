@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ClassLibrary2;
+using System.IO;
 
 namespace Software_Project
 {
@@ -82,6 +83,77 @@ namespace Software_Project
             //table_num.Text = "고른 테이블: " + button.Text + " 번";
             selectedButton = button;
             selectedButton.Name = button.Name;
+
+            ListView menuview = new ListView();
+            menuview.Dock = DockStyle.Fill;
+            menuview.View = View.Tile;
+            menuview.Columns.Add("");
+
+            StreamReader reader = new StreamReader(selectedButton.Name+".CSV");
+            string fline = reader.ReadLine();
+            //string[] mlist = fline.Split(',');
+            string[][] val = new string[50][];
+            int totcost=0;
+            List<string[]> mlist = new List<string[]>();
+            while (!reader.EndOfStream)
+            {
+                string line = reader.ReadLine();
+                string[] values = line.Split(',');
+
+                mlist.Add(values);
+            }
+            for (int i = 0; i < mlist.Count; i++) {
+                totcost += int.Parse(mlist[i][1]);
+
+                for (int j = 0; j < mlist[0].Length; j++)
+                {
+                    
+                    string[] m = new string[4];
+                    if (j == 3 || j == 4 || j == 5 || j == 6 )
+                    {
+                        m = mlist[i][j].Split('/');
+                        if (m[3] == "0")
+                            continue;
+                        else
+                        {
+                            //totcost += int.Parse(m[1])*int.Parse(m[3]);
+                        }
+                    }
+                    if (j == 1)
+                        continue;
+                    else if (j == 0)
+                    {
+                        ListViewItem item = new ListViewItem("["+mlist[i][j]+"]");
+                        menuview.Items.Add(item);
+                    }else if (j == 2)
+                    {
+                        ListViewItem item = new ListViewItem("메모:" + mlist[i][j]);
+                        menuview.Items.Add(item);
+                    }
+                    else if(j == 7)
+                    {
+                        ListViewItem item = new ListViewItem("수량: " + mlist[i][j] + "개");
+                        menuview.Items.Add(item);
+                    }
+                    else
+                    {
+                        ListViewItem item = new ListViewItem(mlist[i][j]+"개");
+                        menuview.Items.Add(item);
+                    }
+                    
+                }
+
+                menupanel.Controls.Add(menuview);
+                menuview.TileSize = new Size(menuview.ClientSize.Width, menuview.TileSize.Height);
+                menuview.BorderStyle = BorderStyle.None;
+
+                totalcost.Text = (totcost.ToString()+"원");
+
+                reader.Close();
+            }
+            
+            
+            
         }
         
         private void button1_Click(object sender, EventArgs e)
