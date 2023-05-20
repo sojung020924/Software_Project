@@ -92,22 +92,33 @@ namespace Software_Project
                 int x = location_list[i].location_x;
                 int y = location_list[i].location_y;
                 button.Location = new Point(x, y);
-                button.MouseClick += button_click;  
+                button.MouseClick += button_click;
+                if (location_list[i].used == true)
+                    button.BackColor = Color.Red;
                 Controls.Add(button);
             }
             
         }
         private Button selectedButton = null;
         private void button_click(object sender, EventArgs e)
-        {
+        { 
+            
             // 이전에 선택된 버튼의 색상을 원래대로 되돌립니다.
             if (selectedButton != null)
             {
-                selectedButton.BackColor = SystemColors.Control;
+                if (selectedButton.BackColor == Color.Blue)
+                {
+                    selectedButton.BackColor = SystemColors.Control;
+                }
             }
 
             // 선택된 버튼에 대한 색상을 변경합니다.
             Button button = (Button)sender;
+            if(button.BackColor == Color.Red)
+            {
+                MessageBox.Show("이미 사용중인 테이블입니다.\n 다른 테이블을 선택해주세요.", "선택 불가");
+                return;
+            }
             button.BackColor = Color.Blue;
 
             // 선택된 버튼을 추적합니다.          
@@ -128,13 +139,13 @@ namespace Software_Project
         public List<Jangbaguni> menulist = new List<Jangbaguni>();
         private void tablegola_Click(object sender, EventArgs e)
         {
-            /*location loc = new location
+            location loc = new location
             {
                 location_x = selectedButton.Location.X,
                 location_y = selectedButton.Location.Y,
                 used = true
             };
-            location_list[int.Parse(selectedButton.Name)] = loc;
+            /*location_list[int.Parse(selectedButton.Name)] = loc;
             sharedlist.updatesharedList(location_list);*/
 
             for(int i = 0; i < jan_btn_combi.Count; i++)
@@ -144,6 +155,8 @@ namespace Software_Project
             CsvGenerator savecsv = new CsvGenerator();
             savecsv.GenerateCsv(menulist, selectedButton.Name + ".CSV");
 
+            location_list[int.Parse(selectedButton.Name)]= loc;
+            sharedlist.updatesharedList(location_list);
             this.Visible = false;
             Main_ui main_ui = new Main_ui(sharedlist);
             Point parentPoint = this.Location;
