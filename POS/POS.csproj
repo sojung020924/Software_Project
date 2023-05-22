@@ -4,15 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{AF5131BF-7168-4968-9D27-F81C462E4630}</ProjectGuid>
+    <ProjectGuid>{48D0347A-E8E1-4598-AE46-7A9F3B81D729}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Software_Project</RootNamespace>
-    <AssemblyName>Software_Project</AssemblyName>
+    <RootNamespace>POS</RootNamespace>
+    <AssemblyName>POS</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
-    <TargetFrameworkProfile />
     <PublishUrl>게시\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -37,7 +36,7 @@
     <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>1</WarningLevel>
+    <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -48,35 +47,12 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
-    <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\x64\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <DebugType>full</DebugType>
-    <PlatformTarget>x64</PlatformTarget>
-    <LangVersion>7.3</LangVersion>
-    <ErrorReport>prompt</ErrorReport>
-    <Prefer32Bit>true</Prefer32Bit>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
-    <OutputPath>bin\x64\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <Optimize>true</Optimize>
-    <DebugType>pdbonly</DebugType>
-    <PlatformTarget>x64</PlatformTarget>
-    <LangVersion>7.3</LangVersion>
-    <ErrorReport>prompt</ErrorReport>
-    <Prefer32Bit>true</Prefer32Bit>
-  </PropertyGroup>
   <ItemGroup>
     <Reference Include="ClassLibrary2">
       <HintPath>..\..\..\source\repos\Software_Project\ClassLibrary2\bin\Debug\ClassLibrary2.dll</HintPath>
     </Reference>
     <Reference Include="Guna.UI2, Version=2.0.4.4, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
       <HintPath>..\packages\Guna.UI2.WinForms.2.0.4.4\lib\net48\Guna.UI2.dll</HintPath>
-    </Reference>
-    <Reference Include="SharedLibrary">
-      <HintPath>..\ClassLibrary1\bin\Debug\net6.0\SharedLibrary.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -94,73 +70,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bockbab.cs">
+    <Compile Include="Class1.cs" />
+    <Compile Include="POS.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Bockbab.Designer.cs">
-      <DependentUpon>Bockbab.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Choose.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Choose.Designer.cs">
-      <DependentUpon>Choose.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Deopbab.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Deopbab.Designer.cs">
-      <DependentUpon>Deopbab.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Drink.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Drink.Designer.cs">
-      <DependentUpon>Drink.cs</DependentUpon>
-    </Compile>
-    <Compile Include="gyeoljae.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="gyeoljae.Designer.cs">
-      <DependentUpon>gyeoljae.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Main_ui.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Main_ui.Designer.cs">
-      <DependentUpon>Main_ui.cs</DependentUpon>
+    <Compile Include="POS.Designer.cs">
+      <DependentUpon>POS.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Side.cs">
+    <Compile Include="table_setting.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Side.Designer.cs">
-      <DependentUpon>Side.cs</DependentUpon>
+    <Compile Include="table_setting.Designer.cs">
+      <DependentUpon>table_setting.cs</DependentUpon>
     </Compile>
-    <Compile Include="table.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="table.Designer.cs">
-      <DependentUpon>table.cs</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="Bockbab.resx">
-      <DependentUpon>Bockbab.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Choose.resx">
-      <DependentUpon>Choose.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Deopbab.resx">
-      <DependentUpon>Deopbab.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Drink.resx">
-      <DependentUpon>Drink.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="gyeoljae.resx">
-      <DependentUpon>gyeoljae.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Main_ui.resx">
-      <DependentUpon>Main_ui.cs</DependentUpon>
+    <EmbeddedResource Include="pos.resx">
+      <DependentUpon>POS.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -172,12 +98,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Resources.resx" />
-    <EmbeddedResource Include="Side.resx">
-      <DependentUpon>Side.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="table.resx">
-      <DependentUpon>table.cs</DependentUpon>
+    <EmbeddedResource Include="table_setting.resx">
+      <DependentUpon>table_setting.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -194,9 +116,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadata Include="Connected Services\" />
-  </ItemGroup>
-  <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.8">
       <Visible>False</Visible>
       <ProductName>Microsoft .NET Framework 4.8%28x86 및 x64%29</ProductName>
@@ -209,7 +128,4 @@
     </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <PropertyGroup>
-    <PreBuildEvent>TASKKILL  /FI "STATUS eq RUNNING" /IM Software_Project.exe /F /T</PreBuildEvent>
-  </PropertyGroup>
 </Project>

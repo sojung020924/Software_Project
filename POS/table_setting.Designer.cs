@@ -1,4 +1,4 @@
-﻿namespace Software_Project
+﻿namespace POS
 {
     partial class table_setting
     {

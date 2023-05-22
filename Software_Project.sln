@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Software_Project", "Softwar
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary2", "ClassLibrary2\ClassLibrary2.csproj", "{35E4C2A6-A2F3-41C0-9E61-1013B6EAE616}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "POS", "POS\POS.csproj", "{48D0347A-E8E1-4598-AE46-7A9F3B81D729}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,14 @@ Global
 		{35E4C2A6-A2F3-41C0-9E61-1013B6EAE616}.Release|Any CPU.Build.0 = Release|Any CPU
 		{35E4C2A6-A2F3-41C0-9E61-1013B6EAE616}.Release|x64.ActiveCfg = Release|Any CPU
 		{35E4C2A6-A2F3-41C0-9E61-1013B6EAE616}.Release|x64.Build.0 = Release|Any CPU
+		{48D0347A-E8E1-4598-AE46-7A9F3B81D729}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48D0347A-E8E1-4598-AE46-7A9F3B81D729}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48D0347A-E8E1-4598-AE46-7A9F3B81D729}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{48D0347A-E8E1-4598-AE46-7A9F3B81D729}.Debug|x64.Build.0 = Debug|Any CPU
+		{48D0347A-E8E1-4598-AE46-7A9F3B81D729}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48D0347A-E8E1-4598-AE46-7A9F3B81D729}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48D0347A-E8E1-4598-AE46-7A9F3B81D729}.Release|x64.ActiveCfg = Release|Any CPU
+		{48D0347A-E8E1-4598-AE46-7A9F3B81D729}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

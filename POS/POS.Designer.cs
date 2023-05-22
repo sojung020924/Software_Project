@@ -1,6 +1,7 @@
-﻿namespace Software_Project
+﻿namespace POS
 {
-    partial class pos
+
+    partial class POS
     {
         /// <summary>
         /// Required designer variable.
@@ -98,7 +99,6 @@
             this.kioskOn.Size = new System.Drawing.Size(174, 34);
             this.kioskOn.TabIndex = 5;
             this.kioskOn.Text = "키오스크 실행";
-            this.kioskOn.Click += new System.EventHandler(this.kioskOn_Click);
             // 
             // totalcost
             // 

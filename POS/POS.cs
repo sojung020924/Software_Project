@@ -1,4 +1,4 @@
-﻿using Software_Project;
+﻿
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -7,65 +7,125 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Net;
+using System.Net.Sockets;
 using System.Windows.Forms;
 using ClassLibrary2;
 using System.IO;
+using System.Threading;
 
-namespace Software_Project
+
+namespace POS
 {
+    public struct Jangbaguni_button_set
+    {
+        public Jangbaguni jangbaguni;
+        public Button btn;
+    }
 
-    public partial class pos : Form
+
+    public partial class POS : Form
     {
         public List<location> location_list = new List<location>();
         public List<Jangbaguni_button_set> jan_btn_combi = new List<Jangbaguni_button_set>();
 
-        public shared_list sharedlist = new shared_list();
-
-        public static pos currentinstance; // 뒤로가기를 눌렀을떄 기존의 pos 폼으로 다시 돌아오게 하기 위함.
+        public static POS currentinstance; // 뒤로가기를 눌렀을떄 기존의 pos 폼으로 다시 돌아오게 하기 위함.
         private table_setting settingForm;
-        public pos(shared_list sharedlist)
+
+
+        private const string ServerIP = "127.0.0.1";
+        private const int ServerPort = 1234;
+
+        private TcpListener server;
+        private TcpClient client;
+
+        public POS()
         {
             InitializeComponent();
             currentinstance = this;
-            if (sharedlist != null)
+
+            server = new TcpListener(IPAddress.Any, ServerPort);
+            server.Start();
+
+            server.BeginAcceptTcpClient(HandleClientConnection, null);
+        }
+        private void HandleClientConnection(IAsyncResult result)
+        {
+            try
             {
-                // sharedlist를 사용하는 코드
-                this.sharedlist = sharedlist;
-                //location_list = sharedlist.GetList();  // 예시: GetList() 메서드 호출
+                // 클라이언트와의 연결 수락
+                client = server.EndAcceptTcpClient(result);
+
+                // 메시지 수신을 위한 스레드 시작
+                Thread receiveThread = new Thread(ReceiveMessages);
+                receiveThread.Start();
             }
-            else
+            catch (Exception ex)
             {
-                // sharedlist가 null인 경우에 대한 대체 동작 또는 예외 처리
-                // 예시: 로그 출력 또는 예외를 던지는 등의 처리
-                Console.WriteLine("sharedlist is null.");
+                // 예외 처리
+                Console.WriteLine("Error: " + ex.Message);
+            }
+
+            // 다음 클라이언트 연결을 비동기적으로 수신
+            server.BeginAcceptTcpClient(HandleClientConnection, null);
+        }
+
+        private void ReceiveMessages()
+        {
+            try
+            {
+                // 클라이언트로부터 메시지를 수신하고 메시지 박스로 표시
+                //while (true)
+                {
+                    // 클라이언트와의 데이터 통신을 위한 네트워크 스트림
+                    NetworkStream stream = client.GetStream();
+
+                    // 수신할 데이터를 담을 버퍼
+                    byte[] buffer = new byte[1024];
+
+                    // 데이터 수신
+                    int bytesRead = stream.Read(buffer, 0, buffer.Length);
+
+                    // 수신된 데이터를 문자열로 변환
+                    string message = Encoding.UTF8.GetString(buffer, 0, bytesRead);
+
+                    // 수신된 메시지를 메시지 박스로 표시
+                    MessageBox.Show(message, "주문 알림", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                // 예외 처리
+                Console.WriteLine("Error: " + ex.Message);
             }
         }
 
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            base.OnFormClosing(e);
+
+            // 클라이언트와의 연결 종료
+            client?.Close();
+
+            // 서버 소켓 종료
+            server?.Stop();
+        }
+
+
         private void OpenSettingForm()
         {
-            if (settingForm == null || settingForm.IsDisposed )
+            if (settingForm == null || settingForm.IsDisposed)
             {
-                settingForm = new table_setting(this, sharedlist); // SettingForm의 생성자에 PosForm 인스턴스를 전달합니다.
+                settingForm = new table_setting(this); // SettingForm의 생성자에 PosForm 인스턴스를 전달합니다.
 
             }
             this.Hide();
             settingForm.Show();
         }
 
-        public void updateposlist(shared_list sharedlist/*, List<location> location_list*/)
-        {
-            this.sharedlist = sharedlist;
-            //sharedlist.updatesharedList(location_list);
-        }
-
-        public shared_list getposlist()
-        {
-            return sharedlist;
-        }
-
         private Button selectedButton = null;
 
-        
+
         //int table_num = 0;
         private void button_click(object sender, EventArgs e)
         {
@@ -156,40 +216,51 @@ namespace Software_Project
 
                     reader.Close();
                 }
-            }catch(FileNotFoundException)
+            }
+            catch (FileNotFoundException)
             {
                 Console.WriteLine("File is not exist.");
                 menupanel.Controls.Clear();
                 totalcost.Text = ("");
             }
-           
-            
-            
-            
         }
-        
+
         private void button1_Click(object sender, EventArgs e)
-        {   
-            for(int i=0; i<location_list.Count; i++)
+        {
+            for (int i = 0; i < location_list.Count; i++)
             {
                 RemoveButtonByName(i.ToString());
             }
 
-            location_list = sharedlist.GetList();
-
-            if (location_list.Count == 0)
+            try
             {
-                for (int i = 0; i < 50; i++)
-                {
-                    RemoveButtonByName(i.ToString());
-                }
-            }
+                location_list.Clear();
+                StreamReader streamreader = new StreamReader("tablelist.CSV");
 
+                while (!streamreader.EndOfStream)
+                {
+                    string line = streamreader.ReadLine();
+                    string[] values = line.Split(',');
+                    location loc = new location
+                    {
+                        location_x = int.Parse(values[0]),
+                        location_y = int.Parse(values[1]),
+                        used = Convert.ToBoolean(values[2])
+                    };
+                    location_list.Add(loc);
+                }
+                streamreader.Close();
+            }
+            catch (FileNotFoundException ex)
+            {
+                Console.WriteLine(ex.Message);
+                
+            }
 
 
             for (int i = 0; i < location_list.Count; i++)
             {
-                
+
                 Button button = new Button();
                 button.Size = new Size(131, 62);
                 button.Text = "테이블" + i;
@@ -203,17 +274,7 @@ namespace Software_Project
 
         }
 
-        public void ifresetclick()
-        {
-            location_list = sharedlist.GetList();
-            if (location_list.Count == 0)
-            {
-                for (int i = 0; i < 50; i++)
-                {
-                    RemoveButtonByName(i.ToString());
-                }
-            }
-        }
+        
         private void RemoveButtonByName(string buttonName)
         {
             Control[] foundButtons = this.Controls.Find(buttonName, true);
@@ -231,11 +292,47 @@ namespace Software_Project
             OpenSettingForm();
         }
 
-        private void kioskOn_Click(object sender, EventArgs e)
+        /*private void kioskOn_Click(object sender, EventArgs e)
         {
             sharedlist.updatesharedList(location_list);
             Main_ui main_Ui = new Main_ui(sharedlist);
             main_Ui.Show();
-        }
+        }*/
     }
+    public class CsvGenerator
+        {
+        public void GenerateCsv(List<location> location_list, string filePath)
+        {
+            
+            using (StreamWriter writer = new StreamWriter(filePath))
+            {
+
+                // Jangbaguni 리스트의 각 항목을 CSV 파일에 작성
+                foreach (location location in location_list)
+                {
+                    // 각 필드 값을 쉼표로 구분하여 CSV 파일에 작성
+                    string line = $"{location.location_x},{location.location_y},{location.used}";
+                    writer.WriteLine(line);
+                }
+                writer.Close();
+            }
+            
+            Console.WriteLine("CSV 파일이 생성되었습니다.");
+        }
+
+        private string OptionsToString(List<List<string>> options)
+        {
+         // Options 리스트의 각 항목을 쉼표로 구분하여 하나의 문자열로 만듦
+            List<string> optionStrings = new List<string>();
+            foreach (List<string> option in options)
+            {
+                string optionString = string.Join("/", option);
+                optionStrings.Add(optionString);
+            }
+
+            return string.Join(",", optionStrings);
+        }
+
+    }
+   
 }
