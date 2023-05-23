@@ -18,7 +18,7 @@ namespace Software_Project
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Main_ui(null));
+            Application.Run(new Main_ui());
         }
     }
 }

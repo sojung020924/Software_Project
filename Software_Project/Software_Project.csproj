@@ -106,6 +106,9 @@
     <Compile Include="Choose.Designer.cs">
       <DependentUpon>Choose.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Deopbab.cs">
       <SubType>Form</SubType>
     </Compile>

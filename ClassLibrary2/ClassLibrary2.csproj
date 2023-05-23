@@ -49,7 +49,6 @@
   <ItemGroup>
     <Compile Include="FileName.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="shared_list.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

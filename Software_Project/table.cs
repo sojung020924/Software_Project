@@ -14,33 +14,22 @@ using ClassLibrary2;
 
 namespace Software_Project
 {
-    public partial class table : Form
+    public partial class table : FormBase
     {
         public List<Jangbaguni_button_set> jan_btn_combi = new List<Jangbaguni_button_set>();
 
         public List<location> location_list = new List<location>();
-        public shared_list sharedlist = new shared_list();
 
+
+        float fontsize = 10;
         //private pos posform;
-        public table(List<Jangbaguni_button_set> list, List<location> loc_list, shared_list sharedlist)
+        public table(List<Jangbaguni_button_set> list, List<location> loc_list, float fontsize)
         {
             InitializeComponent();
             jan_btn_combi = list;
             location_list = loc_list;
-
-            if (sharedlist != null)
-            {
-                // sharedlist를 사용하는 코드
-                this.sharedlist = sharedlist;
-                location_list = sharedlist.GetList();  // 예시: GetList() 메서드 호출
-                //location_list = posform.location_list;
-            }
-            else
-            {
-                // sharedlist가 null인 경우에 대한 대체 동작 또는 예외 처리
-                // 예시: 로그 출력 또는 예외를 던지는 등의 처리
-                Console.WriteLine("sharedlist is null.");
-            }
+            this.fontsize = fontsize;
+           
         }
 
 
@@ -88,6 +77,7 @@ namespace Software_Project
                     button.BackColor = Color.Red;
                 Controls.Add(button);
             }
+            ChangeFontSize(fontsize);
 
         }
         private Button selectedButton = null;
@@ -121,7 +111,7 @@ namespace Software_Project
         {
 
             this.Visible = false;
-            gyeoljae g = new gyeoljae(jan_btn_combi, location_list, sharedlist);
+            gyeoljae g = new gyeoljae(jan_btn_combi, location_list, fontsize);
             Point parentPoint = this.Location;
             g.StartPosition = FormStartPosition.Manual;
             g.Location = new Point(parentPoint.X, parentPoint.Y);
@@ -193,9 +183,9 @@ namespace Software_Project
             CsvGenerator tablecsv = new CsvGenerator();
             tablecsv.bGenerateCsv(location_list,Path.Combine("..", "..", "..", "POS", "bin", "Debug", "tablelist.CSV"), int.Parse(selectedButton.Name));
             location_list[int.Parse(selectedButton.Name)] = loc;
-            sharedlist.updatesharedList(location_list);
+            
             this.Visible = false;
-            Main_ui main_ui = new Main_ui(sharedlist);
+            Main_ui main_ui = new Main_ui();
             Point parentPoint = this.Location;
             main_ui.StartPosition = FormStartPosition.Manual;
             main_ui.Location = new Point(parentPoint.X, parentPoint.Y);
