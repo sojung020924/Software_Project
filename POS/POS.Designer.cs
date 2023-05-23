@@ -39,6 +39,7 @@
             // 
             // loadtablebtn
             // 
+            this.loadtablebtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.loadtablebtn.Location = new System.Drawing.Point(605, 12);
             this.loadtablebtn.Name = "loadtablebtn";
             this.loadtablebtn.Size = new System.Drawing.Size(174, 75);
@@ -49,6 +50,7 @@
             // 
             // settablebtn
             // 
+            this.settablebtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.settablebtn.Location = new System.Drawing.Point(605, 93);
             this.settablebtn.Name = "settablebtn";
             this.settablebtn.Size = new System.Drawing.Size(174, 67);
@@ -59,6 +61,7 @@
             // 
             // kioskOn
             // 
+            this.kioskOn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.kioskOn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.kioskOn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.kioskOn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -74,6 +77,7 @@
             // 
             // totalcost
             // 
+            this.totalcost.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.totalcost.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.totalcost.DefaultText = "";
             this.totalcost.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -95,6 +99,7 @@
             // 
             // menupanel
             // 
+            this.menupanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.menupanel.AutoScroll = true;
             this.menupanel.Location = new System.Drawing.Point(605, 206);
             this.menupanel.Name = "menupanel";
@@ -103,6 +108,7 @@
             // 
             // paybtn
             // 
+            this.paybtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.paybtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.paybtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.paybtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));

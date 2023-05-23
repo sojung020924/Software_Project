@@ -35,6 +35,7 @@
             // 
             // tablechuga
             // 
+            this.tablechuga.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.tablechuga.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.tablechuga.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.tablechuga.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -51,6 +52,7 @@
             // 
             // reset
             // 
+            this.reset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.reset.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.reset.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.reset.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -67,6 +69,7 @@
             // 
             // backbutton
             // 
+            this.backbutton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.backbutton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.backbutton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.backbutton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));

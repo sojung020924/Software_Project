@@ -181,6 +181,15 @@ namespace POS
             {
                 MessageBox.Show("결제가 완료 되었습니다.", "알림");
                 this.Close();
+                location loc = new location()
+                {
+                    location_x = location_list[int.Parse(selectedbutton)].location_x,
+                    location_y = location_list[int.Parse(selectedbutton)].location_y,
+                    used = false
+                };
+                location_list[int.Parse(selectedbutton)] = loc;
+                bGenerateCsv(location_list, "tablelist.CSV", int.Parse(selectedbutton));
+                File.Delete(selectedbutton + ".CSV");
                 return;
             }
             MessageBox.Show("현금 결제가 완료되었습니다.\n" + "남은 금액: " + costvalue.ToString() + "원", "알림"); ;
