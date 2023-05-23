@@ -244,7 +244,7 @@ namespace Software_Project
                     if (lineCount == currentline)
                     {
                         // 수정해야 할 줄을 찾았을 때, 새로운 값을 준비합니다.
-                        string newLine = $"{location_list[currentline].location_x.ToString()},{location_list[currentline].location_y.ToString()},{location_list[currentline].used.ToString()}";
+                        string newLine = $"{location_list[currentline-1].location_x.ToString()},{location_list[currentline-1].location_y.ToString()},{location_list[currentline-1].used.ToString()}";
                         lines[lineCount - 1] = newLine;
                     }
                     lineCount++;

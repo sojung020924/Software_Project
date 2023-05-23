@@ -13,6 +13,8 @@ using System.Windows.Forms;
 using ClassLibrary2;
 using System.IO;
 using System.Threading;
+using System.Diagnostics;
+
 
 
 namespace POS
@@ -38,6 +40,8 @@ namespace POS
 
         private TcpListener server;
         private TcpClient client;
+
+        int totcost = 0;
 
         public POS()
         {
@@ -157,7 +161,7 @@ namespace POS
                 string fline = reader.ReadLine();
 
                 string[][] val = new string[50][];
-                int totcost = 0;
+                
                 List<string[]> mlist = new List<string[]>();
                 while (!reader.EndOfStream)
                 {
@@ -292,12 +296,20 @@ namespace POS
             OpenSettingForm();
         }
 
-        /*private void kioskOn_Click(object sender, EventArgs e)
+        private void kioskOn_Click(object sender, EventArgs e)
         {
-            sharedlist.updatesharedList(location_list);
-            Main_ui main_Ui = new Main_ui(sharedlist);
-            main_Ui.Show();
-        }*/
+            string kioskpath = Path.Combine("..", "..", "..", "Software_Project", "bin", "Debug") + "\\Software_Project.exe";
+            Process.Start(kioskpath);
+        }
+
+        private void pay_Click(object sender, EventArgs e)
+        {
+            pay Pay = new pay(selectedButton.Name, totcost);
+            Point parentpoint = this.Location;
+            Pay.Location = new Point(parentpoint.X, parentpoint.Y);
+            Pay.StartPosition = FormStartPosition.Manual;
+            Pay.Show();
+        }
     }
     public class CsvGenerator
         {
