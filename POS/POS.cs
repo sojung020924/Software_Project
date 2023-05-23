@@ -133,6 +133,8 @@ namespace POS
         //int table_num = 0;
         private void button_click(object sender, EventArgs e)
         {
+            totalcost.Text = "";
+
             // 이전에 선택된 버튼의 색상을 원래대로 되돌립니다.
             if (selectedButton != null)
             {
@@ -223,6 +225,7 @@ namespace POS
             }
             catch (FileNotFoundException)
             {
+                MessageBox.Show("빈 테이블 입니다.", "알림");
                 Console.WriteLine("File is not exist.");
                 menupanel.Controls.Clear();
                 totalcost.Text = ("");

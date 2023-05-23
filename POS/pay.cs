@@ -8,11 +8,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ClassLibrary2;
 
 namespace POS
 {
+    
     public partial class pay : Form
     {
+        List<location> location_list = new List<location>();
+
         string selectedbutton;
         int totalcost;
         public pay(string selectedbutton, int totalcost)
@@ -20,7 +24,30 @@ namespace POS
             InitializeComponent();
             this.selectedbutton = selectedbutton;
             this.totalcost = totalcost;
-            
+            try
+            {
+                location_list.Clear();
+                StreamReader streamreader = new StreamReader("tablelist.CSV");
+
+                while (!streamreader.EndOfStream)
+                {
+                    string line = streamreader.ReadLine();
+                    string[] values = line.Split(',');
+                    location loc = new location
+                    {
+                        location_x = int.Parse(values[0]),
+                        location_y = int.Parse(values[1]),
+                        used = Convert.ToBoolean(values[2])
+                    };
+                    location_list.Add(loc);
+                }
+                streamreader.Close();
+            }
+            catch (FileNotFoundException ex)
+            {
+                Console.WriteLine(ex.Message);
+
+            }
         }
         ListView menuview = new ListView();
         private void pay_Load(object sender, EventArgs e)
@@ -125,6 +152,16 @@ namespace POS
             {
                 MessageBox.Show("결제가 완료 되었습니다.","알림");
                 this.Close();
+                location loc = new location()
+                {
+                    location_x = location_list[int.Parse(selectedbutton)].location_x,
+                    location_y = location_list[int.Parse(selectedbutton)].location_y,
+                    used = false
+                };
+                location_list[int.Parse(selectedbutton)] = loc;
+                bGenerateCsv(location_list, "tablelist.CSV", int.Parse(selectedbutton));
+                File.Delete(selectedbutton + ".CSV");
+
                 return;
             }
             MessageBox.Show("카드 결제가 완료되었습니다.\n" + "남은 금액: " + costvalue.ToString() + "원", "알림"); ;
@@ -172,6 +209,37 @@ namespace POS
 
         }
         // ItemSelectionChanged 이벤트 핸들러 연결
+        public void bGenerateCsv(List<location> location_list, string filePath, int currentline)
+        {
+            currentline++;
+            int lineCount = 1;
+            List<string> lines = new List<string>();
 
+            using (StreamReader reader = new StreamReader(filePath))
+            {
+                while (!reader.EndOfStream)
+                {
+                    string line = reader.ReadLine();
+                    lines.Add(line);
+                    if (lineCount == currentline)
+                    {
+                        // 수정해야 할 줄을 찾았을 때, 새로운 값을 준비합니다.
+                        string newLine = $"{location_list[currentline - 1].location_x.ToString()},{location_list[currentline - 1].location_y.ToString()},{location_list[currentline - 1].used.ToString()}";
+                        lines[lineCount - 1] = newLine;
+                    }
+                    lineCount++;
+                }
+            }
+
+            using (StreamWriter writer = new StreamWriter(filePath, false))
+            {
+                foreach (string line in lines)
+                {
+                    writer.WriteLine(line);
+                }
+            }
+
+
+        }
     }
 }

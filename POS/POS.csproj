@@ -70,12 +70,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="card.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="card.Designer.cs">
-      <DependentUpon>card.cs</DependentUpon>
-    </Compile>
     <Compile Include="Class1.cs" />
     <Compile Include="pay.cs">
       <SubType>Form</SubType>
@@ -97,9 +91,6 @@
     <Compile Include="table_setting.Designer.cs">
       <DependentUpon>table_setting.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="card.resx">
-      <DependentUpon>card.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="pay.resx">
       <DependentUpon>pay.cs</DependentUpon>
     </EmbeddedResource>
