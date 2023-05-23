@@ -25,6 +25,9 @@ namespace POS
 
         private POS posForm;
 
+
+        int table_num = 0;
+
         public table_setting(POS posForm)
         {
             InitializeComponent();
@@ -50,9 +53,9 @@ namespace POS
             {
                 Console.WriteLine(ex.Message);
             }
-                    
+            int v = location_list.Count;
+            table_num = v;
         }
-        int table_num = 0;
        
         private void tablechuga_Click(object sender, EventArgs e)
         {
