@@ -98,6 +98,9 @@ namespace Software_Project
             Point parentPoint = this.Location;
             g.StartPosition = FormStartPosition.Manual;
             g.Location = new Point(parentPoint.X, parentPoint.Y);
+            g.AutoSize = false;
+            g.MaximumSize = new Size(698, 792);
+            g.MinimumSize = new Size(698, 792);
             g.ShowDialog();
         }
 

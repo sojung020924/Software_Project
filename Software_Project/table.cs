@@ -29,7 +29,12 @@ namespace Software_Project
             jan_btn_combi = list;
             location_list = loc_list;
             this.fontsize = fontsize;
-           
+            this.FormBorderStyle = FormBorderStyle.FixedSingle; // 폼의 테두리 스타일을 고정으로 설정
+            this.MinimumSize = new Size(698, 792);
+            this.MaximumSize = new Size(698, 792);
+            this.MinimumSize = this.MaximumSize = this.Size; // 최소 크기와 최대 크기를 현재 크기로 설정
+            
+            ChangeFontSize(fontsize);
         }
 
 
@@ -77,7 +82,6 @@ namespace Software_Project
                     button.BackColor = Color.Red;
                 Controls.Add(button);
             }
-            ChangeFontSize(fontsize);
 
         }
         private Button selectedButton = null;
