@@ -147,8 +147,8 @@ namespace POS
 
         private void cardpay_Click(object sender, EventArgs e)
         {
-            int costvalue = totalcost - int.Parse(paycosttxt.Text);
-            if (costvalue == 0)
+            totalcost = totalcost - int.Parse(paycosttxt.Text);
+            if (totalcost == 0)
             {
                 MessageBox.Show("결제가 완료 되었습니다.","알림");
                 this.Close();
@@ -164,11 +164,10 @@ namespace POS
 
                 return;
             }
-            MessageBox.Show("카드 결제가 완료되었습니다.\n" + "남은 금액: " + costvalue.ToString() + "원", "알림"); ;
+            MessageBox.Show("카드 결제가 완료되었습니다.\n" + "남은 금액: " + totalcost.ToString() + "원", "알림"); ;
             paycosttxt.Text = "0";
             selectcost = 0;
-            totalcost = costvalue;
-            totcosttxt.Text = costvalue.ToString();
+            totcosttxt.Text = totalcost.ToString();
             sellistView.Clear();
             
 
@@ -176,8 +175,8 @@ namespace POS
 
         private void cashpay_Click(object sender, EventArgs e)
         {
-            int costvalue = totalcost - int.Parse(paycosttxt.Text);
-            if (costvalue == 0)
+            totalcost = totalcost - int.Parse(paycosttxt.Text);
+            if (totalcost == 0)
             {
                 MessageBox.Show("결제가 완료 되었습니다.", "알림");
                 this.Close();
@@ -192,11 +191,10 @@ namespace POS
                 File.Delete(selectedbutton + ".CSV");
                 return;
             }
-            MessageBox.Show("현금 결제가 완료되었습니다.\n" + "남은 금액: " + costvalue.ToString() + "원", "알림"); ;
+            MessageBox.Show("현금 결제가 완료되었습니다.\n" + "남은 금액: " + totalcost.ToString() + "원", "알림"); ;
             paycosttxt.Text = "0";
             selectcost = 0;
-            totalcost = costvalue;
-            totcosttxt.Text = costvalue.ToString();
+            totcosttxt.Text = totalcost.ToString();
             sellistView.Clear();
         }
 
