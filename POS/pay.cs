@@ -72,6 +72,16 @@ namespace POS
         private void guna2Button1_Click(object sender, EventArgs e)
         {
             paycosttxt.Text = totalcost.ToString();
+            ListView listview1 = menuview;
+            ListView listview2 = sellistView;
+            while (listview1.Items.Count > 0)
+            {
+                ListViewItem item = listview1.Items[0];
+                listview1.Items.Remove(item);
+                listview2.Items.Add(item);
+            }
+
+
         }
         // ListView의 ItemSelectionChanged 이벤트 핸들러
 
