@@ -18,7 +18,7 @@ namespace POS
         List<location> location_list = new List<location>();
 
         string selectedbutton;
-        int totalcost;
+        int totalcost=0;
         public pay(string selectedbutton, int totalcost)
         {
             InitializeComponent();
@@ -84,9 +84,11 @@ namespace POS
 
                 ListViewItem lv = new ListViewItem(values[0]);
                 lv.SubItems.Add(values[1]);
+                totalcost += int.Parse(values[1]);
                 //여기에 옵션 출력코드 추가해야함.
                 lv.SubItems.Add(values[7]);
                 menuview.Items.Add(lv);
+
             }
             
             paypanel.Controls.Add(menuview);

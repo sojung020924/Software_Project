@@ -219,7 +219,7 @@ namespace POS
                     menuview.BorderStyle = BorderStyle.None;
 
                     totalcost.Text = (totcost.ToString() + "원");
-
+                    totcost = 0;
                     reader.Close();
                 }
             }
