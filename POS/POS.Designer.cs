@@ -35,6 +35,8 @@
             this.totalcost = new Guna.UI2.WinForms.Guna2TextBox();
             this.menupanel = new Guna.UI2.WinForms.Guna2Panel();
             this.paybtn = new Guna.UI2.WinForms.Guna2Button();
+            this.totalmaechool = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // loadtablebtn
@@ -122,11 +124,30 @@
             this.paybtn.Text = "결제";
             this.paybtn.Click += new System.EventHandler(this.pay_Click);
             // 
+            // totalmaechool
+            // 
+            this.totalmaechool.Location = new System.Drawing.Point(499, 417);
+            this.totalmaechool.Name = "totalmaechool";
+            this.totalmaechool.ReadOnly = true;
+            this.totalmaechool.Size = new System.Drawing.Size(100, 21);
+            this.totalmaechool.TabIndex = 9;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(436, 420);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(57, 12);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "매출 총액";
+            // 
             // POS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.totalmaechool);
             this.Controls.Add(this.paybtn);
             this.Controls.Add(this.menupanel);
             this.Controls.Add(this.totalcost);
@@ -135,7 +156,9 @@
             this.Controls.Add(this.loadtablebtn);
             this.Name = "POS";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.POS_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -147,5 +170,7 @@
         private Guna.UI2.WinForms.Guna2TextBox totalcost;
         private Guna.UI2.WinForms.Guna2Panel menupanel;
         private Guna.UI2.WinForms.Guna2Button paybtn;
+        private System.Windows.Forms.TextBox totalmaechool;
+        private System.Windows.Forms.Label label1;
     }
 }

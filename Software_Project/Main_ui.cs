@@ -9,7 +9,6 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ClassLibrary2;
 
 namespace Software_Project
 {
@@ -18,7 +17,21 @@ namespace Software_Project
         public Jangbaguni jangbaguni;
         public Button btn;
     }
-    
+    public struct location
+    {
+        public int location_x;
+        public int location_y;
+        public bool used; //테이블이 사용 중이 아니면 false, 사용 중이면 true
+    }
+
+    public struct Jangbaguni
+    {
+        public string menu_name;
+        public int total_price;
+        public string memo;
+        public List<List<string>> options;
+        public int count;
+    }
     public partial class Main_ui : FormBase
     {
         public List<Jangbaguni_button_set> jan_btn_combi = new List<Jangbaguni_button_set>();

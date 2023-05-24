@@ -9,7 +9,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ClassLibrary2;
 
 namespace Software_Project
 {
@@ -167,7 +166,7 @@ namespace Software_Project
             this.Visible = true;
         }
 
-        public void add_Choose(ClassLibrary2.Jangbaguni jan) //장바구니에 추가가 됐을 때
+        public void add_Choose(Jangbaguni jan) //장바구니에 추가가 됐을 때
         {
             string option = "";
             int num = jan.options.Count;

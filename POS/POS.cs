@@ -10,7 +10,6 @@ using System.Threading.Tasks;
 using System.Net;
 using System.Net.Sockets;
 using System.Windows.Forms;
-using ClassLibrary2;
 using System.IO;
 using System.Threading;
 using System.Diagnostics;
@@ -24,7 +23,21 @@ namespace POS
         public Jangbaguni jangbaguni;
         public Button btn;
     }
+    public struct location
+    {
+        public int location_x;
+        public int location_y;
+        public bool used; //테이블이 사용 중이 아니면 false, 사용 중이면 true
+    }
 
+    public struct Jangbaguni
+    {
+        public string menu_name;
+        public int total_price;
+        public string memo;
+        public List<List<string>> options;
+        public int count;
+    }
 
     public partial class POS : Form
     {
@@ -42,6 +55,7 @@ namespace POS
         private TcpClient client;
 
         int totcost = 0;
+        int maechool;
 
         public POS()
         {
@@ -311,7 +325,19 @@ namespace POS
             Point parentpoint = this.Location;
             Pay.Location = new Point(parentpoint.X, parentpoint.Y);
             Pay.StartPosition = FormStartPosition.Manual;
+            Pay.FormClosed += pay_FormClosed;
             Pay.Show();
+        }
+        private void pay_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            // 다른 폼(Form2)이 닫힌 후에 수행할 작업을 여기에 작성합니다.
+            maechool += int.Parse(selectedButton.Name);
+            totalmaechool.Text = maechool.ToString() + "원";
+        }
+
+        private void POS_Load(object sender, EventArgs e)
+        {
+            maechool = 0;
         }
     }
     public class CsvGenerator
@@ -333,19 +359,6 @@ namespace POS
             }
             
             Console.WriteLine("CSV 파일이 생성되었습니다.");
-        }
-
-        private string OptionsToString(List<List<string>> options)
-        {
-         // Options 리스트의 각 항목을 쉼표로 구분하여 하나의 문자열로 만듦
-            List<string> optionStrings = new List<string>();
-            foreach (List<string> option in options)
-            {
-                string optionString = string.Join("/", option);
-                optionStrings.Add(optionString);
-            }
-
-            return string.Join(",", optionStrings);
         }
 
     }

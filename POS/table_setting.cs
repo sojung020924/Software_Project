@@ -9,7 +9,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ClassLibrary2;
 
 namespace POS
 {
@@ -21,7 +20,6 @@ namespace POS
         public List<Jangbaguni_button_set> jan_btn_combi = new List<Jangbaguni_button_set>();
         public List<location> location_list = new List<location>();
 
-        public shared_list sharedlist;
 
         private POS posForm;
 
