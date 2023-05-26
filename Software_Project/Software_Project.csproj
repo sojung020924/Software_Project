@@ -168,6 +168,9 @@
     <Compile Include="table.Designer.cs">
       <DependentUpon>table.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="admin.resx">
+      <DependentUpon>admin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="admin_register.resx">
       <DependentUpon>admin_register.cs</DependentUpon>
     </EmbeddedResource>
@@ -194,6 +197,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Main_ui.resx">
       <DependentUpon>Main_ui.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
