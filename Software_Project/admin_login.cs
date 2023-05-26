@@ -81,15 +81,23 @@ namespace Software_Project
             using(StreamReader reader = new StreamReader("pw.CSV"))
             {
                 pw = reader.ReadLine();
+                
+                if ( pw == textBox1.Text)
+                {
+                    admin admin = new admin();
+                    Point parentPoint = this.Location;
+                    admin.StartPosition = FormStartPosition.Manual;
+                    admin.Location = new Point(parentPoint.X, parentPoint.Y);
+                    admin.ShowDialog();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("암호가 틀렸습니다.", "알림");
+                }
+                reader.Close();
             }
-            if ( pw == textBox1.Text)
-            {
 
-            }
-            else
-            {
-                MessageBox.Show("암호가 틀렸습니다.", "알림");
-            }
         }
     }
 }
