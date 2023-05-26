@@ -38,7 +38,7 @@ namespace Software_Project
 
         public void Deopbab_Load(object sender, EventArgs e)
         {
-            ReadCsvFile("menu.csv",flowLayoutPanel1);
+            ReadCsvFile("menu.CSV",flowLayoutPanel1);
             for (int i = 0; i < jan_btn_combi.Count; i++)
             {
                 flowLayoutPanel2.Controls.Add(jan_btn_combi[i].btn);
@@ -102,7 +102,7 @@ namespace Software_Project
             List<List<string>> data = new List<List<string>>();
             try
             {
-                var reader = new StreamReader(filePath, Encoding.Default);
+                var reader = new StreamReader(filePath);
                 
                 string[] headers = reader.ReadLine().Split(','); //앞부분은 스키마이므로 생략
                 int numColumns = headers.Length;
@@ -116,6 +116,7 @@ namespace Software_Project
                     }
                     
                 }
+                reader.Close();
             }
             catch
             {

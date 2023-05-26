@@ -33,7 +33,7 @@ namespace Software_Project
         }
         public void Side_Load(object sender, EventArgs e)
         {
-            ReadCsvFile("menu.csv",flowLayoutPanel1);
+            ReadCsvFile("menu.CSV",flowLayoutPanel1);
             Total_cost_TextChanged();
             for (int i = 0; i < jan_btn_combi.Count; i++)
             {
@@ -97,7 +97,7 @@ namespace Software_Project
             List<List<string>> data = new List<List<string>>();
             try
             {
-                var reader = new StreamReader(filePath, Encoding.Default);
+                var reader = new StreamReader(filePath);
 
                 string[] headers = reader.ReadLine().Split(','); //앞부분은 스키마이므로 생략
                 int numColumns = headers.Length;
@@ -110,6 +110,7 @@ namespace Software_Project
                         data.Add(rowData);
                     }
                 }
+                reader.Close();
             }
             catch
             {
