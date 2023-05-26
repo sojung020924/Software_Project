@@ -18,11 +18,13 @@ namespace POS
 
         string selectedbutton;
         int totalcost=0;
+        int payedcost;
         public pay(string selectedbutton, int totalcost)
         {
             InitializeComponent();
             this.selectedbutton = selectedbutton;
             this.totalcost = totalcost;
+            payedcost = totalcost;
             try
             {
                 location_list.Clear();
@@ -248,6 +250,11 @@ namespace POS
             }
 
 
+        }
+
+        private void pay_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            
         }
     }
 }

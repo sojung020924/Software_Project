@@ -91,6 +91,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="admin_register.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="admin_register.Designer.cs">
+      <DependentUpon>admin_register.cs</DependentUpon>
+    </Compile>
+    <Compile Include="admin_register2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="admin_register2.Designer.cs">
+      <DependentUpon>admin_register2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Bockbab.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,6 +114,12 @@
     </Compile>
     <Compile Include="Choose.Designer.cs">
       <DependentUpon>Choose.cs</DependentUpon>
+    </Compile>
+    <Compile Include="admin_login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="admin_login.Designer.cs">
+      <DependentUpon>admin_login.cs</DependentUpon>
     </Compile>
     <Compile Include="FormBase.cs">
       <SubType>Form</SubType>
@@ -144,6 +162,12 @@
     <Compile Include="table.Designer.cs">
       <DependentUpon>table.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="admin_register.resx">
+      <DependentUpon>admin_register.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="admin_register2.resx">
+      <DependentUpon>admin_register2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Bockbab.resx">
       <DependentUpon>Bockbab.cs</DependentUpon>
     </EmbeddedResource>
@@ -155,6 +179,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Drink.resx">
       <DependentUpon>Drink.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="admin_login.resx">
+      <DependentUpon>admin_login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="gyeoljae.resx">
       <DependentUpon>gyeoljae.cs</DependentUpon>

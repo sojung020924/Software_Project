@@ -13,6 +13,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Threading;
 using System.Diagnostics;
+using System.Text.RegularExpressions;
 
 
 
@@ -175,8 +176,6 @@ namespace POS
             {
                 StreamReader reader = new StreamReader(selectedButton.Name + ".CSV");
                 string fline = reader.ReadLine();
-
-                string[][] val = new string[50][];
                 
                 List<string[]> mlist = new List<string[]>();
                 while (!reader.EndOfStream)
@@ -232,10 +231,11 @@ namespace POS
                     menuview.TileSize = new Size(menuview.ClientSize.Width, menuview.TileSize.Height);
                     menuview.BorderStyle = BorderStyle.None;
 
-                    totalcost.Text = (totcost.ToString() + "원");
-                    totcost = 0;
+                    
                     reader.Close();
                 }
+                totalcost.Text = (totcost.ToString() + "원");
+                totcost = 0;
             }
             catch (FileNotFoundException)
             {
@@ -331,7 +331,7 @@ namespace POS
         private void pay_FormClosed(object sender, FormClosedEventArgs e)
         {
             // 다른 폼(Form2)이 닫힌 후에 수행할 작업을 여기에 작성합니다.
-            maechool += int.Parse(selectedButton.Name);
+            maechool += int.Parse(Regex.Replace(totalcost.Text, @"\D", ""));
             totalmaechool.Text = maechool.ToString() + "원";
         }
 

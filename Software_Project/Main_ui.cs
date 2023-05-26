@@ -46,6 +46,7 @@ namespace Software_Project
         private void Form1_Load(object sender, EventArgs e)
         {
             ChangeFontSize(fontsize);
+            flowLayoutPanel1.SendToBack();
         }
 
         private void choose_deopbab_Click(object sender, EventArgs e)
@@ -111,6 +112,16 @@ namespace Software_Project
         {
             fontsize = 10;
             ChangeFontSize(fontsize);
+        }
+
+        private void 관리자모드ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            admin_login login = new admin_login("");
+            Point parentPoint = this.Location;
+            login.StartPosition = FormStartPosition.Manual;
+            login.Location = new Point(parentPoint.X, parentPoint.Y);
+            login.ShowDialog();
         }
     }
     

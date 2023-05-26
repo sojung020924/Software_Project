@@ -35,11 +35,14 @@
             this.choose_drink = new Guna.UI2.WinForms.Guna2Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.테이블설정ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.관리자모드ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // choose_deopbab
@@ -135,21 +138,6 @@
             this.guna2Button1.Text = "글씨 크게";
             this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
-            // guna2PictureBox1
-            // 
-            this.guna2PictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.Image")));
-            this.guna2PictureBox1.ImageRotate = 0F;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(181, -1);
-            this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.Size = new System.Drawing.Size(500, 550);
-            this.guna2PictureBox1.TabIndex = 7;
-            this.guna2PictureBox1.TabStop = false;
-            // 
-            // 테이블설정ToolStripMenuItem
-            // 
-            this.테이블설정ToolStripMenuItem.Name = "테이블설정ToolStripMenuItem";
-            this.테이블설정ToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
-            // 
             // guna2Button2
             // 
             this.guna2Button2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
@@ -165,11 +153,46 @@
             this.guna2Button2.Text = "글씨 보통";
             this.guna2Button2.Click += new System.EventHandler(this.guna2Button2_Click);
             // 
+            // guna2PictureBox1
+            // 
+            this.guna2PictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.Image")));
+            this.guna2PictureBox1.ImageRotate = 0F;
+            this.guna2PictureBox1.Location = new System.Drawing.Point(181, -1);
+            this.guna2PictureBox1.Name = "guna2PictureBox1";
+            this.guna2PictureBox1.Size = new System.Drawing.Size(500, 550);
+            this.guna2PictureBox1.TabIndex = 7;
+            this.guna2PictureBox1.TabStop = false;
+            // 
+            // 테이블설정ToolStripMenuItem
+            // 
+            this.테이블설정ToolStripMenuItem.Name = "테이블설정ToolStripMenuItem";
+            this.테이블설정ToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.관리자모드ToolStripMenuItem});
+            this.menuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
+            this.menuStrip1.Location = new System.Drawing.Point(0, 729);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(682, 24);
+            this.menuStrip1.TabIndex = 9;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // 관리자모드ToolStripMenuItem
+            // 
+            this.관리자모드ToolStripMenuItem.Name = "관리자모드ToolStripMenuItem";
+            this.관리자모드ToolStripMenuItem.Size = new System.Drawing.Size(83, 20);
+            this.관리자모드ToolStripMenuItem.Text = "관리자 모드";
+            this.관리자모드ToolStripMenuItem.Click += new System.EventHandler(this.관리자모드ToolStripMenuItem_Click);
+            // 
             // Main_ui
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(682, 753);
+            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.choose_deopbab);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.guna2PictureBox1);
@@ -177,12 +200,16 @@
             this.Controls.Add(this.choose_side);
             this.Controls.Add(this.choose_bockbab);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Main_ui";
             this.Text = "Main_ui";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.flowLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -197,6 +224,8 @@
         private System.Windows.Forms.ToolStripMenuItem 테이블설정ToolStripMenuItem;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private Guna.UI2.WinForms.Guna2Button guna2Button2;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem 관리자모드ToolStripMenuItem;
     }
 }
 

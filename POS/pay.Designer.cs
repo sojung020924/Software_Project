@@ -89,6 +89,7 @@
             this.paycosttxt.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.paycosttxt.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.paycosttxt.Location = new System.Drawing.Point(83, 339);
+            this.paycosttxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.paycosttxt.Name = "paycosttxt";
             this.paycosttxt.PasswordChar = '\0';
             this.paycosttxt.PlaceholderText = "";
@@ -184,6 +185,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(435, 427);
+            this.ControlBox = false;
             this.Controls.Add(this.sellistView);
             this.Controls.Add(this.selectcancel);
             this.Controls.Add(this.totalbtn);
@@ -196,6 +198,7 @@
             this.Controls.Add(this.paypanel);
             this.Name = "pay";
             this.Text = "Form1";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.pay_FormClosed);
             this.Load += new System.EventHandler(this.pay_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
