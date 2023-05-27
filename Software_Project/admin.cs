@@ -81,7 +81,7 @@ namespace Software_Project
                 ListViewItem selected = listView1.SelectedItems[0];
                 textBox1.Text = selected.Text;
                 textBox2.Text = selected.SubItems[1].Text;
-                textBox3.Text = selected.SubItems[2].Text;
+                listBox1.Text = selected.SubItems[2].Text;
 
                 string secondCol = selected.SubItems[1].Text;
             }
@@ -118,7 +118,7 @@ namespace Software_Project
 
             textBox1.Text = "";
             textBox2.Text = "";
-            textBox3.Text = "";
+            listBox1.Text = "";
         }
 
         private void button2_Click(object sender, EventArgs e) // 메뉴 추가 버튼
@@ -142,11 +142,11 @@ namespace Software_Project
                 }
                 if (textBox4.Text == string.Empty)
                 {
-                    text += textBox1.Text + ',' + textBox2.Text + ',' + textBox3.Text + ',';
+                    text += textBox1.Text + ',' + textBox2.Text + ',' + listBox1.Text + ',';
                 }
                 else
                 {
-                    text += textBox1.Text + ',' + textBox2.Text + ',' + textBox3.Text + ',' + textBox4.Text;
+                    text += textBox1.Text + ',' + textBox2.Text + ',' + listBox1.Text + ',' + textBox4.Text;
                 }
                 sr.Close();
             }
@@ -171,7 +171,7 @@ namespace Software_Project
             }
             ListViewItem item = new ListViewItem(textBox1.Text);
             item.SubItems.Add(textBox2.Text);
-            item.SubItems.Add((string)textBox3.Text);
+            item.SubItems.Add((string)listBox1.Text);
             menulist.Items.Add(item);
 
             MessageBox.Show("메뉴 추가 완료.", "알림");
