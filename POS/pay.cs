@@ -150,55 +150,68 @@ namespace POS
 
         private void cardpay_Click(object sender, EventArgs e)
         {
-            totalcost = totalcost - int.Parse(paycosttxt.Text);
-            if (totalcost == 0)
+            if (int.Parse(paycosttxt.Text) == 0)
             {
-                MessageBox.Show("결제가 완료 되었습니다.","알림");
-                this.Close();
-                location loc = new location()
-                {
-                    location_x = location_list[int.Parse(selectedbutton)].location_x,
-                    location_y = location_list[int.Parse(selectedbutton)].location_y,
-                    used = false
-                };
-                location_list[int.Parse(selectedbutton)] = loc;
-                bGenerateCsv(location_list, "tablelist.CSV", int.Parse(selectedbutton));
-                File.Delete(selectedbutton + ".CSV");
-
-                return;
+                MessageBox.Show("금액을 선택해주세요.", "알림");
             }
-            MessageBox.Show("카드 결제가 완료되었습니다.\n" + "남은 금액: " + totalcost.ToString() + "원", "알림"); ;
-            paycosttxt.Text = "0";
-            selectcost = 0;
-            totcosttxt.Text = totalcost.ToString();
-            sellistView.Clear();
-            
+            else
+            {
+                totalcost = totalcost - int.Parse(paycosttxt.Text);
+                if (totalcost == 0)
+                {
+                    MessageBox.Show("결제가 완료 되었습니다.", "알림");
+                    this.Close();
+                    location loc = new location()
+                    {
+                        location_x = location_list[int.Parse(selectedbutton)].location_x,
+                        location_y = location_list[int.Parse(selectedbutton)].location_y,
+                        used = false
+                    };
+                    location_list[int.Parse(selectedbutton)] = loc;
+                    bGenerateCsv(location_list, "tablelist.CSV", int.Parse(selectedbutton));
+                    File.Delete(selectedbutton + ".CSV");
+
+                    return;
+                }
+                MessageBox.Show("카드 결제가 완료되었습니다.\n" + "남은 금액: " + totalcost.ToString() + "원", "알림"); ;
+                paycosttxt.Text = "0";
+                selectcost = 0;
+                totcosttxt.Text = totalcost.ToString();
+                sellistView.Clear();
+            }
 
         }
 
         private void cashpay_Click(object sender, EventArgs e)
         {
-            totalcost = totalcost - int.Parse(paycosttxt.Text);
-            if (totalcost == 0)
+            if (int.Parse(paycosttxt.Text) == 0)
             {
-                MessageBox.Show("결제가 완료 되었습니다.", "알림");
-                this.Close();
-                location loc = new location()
-                {
-                    location_x = location_list[int.Parse(selectedbutton)].location_x,
-                    location_y = location_list[int.Parse(selectedbutton)].location_y,
-                    used = false
-                };
-                location_list[int.Parse(selectedbutton)] = loc;
-                bGenerateCsv(location_list, "tablelist.CSV", int.Parse(selectedbutton));
-                File.Delete(selectedbutton + ".CSV");
-                return;
+                MessageBox.Show("금액을 선택해주세요.", "알림");
             }
-            MessageBox.Show("현금 결제가 완료되었습니다.\n" + "남은 금액: " + totalcost.ToString() + "원", "알림"); ;
-            paycosttxt.Text = "0";
-            selectcost = 0;
-            totcosttxt.Text = totalcost.ToString();
-            sellistView.Clear();
+            else
+            {
+                totalcost = totalcost - int.Parse(paycosttxt.Text);
+                if (totalcost == 0)
+                {
+                    MessageBox.Show("결제가 완료 되었습니다.", "알림");
+                    this.Close();
+                    location loc = new location()
+                    {
+                        location_x = location_list[int.Parse(selectedbutton)].location_x,
+                        location_y = location_list[int.Parse(selectedbutton)].location_y,
+                        used = false
+                    };
+                    location_list[int.Parse(selectedbutton)] = loc;
+                    bGenerateCsv(location_list, "tablelist.CSV", int.Parse(selectedbutton));
+                    File.Delete(selectedbutton + ".CSV"); //결제 완료 했으니까 파일 삭제
+                    return;
+                }
+                MessageBox.Show("현금 결제가 완료되었습니다.\n" + "남은 금액: " + totalcost.ToString() + "원", "알림"); ;
+                paycosttxt.Text = "0";
+                selectcost = 0;
+                totcosttxt.Text = totalcost.ToString();
+                sellistView.Clear();
+            }
         }
 
         private void menuview_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -211,7 +224,6 @@ namespace POS
                 ListViewItem selected = listView1.SelectedItems[0];
                 listView1.Items.Remove(selected);
                 listView2.Items.Add(selected);
-
                 string secondCol = selected.SubItems[1].Text;
                 selectcost += int.Parse(secondCol);
             }
@@ -255,6 +267,34 @@ namespace POS
         private void pay_FormClosed(object sender, FormClosedEventArgs e)
         {
             
+        }
+
+        private void guna2Button1_Click_1(object sender, EventArgs e) //뒤로가기 버튼
+        {
+            this.Close();
+
+        }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            totalcost = totalcost - int.Parse(paycosttxt.Text);
+            paycosttxt.Text = "0";
+            selectcost = 0;
+            totcosttxt.Text = totalcost.ToString();
+            sellistView.Clear();
+            if(totalcost == 0)
+            {
+                this.Close();
+                location loc = new location()
+                {
+                    location_x = location_list[int.Parse(selectedbutton)].location_x,
+                    location_y = location_list[int.Parse(selectedbutton)].location_y,
+                    used = false
+                };
+                location_list[int.Parse(selectedbutton)] = loc;
+                bGenerateCsv(location_list, "tablelist.CSV", int.Parse(selectedbutton));
+                File.Delete(selectedbutton + ".CSV");
+            }
         }
     }
 }
