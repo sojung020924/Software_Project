@@ -7,25 +7,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ClassLibrary2;
 
 namespace Software_Project
 {
-    public partial class gyeoljae : Form
+    public partial class gyeoljae : FormBase
     {
         public List<Jangbaguni_button_set> jan_btn_combi = new List<Jangbaguni_button_set>();
         public List<location> location_list = new List<location>();
 
-        public shared_list sharedlist = new shared_list();
 
-
-        public gyeoljae(List<Jangbaguni_button_set> list, List<location> loc_list, shared_list sharedlist)
+        float fontsize = 10;
+        public gyeoljae(List<Jangbaguni_button_set> list, List<location> loc_list, float fontsize)
         {
             InitializeComponent();
             jan_btn_combi = list;
             location_list = loc_list;
-            this.sharedlist = sharedlist;
-            location_list = sharedlist.GetList();
+            this.fontsize = fontsize;   
         }
 
         private void gyeoljae_Load(object sender, EventArgs e)
@@ -69,7 +66,8 @@ namespace Software_Project
                 box.Controls.Add(box2);
                 flowLayoutPanel1.Controls.Add(box);
             }
-            total.Text = "total: " + sum.ToString() + "원"; 
+            total.Text = "total: " + sum.ToString() + "원";
+            ChangeFontSize(fontsize);
         }
         
         private void total_TextChanged(object sender, EventArgs e)
@@ -85,7 +83,7 @@ namespace Software_Project
         private void backbutton_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-            Deopbab d = new Deopbab(jan_btn_combi, sharedlist);
+            Deopbab d = new Deopbab(jan_btn_combi, fontsize);
             Point parentPoint = this.Location; 
             d.StartPosition = FormStartPosition.Manual;
             d.Location = new Point(parentPoint.X, parentPoint.Y);
@@ -95,10 +93,13 @@ namespace Software_Project
         private void gyeoljoeng_hagi_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-            table g = new table(jan_btn_combi,location_list, sharedlist);
+            table g = new table(jan_btn_combi,location_list, fontsize);
             Point parentPoint = this.Location;
             g.StartPosition = FormStartPosition.Manual;
             g.Location = new Point(parentPoint.X, parentPoint.Y);
+            g.AutoSize = false;
+            g.MaximumSize = new Size(698, 792);
+            g.MinimumSize = new Size(698, 792);
             g.ShowDialog();
         }
 

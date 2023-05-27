@@ -69,9 +69,6 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ClassLibrary2">
-      <HintPath>..\ClassLibrary2\bin\Debug\ClassLibrary2.dll</HintPath>
-    </Reference>
     <Reference Include="Guna.UI2, Version=2.0.4.4, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
       <HintPath>..\packages\Guna.UI2.WinForms.2.0.4.4\lib\net48\Guna.UI2.dll</HintPath>
     </Reference>
@@ -94,6 +91,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="admin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="admin.Designer.cs">
+      <DependentUpon>admin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="admin_register.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="admin_register.Designer.cs">
+      <DependentUpon>admin_register.cs</DependentUpon>
+    </Compile>
+    <Compile Include="admin_register2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="admin_register2.Designer.cs">
+      <DependentUpon>admin_register2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Bockbab.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,11 +121,14 @@
     <Compile Include="Choose.Designer.cs">
       <DependentUpon>Choose.cs</DependentUpon>
     </Compile>
-    <Compile Include="pos.cs">
+    <Compile Include="admin_login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="pos.Designer.cs">
-      <DependentUpon>pos.cs</DependentUpon>
+    <Compile Include="admin_login.Designer.cs">
+      <DependentUpon>admin_login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormBase.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Deopbab.cs">
       <SubType>Form</SubType>
@@ -144,16 +162,21 @@
     <Compile Include="Side.Designer.cs">
       <DependentUpon>Side.cs</DependentUpon>
     </Compile>
-    <Compile Include="table.cs" />
+    <Compile Include="table.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="table.Designer.cs">
       <DependentUpon>table.cs</DependentUpon>
     </Compile>
-    <Compile Include="table_setting.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="table_setting.Designer.cs">
-      <DependentUpon>table_setting.cs</DependentUpon>
-    </Compile>
+    <EmbeddedResource Include="admin.resx">
+      <DependentUpon>admin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="admin_register.resx">
+      <DependentUpon>admin_register.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="admin_register2.resx">
+      <DependentUpon>admin_register2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Bockbab.resx">
       <DependentUpon>Bockbab.cs</DependentUpon>
     </EmbeddedResource>
@@ -166,14 +189,15 @@
     <EmbeddedResource Include="Drink.resx">
       <DependentUpon>Drink.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="admin_login.resx">
+      <DependentUpon>admin_login.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="gyeoljae.resx">
       <DependentUpon>gyeoljae.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main_ui.resx">
       <DependentUpon>Main_ui.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="pos.resx">
-      <DependentUpon>pos.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -191,9 +215,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="table.resx">
       <DependentUpon>table.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="table_setting.resx">
-      <DependentUpon>table_setting.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

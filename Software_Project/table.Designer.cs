@@ -86,9 +86,8 @@
             // 
             // table
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(597, 602);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.ClientSize = new System.Drawing.Size(682, 753);
             this.Controls.Add(this.table_num);
             this.Controls.Add(this.tablegola);
             this.Controls.Add(this.backbutton);

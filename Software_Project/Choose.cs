@@ -13,11 +13,10 @@ using System.Windows.Forms;
 using System.Xml.Linq;
 using static Software_Project.Main_ui;
 using static System.Net.Mime.MediaTypeNames;
-using ClassLibrary2;
 
 namespace Software_Project
 {
-    public partial class Choose : Form
+    public partial class Choose : FormBase
     {
         public delegate void FormSendDataHandler(Jangbaguni jang); //대리자
         public event FormSendDataHandler chooseSendEvent;
@@ -26,16 +25,19 @@ namespace Software_Project
         List<TextBox> option_txt = new List<TextBox>(); //추가된 버튼 리스트
         int price = 0;
 
-        public Choose(string name)
+        float fontsize = 10;
+
+        public Choose(string name, float fontsize)
         {
             InitializeComponent();
             Current_menu = name;
             Menu_name.Text = "[ " + name + " ]";
+            this.fontsize = fontsize;
         }
         private void Choose_Load(object sender, EventArgs e)
         {
             setting("menu.csv");
-            
+            ChangeFontSize(fontsize);
         }
 
         private void setting(string filePath) //옵션 깔기

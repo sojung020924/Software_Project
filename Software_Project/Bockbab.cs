@@ -9,18 +9,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ClassLibrary2;
 
 namespace Software_Project
 {
-    public partial class Bockbab : Form
+    public partial class Bockbab : FormBase
     {
         public List<Jangbaguni_button_set> jan_btn_combi = new List<Jangbaguni_button_set>(); //장바구니와 버튼을 쌍으로 저장
-                public List<location> location_list = new List<location>();
+        public List<location> location_list = new List<location>();
 
-        public shared_list sharedlist;
 
-        public Bockbab(List<Jangbaguni_button_set> list, shared_list sharedlist)
+        float fontsize = 10;
+        public Bockbab(List<Jangbaguni_button_set> list, float fontsize)
         {
             InitializeComponent();
             jan_btn_combi = list;
@@ -30,17 +29,17 @@ namespace Software_Project
                 jan_btn_combi[i].btn.Controls[2].Controls[0].Click += push_plus_button;
                 jan_btn_combi[i].btn.Controls[2].Controls[1].Click += push_minus_button;
             }
-
-            this.sharedlist = sharedlist;
+            this.fontsize = fontsize;
         }
         public void Bockbab_Load(object sender, EventArgs e)
         {
-            ReadCsvFile("menu.csv",flowLayoutPanel1);
+            ReadCsvFile("menu.CSV",flowLayoutPanel1);
             Total_cost_TextChanged();
             for(int i = 0; i< jan_btn_combi.Count; i++)
             {
                 flowLayoutPanel2.Controls.Add(jan_btn_combi[i].btn);
             }
+            ChangeFontSize(fontsize);
         }
         public void choose_deopbab_Click(object sender, EventArgs e)
         {
@@ -51,7 +50,7 @@ namespace Software_Project
                 jan_btn_combi[i].btn.Controls[2].Controls[0].Click -= push_plus_button;
                 jan_btn_combi[i].btn.Controls[2].Controls[1].Click -= push_minus_button;
             }
-            Deopbab deopbab = new Deopbab(jan_btn_combi, sharedlist);
+            Deopbab deopbab = new Deopbab(jan_btn_combi, fontsize);
             Point parentPoint = this.Location;
             deopbab.StartPosition = FormStartPosition.Manual;
             deopbab.Location = new Point(parentPoint.X, parentPoint.Y);
@@ -69,7 +68,7 @@ namespace Software_Project
                 jan_btn_combi[i].btn.Controls[2].Controls[0].Click -= push_plus_button;
                 jan_btn_combi[i].btn.Controls[2].Controls[1].Click -= push_minus_button;
             }
-            Side side = new Side(jan_btn_combi, sharedlist);
+            Side side = new Side(jan_btn_combi, fontsize);
             Point parentPoint = this.Location;
             side.StartPosition = FormStartPosition.Manual;
             side.Location = new Point(parentPoint.X, parentPoint.Y);
@@ -86,7 +85,7 @@ namespace Software_Project
                 jan_btn_combi[i].btn.Controls[2].Controls[0].Click -= push_plus_button;
                 jan_btn_combi[i].btn.Controls[2].Controls[1].Click -= push_minus_button;
             }
-            Drink drink = new Drink(jan_btn_combi, sharedlist);
+            Drink drink = new Drink(jan_btn_combi, fontsize);
             Point parentPoint = this.Location;
             drink.StartPosition = FormStartPosition.Manual;
             drink.Location = new Point(parentPoint.X, parentPoint.Y);
@@ -99,7 +98,7 @@ namespace Software_Project
             List<List<string>> data = new List<List<string>>();
             try
             {
-                var reader = new StreamReader(filePath, Encoding.Default);
+                var reader = new StreamReader(filePath);
 
                 string[] headers = reader.ReadLine().Split(','); //앞부분은 스키마이므로 생략
                 int numColumns = headers.Length;
@@ -112,6 +111,7 @@ namespace Software_Project
                         data.Add(rowData);
                     }
                 }
+                reader.Close();
             }
             catch
             {
@@ -158,7 +158,7 @@ namespace Software_Project
             this.Visible = false;
             Guna2Button btn = (Guna2Button)sender;
             string name = btn.Name;
-            Choose choose = new Choose(name);
+            Choose choose = new Choose(name, fontsize);
             choose.chooseSendEvent += new Choose.FormSendDataHandler(add_Choose);
             Point parentPoint = this.Location;
             choose.StartPosition = FormStartPosition.Manual;
@@ -167,7 +167,7 @@ namespace Software_Project
             this.Visible = true;
         }
 
-        public void add_Choose(ClassLibrary2.Jangbaguni jan) //장바구니에 추가가 됐을 때
+        public void add_Choose(Jangbaguni jan) //장바구니에 추가가 됐을 때
         {
             string option = "";
             int num = jan.options.Count;
@@ -337,7 +337,7 @@ namespace Software_Project
         {
             this.Visible = false;
             jan_btn_combi.Clear();
-            Main_ui main = new Main_ui(sharedlist);
+            Main_ui main = new Main_ui();
             Point parentPoint = this.Location; //폼 열리는 위치 설정
             main.StartPosition = FormStartPosition.Manual;
             main.Location = new Point(parentPoint.X, parentPoint.Y);
@@ -347,7 +347,7 @@ namespace Software_Project
         private void guna2Button1_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-            gyeoljae g = new gyeoljae(jan_btn_combi,location_list, sharedlist);
+            gyeoljae g = new gyeoljae(jan_btn_combi,location_list , fontsize);
             Point parentPoint = this.Location; //폼 열리는 위치 설정
             g.StartPosition = FormStartPosition.Manual;
             g.Location = new Point(parentPoint.X, parentPoint.Y);

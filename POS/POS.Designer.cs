@@ -1,6 +1,7 @@
-﻿namespace Software_Project
+﻿namespace POS
 {
-    partial class pos
+
+    partial class POS
     {
         /// <summary>
         /// Required designer variable.
@@ -30,15 +31,17 @@
         {
             this.loadtablebtn = new System.Windows.Forms.Button();
             this.settablebtn = new System.Windows.Forms.Button();
-            this.cardbtn = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.kioskOn = new Guna.UI2.WinForms.Guna2Button();
             this.totalcost = new Guna.UI2.WinForms.Guna2TextBox();
             this.menupanel = new Guna.UI2.WinForms.Guna2Panel();
+            this.paybtn = new Guna.UI2.WinForms.Guna2Button();
+            this.totalmaechool = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // loadtablebtn
             // 
+            this.loadtablebtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.loadtablebtn.Location = new System.Drawing.Point(605, 12);
             this.loadtablebtn.Name = "loadtablebtn";
             this.loadtablebtn.Size = new System.Drawing.Size(174, 75);
@@ -49,6 +52,7 @@
             // 
             // settablebtn
             // 
+            this.settablebtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.settablebtn.Location = new System.Drawing.Point(605, 93);
             this.settablebtn.Name = "settablebtn";
             this.settablebtn.Size = new System.Drawing.Size(174, 67);
@@ -57,36 +61,9 @@
             this.settablebtn.UseVisualStyleBackColor = true;
             this.settablebtn.Click += new System.EventHandler(this.settablebtn_Click);
             // 
-            // cardbtn
-            // 
-            this.cardbtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.cardbtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.cardbtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.cardbtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.cardbtn.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.cardbtn.ForeColor = System.Drawing.Color.White;
-            this.cardbtn.Location = new System.Drawing.Point(605, 390);
-            this.cardbtn.Name = "cardbtn";
-            this.cardbtn.Size = new System.Drawing.Size(81, 51);
-            this.cardbtn.TabIndex = 3;
-            this.cardbtn.Text = "카드";
-            // 
-            // guna2Button2
-            // 
-            this.guna2Button2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button2.ForeColor = System.Drawing.Color.White;
-            this.guna2Button2.Location = new System.Drawing.Point(698, 390);
-            this.guna2Button2.Name = "guna2Button2";
-            this.guna2Button2.Size = new System.Drawing.Size(81, 51);
-            this.guna2Button2.TabIndex = 4;
-            this.guna2Button2.Text = "현금";
-            // 
             // kioskOn
             // 
+            this.kioskOn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.kioskOn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.kioskOn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.kioskOn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -102,6 +79,7 @@
             // 
             // totalcost
             // 
+            this.totalcost.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.totalcost.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.totalcost.DefaultText = "";
             this.totalcost.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -113,6 +91,7 @@
             this.totalcost.ForeColor = System.Drawing.Color.Black;
             this.totalcost.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.totalcost.Location = new System.Drawing.Point(605, 348);
+            this.totalcost.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.totalcost.Name = "totalcost";
             this.totalcost.PasswordChar = '\0';
             this.totalcost.PlaceholderText = "";
@@ -122,27 +101,64 @@
             // 
             // menupanel
             // 
+            this.menupanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.menupanel.AutoScroll = true;
             this.menupanel.Location = new System.Drawing.Point(605, 206);
             this.menupanel.Name = "menupanel";
             this.menupanel.Size = new System.Drawing.Size(174, 136);
             this.menupanel.TabIndex = 8;
             // 
-            // pos
+            // paybtn
+            // 
+            this.paybtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.paybtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.paybtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.paybtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.paybtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.paybtn.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.paybtn.ForeColor = System.Drawing.Color.White;
+            this.paybtn.Location = new System.Drawing.Point(605, 393);
+            this.paybtn.Name = "paybtn";
+            this.paybtn.Size = new System.Drawing.Size(174, 45);
+            this.paybtn.TabIndex = 0;
+            this.paybtn.Text = "결제";
+            this.paybtn.Click += new System.EventHandler(this.pay_Click);
+            // 
+            // totalmaechool
+            // 
+            this.totalmaechool.Location = new System.Drawing.Point(499, 417);
+            this.totalmaechool.Name = "totalmaechool";
+            this.totalmaechool.ReadOnly = true;
+            this.totalmaechool.Size = new System.Drawing.Size(100, 21);
+            this.totalmaechool.TabIndex = 9;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(436, 420);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(57, 12);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "매출 총액";
+            // 
+            // POS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.totalmaechool);
+            this.Controls.Add(this.paybtn);
             this.Controls.Add(this.menupanel);
             this.Controls.Add(this.totalcost);
             this.Controls.Add(this.kioskOn);
-            this.Controls.Add(this.guna2Button2);
-            this.Controls.Add(this.cardbtn);
             this.Controls.Add(this.settablebtn);
             this.Controls.Add(this.loadtablebtn);
-            this.Name = "pos";
+            this.Name = "POS";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.POS_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -150,10 +166,11 @@
 
         private System.Windows.Forms.Button loadtablebtn;
         private System.Windows.Forms.Button settablebtn;
-        private Guna.UI2.WinForms.Guna2Button cardbtn;
-        private Guna.UI2.WinForms.Guna2Button guna2Button2;
         private Guna.UI2.WinForms.Guna2Button kioskOn;
         private Guna.UI2.WinForms.Guna2TextBox totalcost;
         private Guna.UI2.WinForms.Guna2Panel menupanel;
+        private Guna.UI2.WinForms.Guna2Button paybtn;
+        private System.Windows.Forms.TextBox totalmaechool;
+        private System.Windows.Forms.Label label1;
     }
 }

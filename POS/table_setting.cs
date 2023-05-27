@@ -4,14 +4,15 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Text;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ClassLibrary2;
 
-namespace Software_Project
+namespace POS
 {
+
 
     public partial class table_setting : Form
     {
@@ -19,61 +20,66 @@ namespace Software_Project
         public List<Jangbaguni_button_set> jan_btn_combi = new List<Jangbaguni_button_set>();
         public List<location> location_list = new List<location>();
 
-        public shared_list sharedlist;
 
-        private pos posForm;
+        private POS posForm;
 
-        public table_setting(pos posForm, shared_list sharedlist)
+
+        int table_num = 0;
+
+        public table_setting(POS posForm)
         {
             InitializeComponent();
             this.posForm = posForm;
-         //   jan_btn_combi=list;
-           // location_list=loc_list;
+            try
+            {
+                StreamReader streamreader = new StreamReader("tablelist.CSV");
 
-            if (sharedlist != null)
+                while (!streamreader.EndOfStream)
+                {
+                    string line = streamreader.ReadLine();
+                    string[] values = line.Split(',');
+                    location loc = new location
+                    {
+                        location_x = int.Parse(values[0]),
+                        location_y = int.Parse(values[1]),
+                        used = Convert.ToBoolean(values[2])
+                    };
+                    location_list.Add(loc);
+                }
+                streamreader.Close();
+            }catch(FileNotFoundException ex)
             {
-                // sharedlist를 사용하는 코드
-                this.sharedlist = sharedlist;
-                location_list = sharedlist.GetList();  // 예시: GetList() 메서드 호출
+                Console.WriteLine(ex.Message);
             }
-            else
-            {
-                // sharedlist가 null인 경우에 대한 대체 동작 또는 예외 처리
-                // 예시: 로그 출력 또는 예외를 던지는 등의 처리
-                Console.WriteLine("sharedlist is null.");
-            }
-            
+            int v = location_list.Count;
+            table_num = v;
         }
-        int table_num = 0;
        
         private void tablechuga_Click(object sender, EventArgs e)
         {
-            location_list = sharedlist.GetList();
-            table_num=location_list.Count;
+            //table_num=location_list.Count;
             Button button = new Button();
             button.Size = new Size(131,62);
             button.Name = table_num.ToString();
             button.Text = "테이블 "+table_num;
             
-
+            
             location loc = new location
             {
                 location_x = button.Location.X,
                 location_y = button.Location.Y
             };
+            if (location_list.Count == 0)
+            {
+                location_list.Add (loc);
+                button.MouseDown += new MouseEventHandler(button_MouseDown);
+                button.MouseMove += new MouseEventHandler(button_MouseMove);
+                button.MouseUp += new MouseEventHandler(button_MouseUp);
+                Controls.Add(button);
+                table_num++;
+                return;
+            }
             location_list.Add(loc);
-
-            if (sharedlist != null)
-            {
-                // sharedlist를 사용하는 코드
-                sharedlist.updatesharedList(location_list);  // 예시: GetList() 메서드 호출
-            }
-            else
-            {
-                // sharedlist가 null인 경우에 대한 대체 동작 또는 예외 처리
-                // 예시: 로그 출력 또는 예외를 던지는 등의 처리
-                Console.WriteLine("sharedlist is null.");
-            }
 
             
             button.MouseDown += new MouseEventHandler(button_MouseDown);
@@ -115,23 +121,17 @@ namespace Software_Project
              };
             location_list[int.Parse(btn.Name)] = loc;
 
+            
 
-            if (sharedlist != null)
-            {
-                // sharedlist를 사용하는 코드
-                sharedlist.updatesharedList(location_list);  // 예시: GetList() 메서드 호출
-            }
-            else
-            {
-                // sharedlist가 null인 경우에 대한 대체 동작 또는 예외 처리
-                // 예시: 로그 출력 또는 예외를 던지는 등의 처리
-                Console.WriteLine("sharedlist is null.");
-            }
+
+            
         }
 
 
         private void table_setting_Load(object sender, EventArgs e)
         {
+            
+
             
             for (int i = 0; i < location_list.Count; i++)
             {
@@ -156,20 +156,29 @@ namespace Software_Project
             {
                 RemoveButtonByName(i.ToString());
             }
+            try
+            {
+                File.Delete("tablelist.CSV");
+            }catch(FileNotFoundException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
             location_list.Clear();
-            sharedlist.updatesharedList(location_list);
-            posForm.updateposlist(sharedlist);
-            posForm.ifresetclick();
+            table_num = 0;
 
-            posForm.Show();
-            this.Hide();
+            //posForm.Show();
+            //this.Hide();
 
         }
 
         private void backbutton_Click(object sender, EventArgs e)
         {
             //posForm.UpdateLocationList(location_list);
-            posForm.updateposlist(sharedlist/*, location_list*/);
+            //posForm.updateposlist(sharedlist/*, location_list*/);
+            CsvGenerator csvgenerator = new CsvGenerator();
+            csvgenerator.GenerateCsv(location_list, "tablelist.CSV");
+            
+
             posForm.Show();
             this.Hide();
         }
