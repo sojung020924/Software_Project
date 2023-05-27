@@ -25,6 +25,11 @@ namespace Software_Project
             InitializeComponent();
             mlist.Clear();
 
+            ofd.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            ofd.Filter = "JPG (*.jpg)|*.jpg| PNG (*.png)|*.png";
+            ofd.Title = "Menu Image";
+            ofd.FileName = "";
+
 
             menulist.Dock = DockStyle.Fill;
             menulist.View = View.Details;
@@ -114,6 +119,39 @@ namespace Software_Project
             textBox1.Text = "";
             textBox2.Text = "";
             textBox3.Text = "";
+        }
+
+        private void button2_Click(object sender, EventArgs e) // 메뉴 추가 버튼
+        {
+            string line = "";
+            using (StreamReader sr = new StreamReader("menu.CSV"))
+            {
+                while (!sr.EndOfStream)//여기에 기존에 존재하는 메뉴라면 해당행 삭제 후 등록 추가해야함
+                {
+                    line += sr.ReadLine() + '\n';
+                }
+                line += textBox1.Text + ',' + textBox2.Text + ',' + textBox3.Text + ',' + textBox4.Text;
+                sr.Close();
+            }
+            using(StreamWriter sw = new StreamWriter("menu.CSV", false))
+            {
+                sw.WriteLine(line);
+                sw.Close();
+            }
+        }
+
+        private void textBox4_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                textBox4.Text = ofd.FileName;
+                ofd.FileName = "";
+            }
+        }
+
+        private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
+        {
+
         }
     }
 }
