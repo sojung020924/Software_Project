@@ -76,13 +76,16 @@
             this.table_num.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.table_num.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.table_num.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.table_num.Location = new System.Drawing.Point(386, 447);
+            this.table_num.Location = new System.Drawing.Point(230, 418);
+            this.table_num.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.table_num.Multiline = true;
             this.table_num.Name = "table_num";
             this.table_num.PasswordChar = '\0';
             this.table_num.PlaceholderText = "";
             this.table_num.SelectedText = "";
-            this.table_num.Size = new System.Drawing.Size(200, 38);
+            this.table_num.Size = new System.Drawing.Size(356, 67);
             this.table_num.TabIndex = 4;
+            this.table_num.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // table
             // 

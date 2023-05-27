@@ -36,8 +36,6 @@ namespace Software_Project
             ChangeFontSize(fontsize);
         }
 
-
-
         private void table_Load(object sender, EventArgs e)
         {
             try
@@ -100,12 +98,18 @@ namespace Software_Project
             Button button = (Button)sender;
             if (button.BackColor == Color.Red)
             {
-                MessageBox.Show("이미 사용중인 테이블입니다.\n 다른 테이블을 선택해주세요.", "선택 불가");
-                return;
+                if (MessageBox.Show("기존에 주문한 내역이 있는 테이블입니다. \n\r추가하시겠습니까?", "사용 중인 테이블", MessageBoxButtons.YesNo) == DialogResult.No)
+                {
+                    return;
+                }
+                
             }
-            button.BackColor = Color.Blue;
+            else
+            {
+                button.BackColor = Color.Blue;
+            }
 
-            // 선택된 버튼을 추적합니다.          
+            // 선택된 버튼을 추적합니다.
             table_num.Text = "고른 테이블: " + button.Text + " 번";
             selectedButton = button;
             selectedButton.Name = button.Name;
@@ -136,11 +140,6 @@ namespace Software_Project
                 return;
             }
             
-            else if (menulist.Count == 0)
-            {
-                MessageBox.Show("메뉴를 선택해주세요.", "알림");
-                return;
-            }
             
             location loc = new location
             {
@@ -180,13 +179,15 @@ namespace Software_Project
             }
 
 
-
+            
             CsvGenerator menucsv = new CsvGenerator();
-            menucsv.GenerateCsv(menulist, Path.Combine("..","..","..","POS","bin","Debug",selectedButton.Name + ".CSV"));
+            menucsv.GenerateCsv(menulist, Path.Combine("..", "..", "..", "POS", "bin", "Debug", selectedButton.Name + ".CSV"));
             CsvGenerator tablecsv = new CsvGenerator();
             tablecsv.bGenerateCsv(location_list,Path.Combine("..", "..", "..", "POS", "bin", "Debug", "tablelist.CSV"), int.Parse(selectedButton.Name));
             location_list[int.Parse(selectedButton.Name)] = loc;
-            
+
+
+            //메뉴 화면으로 돌아가기
             this.Visible = false;
             Main_ui main_ui = new Main_ui();
             Point parentPoint = this.Location;
@@ -200,29 +201,37 @@ namespace Software_Project
     {
         public void GenerateCsv(List<Jangbaguni> jangbaguniList, string filePath)
         {
-            if (File.Exists(filePath))
+            if (File.Exists(filePath)) //테이블에 기존 내용이 있을 때
             {
-                File.Delete(filePath);
-            }
-            using (StreamWriter writer = new StreamWriter(filePath))
-            {
-                // CSV 파일의 헤더 작성
-                writer.WriteLine("Menu Name,Total Price,Memo,Options,Count");
-
-                // Jangbaguni 리스트의 각 항목을 CSV 파일에 작성
-                foreach (Jangbaguni jangbaguni in jangbaguniList)
+                List<string> lines = File.ReadAllLines(filePath).ToList();
+                foreach (Jangbaguni jangbaguni in jangbaguniList) //추가한 메뉴를 넣기
                 {
-                    // 각 필드 값을 쉼표로 구분하여 CSV 파일에 작성
-                    string line = $"{jangbaguni.menu_name},{jangbaguni.total_price},{jangbaguni.memo},{OptionsToString(jangbaguni.options)},{jangbaguni.count}";
-                    writer.WriteLine(line);
+                    lines.Add($"{jangbaguni.menu_name},{jangbaguni.total_price},{jangbaguni.memo},{OptionsToString(jangbaguni.options)},{jangbaguni.count}");
                 }
-                writer.Close();
+                File.WriteAllLines(filePath, lines);
+            }
+            else
+            {
+                using (StreamWriter writer = new StreamWriter(filePath))
+                {
+                    // CSV 파일의 헤더 작성
+                    writer.WriteLine("Menu Name,Total Price,Memo,Options,Count");
 
+                    // Jangbaguni 리스트의 각 항목을 CSV 파일에 작성
+                    foreach (Jangbaguni jangbaguni in jangbaguniList)
+                    {
+                        // 각 필드 값을 쉼표로 구분하여 CSV 파일에 작성
+                        string line = $"{jangbaguni.menu_name},{jangbaguni.total_price},{jangbaguni.memo},{OptionsToString(jangbaguni.options)},{jangbaguni.count}";
+                        writer.WriteLine(line);
+                    }
+                    writer.Close();
+
+                }
             }
 
             Console.WriteLine("CSV 파일이 생성되었습니다.");
         }
-        public void bGenerateCsv(List<location> location_list, string filePath, int currentline)
+        public void bGenerateCsv(List<location> location_list, string filePath, int currentline) //테이블 메뉴 수정
         {
             currentline++;
             int lineCount = 1;
