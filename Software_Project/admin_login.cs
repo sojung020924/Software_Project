@@ -20,6 +20,8 @@ namespace Software_Project
         {
             InitializeComponent();
             this.code = code;
+
+            textBox1.PasswordChar = '*';
         }
 
 

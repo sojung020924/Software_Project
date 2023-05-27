@@ -56,7 +56,9 @@ namespace POS
         private TcpClient client;
 
         int totcost = 0;
-        int maechool;
+        int maechool = 0;
+
+        public int PassedValue { get; set; }
 
         public POS()
         {
@@ -353,18 +355,26 @@ namespace POS
             {
                 return;
             }
-            pay Pay = new pay(selectedButton.Name, totcost);
+            pay Pay = new pay(this, selectedButton.Name, int.Parse(Regex.Replace(totalcost.Text, @"\D", ""))) ;
             Point parentpoint = this.Location;
             Pay.Location = new Point(parentpoint.X, parentpoint.Y);
             Pay.StartPosition = FormStartPosition.Manual;
-            Pay.FormClosed += pay_FormClosed;
+            //Pay.FormClosed += pay_FormClosed;
             Pay.Show();
             selectedButton.BackColor = Color.LightGray;
         }
-        private void pay_FormClosed(object sender, FormClosedEventArgs e)
+        //private void pay_FormClosed(object sender, FormClosedEventArgs e)
+        //{
+        //    // 다른 폼(Form2)이 닫힌 후에 수행할 작업을 여기에 작성합니다.
+        //    maechool += int.Parse(Regex.Replace(totalcost.Text, @"\D", ""));
+        //    totalmaechool.Text = maechool.ToString() + "원";
+        //}
+
+        
+
+        public void Updatemaechool(int value)
         {
-            // 다른 폼(Form2)이 닫힌 후에 수행할 작업을 여기에 작성합니다.
-            maechool += int.Parse(Regex.Replace(totalcost.Text, @"\D", ""));
+            maechool += value;
             totalmaechool.Text = maechool.ToString() + "원";
         }
 

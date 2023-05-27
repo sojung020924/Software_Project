@@ -16,12 +16,17 @@ namespace POS
     {
         List<location> location_list = new List<location>();
 
+        private POS posForm;
+
         string selectedbutton;
-        int totalcost=0;
+        int totalcost = 0;
         int payedcost;
-        public pay(string selectedbutton, int totalcost)
+        public pay(POS pos, string selectedbutton, int totalcost)
         {
             InitializeComponent();
+
+            posForm = pos;
+
             this.selectedbutton = selectedbutton;
             this.totalcost = totalcost;
             payedcost = totalcost;
@@ -85,7 +90,7 @@ namespace POS
 
                 ListViewItem lv = new ListViewItem(values[0]);
                 lv.SubItems.Add(values[1]);
-                totalcost += int.Parse(values[1]);
+                //totalcost += int.Parse(values[1]);
                 //여기에 옵션 출력코드 추가해야함.
                 lv.SubItems.Add(values[7]);
                 menuview.Items.Add(lv);
@@ -161,6 +166,9 @@ namespace POS
                 {
                     MessageBox.Show("결제가 완료 되었습니다.", "알림");
                     this.Close();
+
+                    posForm.Updatemaechool(payedcost);
+
                     location loc = new location()
                     {
                         location_x = location_list[int.Parse(selectedbutton)].location_x,
@@ -195,6 +203,9 @@ namespace POS
                 {
                     MessageBox.Show("결제가 완료 되었습니다.", "알림");
                     this.Close();
+
+
+                    posForm.Updatemaechool(payedcost);
                     location loc = new location()
                     {
                         location_x = location_list[int.Parse(selectedbutton)].location_x,
@@ -204,6 +215,8 @@ namespace POS
                     location_list[int.Parse(selectedbutton)] = loc;
                     bGenerateCsv(location_list, "tablelist.CSV", int.Parse(selectedbutton));
                     File.Delete(selectedbutton + ".CSV"); //결제 완료 했으니까 파일 삭제
+
+
                     return;
                 }
                 MessageBox.Show("현금 결제가 완료되었습니다.\n" + "남은 금액: " + totalcost.ToString() + "원", "알림"); ;
