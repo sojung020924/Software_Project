@@ -49,7 +49,8 @@ namespace Software_Project
             while (!reader.EndOfStream) // 메뉴파일 다시 읽기
             {
                 string[] row = new string[4];
-                row = reader.ReadLine().Split(',');
+                string[] read_menu = reader.ReadLine().Split(',');
+                for(int i=0; i < 3; i++) { row[i] = read_menu[i]; }
                 row[3] = "0"; //장바구니에 담긴 수량 넣기
                 List<string> rowData = new List<string>(row);
                 data.Add(rowData);

@@ -160,8 +160,7 @@ namespace POS
             Button button = (Button)sender;
             button.BackColor = Color.Blue;
 
-            // 선택된 버튼을 추적합니다.          
-            //table_num.Text = "고른 테이블: " + button.Text + " 번";
+            // 선택된 버튼을 추적합니다.        
             selectedButton = button;
             selectedButton.Name = button.Name;
 
