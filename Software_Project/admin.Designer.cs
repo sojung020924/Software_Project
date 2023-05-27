@@ -161,6 +161,7 @@
             "옵션"});
             this.listBox1.Location = new System.Drawing.Point(577, 310);
             this.listBox1.Name = "listBox1";
+            this.listBox1.SelectionMode = System.Windows.Forms.SelectionMode.None;
             this.listBox1.Size = new System.Drawing.Size(106, 20);
             this.listBox1.TabIndex = 12;
             // 

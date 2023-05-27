@@ -148,7 +148,15 @@ namespace Software_Project
 
 
                 //이미지 설정
-                button.Image = Image.FromFile(list[i][0] + ".jpg");
+                try
+                {
+                    button.Image = Image.FromFile(list[i][0] + ".jpg");
+                }
+                catch (FileNotFoundException)
+                {
+                    // 파일이 존재하지 않는 경우 이미지를 없게 설정합니다.
+                    button.Image = null;
+                }
                 button.ImageSize = new Size(150, 90);
                 button.ImageOffset = new Point(35, -15);
                 button.TextOffset = new Point(0, 55);
