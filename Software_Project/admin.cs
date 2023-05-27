@@ -30,6 +30,7 @@ namespace Software_Project
             ofd.Title = "Menu Image";
             ofd.FileName = "";
 
+            listBox1.SelectedIndex = 0;
 
             menulist.Dock = DockStyle.Fill;
             menulist.View = View.Details;
@@ -142,11 +143,11 @@ namespace Software_Project
                 }
                 if (textBox4.Text == string.Empty)
                 {
-                    text += textBox1.Text + ',' + textBox2.Text + ',' + listBox1.Text + ',';
+                    text += textBox1.Text + ',' + textBox2.Text + ',' + listBox1.Items[listBox1.SelectedIndex].ToString()+ ',';
                 }
                 else
                 {
-                    text += textBox1.Text + ',' + textBox2.Text + ',' + listBox1.Text + ',' + textBox4.Text;
+                    text += textBox1.Text + ',' + textBox2.Text + ',' + listBox1.Items[listBox1.SelectedIndex].ToString() + ',' + textBox4.Text;
                 }
                 sr.Close();
             }
@@ -192,7 +193,7 @@ namespace Software_Project
 
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e)//키오스크 버튼
         {
             this.Close();
             Main_ui main = new Main_ui();

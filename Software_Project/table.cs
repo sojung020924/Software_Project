@@ -158,7 +158,7 @@ namespace Software_Project
                 using (TcpClient client = new TcpClient(serverIP, serverPort))
                 {
                     // 전송할 메시지
-                    string message = "주문이 들어왔습니다!";
+                    string message = selectedButton.Name + "번 테이블에서 주문이 들어왔습니다!";
 
                     // 메시지를 UTF-8로 인코딩하여 바이트 배열로 변환
                     byte[] buffer = Encoding.UTF8.GetBytes(message);
