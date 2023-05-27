@@ -36,8 +36,6 @@ namespace Software_Project
             ChangeFontSize(fontsize);
         }
 
-
-
         private void table_Load(object sender, EventArgs e)
         {
             try
@@ -203,7 +201,7 @@ namespace Software_Project
     {
         public void GenerateCsv(List<Jangbaguni> jangbaguniList, string filePath)
         {
-            if (File.Exists(filePath))
+            if (File.Exists(filePath)) //테이블에 기존 내용이 있을 때
             {
                 List<string> lines = File.ReadAllLines(filePath).ToList();
                 foreach (Jangbaguni jangbaguni in jangbaguniList) //추가한 메뉴를 넣기
