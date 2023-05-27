@@ -22,6 +22,7 @@ namespace Software_Project
             this.code = code;
         }
 
+
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
@@ -98,6 +99,15 @@ namespace Software_Project
                 reader.Close();
             }
 
+
+        }
+
+        private void textBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                button2.PerformClick();
+            }
         }
     }
 }
