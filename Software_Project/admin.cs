@@ -194,7 +194,7 @@ namespace Software_Project
 
         private void button3_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
             Main_ui main = new Main_ui();
             main.ShowDialog();
         }
