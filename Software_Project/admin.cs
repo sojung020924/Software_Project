@@ -123,21 +123,59 @@ namespace Software_Project
 
         private void button2_Click(object sender, EventArgs e) // 메뉴 추가 버튼
         {
-            string line = "";
+            string text = "";
             using (StreamReader sr = new StreamReader("menu.CSV"))
             {
-                while (!sr.EndOfStream)//여기에 기존에 존재하는 메뉴라면 해당행 삭제 후 등록 추가해야함
+                while (!sr.EndOfStream)//여기에 기존에 존재하는 메뉴라면 해당행 삭제 후 등록 추가해야함(완료)
                 {
-                    line += sr.ReadLine() + '\n';
+                    string line = sr.ReadLine();
+                    string[] value = line.Split(',');
+                    if (value[0] == textBox1.Text)
+                    {
+                        
+
+                        continue;
+                    }
+                    
+                    text += line;
+                    text += '\n';
                 }
-                line += textBox1.Text + ',' + textBox2.Text + ',' + textBox3.Text + ',' + textBox4.Text;
+                if (textBox4.Text == string.Empty)
+                {
+                    text += textBox1.Text + ',' + textBox2.Text + ',' + textBox3.Text + ',';
+                }
+                else
+                {
+                    text += textBox1.Text + ',' + textBox2.Text + ',' + textBox3.Text + ',' + textBox4.Text;
+                }
                 sr.Close();
             }
             using(StreamWriter sw = new StreamWriter("menu.CSV", false))
             {
-                sw.WriteLine(line);
+                sw.WriteLine(text);
                 sw.Close();
             }
+
+            ListViewItem removeitem = null;
+            foreach(ListViewItem items in menulist.Items)
+            {
+                if(items.Text == textBox1.Text)
+                {
+                    removeitem = items;
+                    break;
+                }
+            }
+            if (removeitem != null)
+            {
+                menulist.Items.Remove(removeitem);
+            }
+            ListViewItem item = new ListViewItem(textBox1.Text);
+            item.SubItems.Add(textBox2.Text);
+            item.SubItems.Add((string)textBox3.Text);
+            menulist.Items.Add(item);
+
+            MessageBox.Show("메뉴 추가 완료.", "알림");
+
         }
 
         private void textBox4_MouseClick(object sender, MouseEventArgs e)
@@ -152,6 +190,13 @@ namespace Software_Project
         private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
         {
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Main_ui main = new Main_ui();
+            main.ShowDialog();
         }
     }
 }

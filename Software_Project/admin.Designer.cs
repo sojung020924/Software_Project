@@ -40,6 +40,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.ofd = new System.Windows.Forms.OpenFileDialog();
+            this.button3 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // panel1
@@ -146,11 +147,22 @@
             this.ofd.FileName = "openFileDialog1";
             this.ofd.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(705, 313);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(61, 137);
+            this.button3.TabIndex = 11;
+            this.button3.Text = "키오스크";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(794, 462);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.button2);
@@ -184,5 +196,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.OpenFileDialog ofd;
+        private System.Windows.Forms.Button button3;
     }
 }
