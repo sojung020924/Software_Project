@@ -26,7 +26,7 @@ namespace Software_Project
             mlist.Clear();
 
             ofd.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-            ofd.Filter = "JPG (*.jpg)|*.jpg| PNG (*.png)|*.png";
+            ofd.Filter = "JPG (*.jpg)|*.jpg";
             ofd.Title = "Menu Image";
             ofd.FileName = "";
 
