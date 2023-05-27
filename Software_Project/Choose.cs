@@ -36,14 +36,14 @@ namespace Software_Project
         }
         private void Choose_Load(object sender, EventArgs e)
         {
-            setting("menu.csv");
+            setting("menu.CSV");
             ChangeFontSize(fontsize);
         }
 
         private void setting(string filePath) //옵션 깔기
         {
             List<List<string>> data = new List<List<string>>();
-            var reader = new StreamReader(filePath, Encoding.Default);
+            var reader = new StreamReader(filePath);
             
             string[] headers = reader.ReadLine().Split(','); //앞부분은 스키마이므로 생략
             while (!reader.EndOfStream) // 메뉴파일 다시 읽기

@@ -37,5 +37,12 @@ namespace Software_Project
                 MessageBox.Show("인증번호가 틀렸습니다.", "알림");
             }
         }
+        private void textBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                button1.PerformClick();
+            }
+        }
     }
 }
