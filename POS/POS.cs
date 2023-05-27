@@ -95,7 +95,18 @@ namespace POS
             {
                 // 클라이언트로부터 메시지를 수신하고 메시지 박스로 표시
                 //while (true)
-                {
+                { for(int i = 0; i <location_list.Count ; i++)
+                    {
+                        Button targetButton = Controls.OfType<Button>().FirstOrDefault(button => button.Name == i.ToString());
+                        if (File.Exists(i.ToString() + ".CSV"))
+                        {
+                            targetButton.BackColor = Color.Gray;
+                        }
+                        else
+                        {
+                            targetButton.BackColor = Color.LightGray;
+                        }
+                    }
                     // 클라이언트와의 데이터 통신을 위한 네트워크 스트림
                     NetworkStream stream = client.GetStream();
 
@@ -153,12 +164,19 @@ namespace POS
             // 이전에 선택된 버튼의 색상을 원래대로 되돌립니다.
             if (selectedButton != null)
             {
-                selectedButton.BackColor = SystemColors.Control;
+                if (File.Exists(selectedButton.Name + ".CSV"))
+                {
+                    selectedButton.BackColor = Color.Gray;
+                }
+                else
+                {
+                    selectedButton.BackColor = Color.LightGray;
+                }
             }
 
             // 선택된 버튼에 대한 색상을 변경합니다.
             Button button = (Button)sender;
-            button.BackColor = Color.Blue;
+            button.BackColor = Color.Orange;
 
             // 선택된 버튼을 추적합니다.        
             selectedButton = button;
@@ -283,13 +301,24 @@ namespace POS
 
                 Button button = new Button();
                 button.Size = new Size(131, 62);
-                button.Text = "테이블" + i;
+                button.FlatStyle = FlatStyle.Flat;
+                button.FlatAppearance.BorderSize = 0;
+                button.Font = new Font("HY견고딕", 10);
+                button.Text = "테이블" + (i+1);
                 button.Name = i.ToString();
                 int x = location_list[i].location_x;
                 int y = location_list[i].location_y;
                 button.Location = new Point(x, y);
                 button.MouseClick += button_click;
                 Controls.Add(button);
+                if (File.Exists(i.ToString() + ".CSV"))
+                {
+                    button.BackColor = Color.Gray;
+                }
+                else
+                {
+                    button.BackColor = Color.LightGray;
+                }
             }
 
         }
@@ -320,12 +349,17 @@ namespace POS
 
         private void pay_Click(object sender, EventArgs e)
         {
+            if (!File.Exists(selectedButton.Name + ".CSV")) //테이블에 내용물이 없는 경우
+            {
+                return;
+            }
             pay Pay = new pay(selectedButton.Name, totcost);
             Point parentpoint = this.Location;
             Pay.Location = new Point(parentpoint.X, parentpoint.Y);
             Pay.StartPosition = FormStartPosition.Manual;
             Pay.FormClosed += pay_FormClosed;
             Pay.Show();
+            selectedButton.BackColor = Color.LightGray;
         }
         private void pay_FormClosed(object sender, FormClosedEventArgs e)
         {
