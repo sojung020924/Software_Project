@@ -33,7 +33,7 @@ namespace Software_Project
         }
         public void Side_Load(object sender, EventArgs e)
         {
-            ReadCsvFile("menu.CSV",flowLayoutPanel1);
+            ReadCsvFile(Path.Combine("..", "..", "Properties", "menu.CSV"),flowLayoutPanel1);
             Total_cost_TextChanged();
             for (int i = 0; i < jan_btn_combi.Count; i++)
             {

@@ -38,7 +38,7 @@ namespace Software_Project
 
         public void Deopbab_Load(object sender, EventArgs e)
         {
-            ReadCsvFile("menu.CSV",flowLayoutPanel1);
+            ReadCsvFile(Path.Combine("..", "..", "Properties", "menu.CSV"),flowLayoutPanel1);
             for (int i = 0; i < jan_btn_combi.Count; i++)
             {
                 flowLayoutPanel2.Controls.Add(jan_btn_combi[i].btn);
