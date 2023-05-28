@@ -21,9 +21,11 @@ namespace POS
         string selectedbutton;
         int totalcost = 0;
         int payedcost;
+        ListView menuview = new ListView();
         public pay(POS pos, string selectedbutton, int totalcost)
         {
             InitializeComponent();
+
 
             posForm = pos;
 
