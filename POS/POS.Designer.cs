@@ -29,6 +29,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(POS));
             this.loadtablebtn = new System.Windows.Forms.Button();
             this.settablebtn = new System.Windows.Forms.Button();
             this.kioskOn = new Guna.UI2.WinForms.Guna2Button();
@@ -181,6 +182,9 @@
             this.Controls.Add(this.kioskOn);
             this.Controls.Add(this.settablebtn);
             this.Controls.Add(this.loadtablebtn);
+
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "POS";
             this.Text = "Form1";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.POS_FormClosed);

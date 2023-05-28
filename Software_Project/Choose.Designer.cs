@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Choose));
             this.Menu_name = new Guna.UI2.WinForms.Guna2TextBox();
             this.Exit = new Guna.UI2.WinForms.Guna2Button();
             this.option_panel = new System.Windows.Forms.FlowLayoutPanel();
@@ -127,7 +128,7 @@
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.label1.Location = new System.Drawing.Point(12, 73);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 16);
+            this.label1.Size = new System.Drawing.Size(70, 18);
             this.label1.TabIndex = 4;
             this.label1.Text = "<옵션>";
             // 
@@ -138,7 +139,7 @@
             this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.label2.Location = new System.Drawing.Point(12, 276);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(89, 16);
+            this.label2.Size = new System.Drawing.Size(106, 18);
             this.label2.TabIndex = 5;
             this.label2.Text = "<요청사항>";
             // 
@@ -173,7 +174,7 @@
             this.info.ForeColor = System.Drawing.SystemColors.AppWorkspace;
             this.info.Location = new System.Drawing.Point(13, 356);
             this.info.Name = "info";
-            this.info.Size = new System.Drawing.Size(136, 12);
+            this.info.Size = new System.Drawing.Size(171, 16);
             this.info.TabIndex = 7;
             this.info.Text = "클릭하고 입력해주세요!";
             // 
@@ -191,6 +192,7 @@
             this.total.Font = new System.Drawing.Font("휴먼둥근헤드라인", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.total.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.total.Location = new System.Drawing.Point(247, 607);
+            this.total.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
             this.total.Name = "total";
             this.total.PasswordChar = '\0';
             this.total.PlaceholderText = "";
@@ -214,6 +216,7 @@
             this.Controls.Add(this.Exit);
             this.Controls.Add(this.Menu_name);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Choose";
             this.Text = "Choose";
             this.Load += new System.EventHandler(this.Choose_Load);
