@@ -36,7 +36,7 @@ namespace Software_Project
         }
         private void Choose_Load(object sender, EventArgs e)
         {
-            setting("menu.CSV");
+            setting(Path.Combine("..", "..", "Properties", "menu.CSV"));
             ChangeFontSize(fontsize);
         }
 

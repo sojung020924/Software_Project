@@ -33,7 +33,7 @@ namespace Software_Project
         }
         public void Side_Load(object sender, EventArgs e)
         {
-            ReadCsvFile("menu.CSV",flowLayoutPanel1);
+            ReadCsvFile(Path.Combine("..", "..", "Properties", "menu.CSV"),flowLayoutPanel1);
             Total_cost_TextChanged();
             for (int i = 0; i < jan_btn_combi.Count; i++)
             {
@@ -144,7 +144,10 @@ namespace Software_Project
                 //이미지 설정
                 try
                 {
-                    button.Image = Image.FromFile(list[i][0] + ".jpg");
+                    string currentdir = Directory.GetCurrentDirectory();
+                    string folder = "메뉴사진";
+
+                    button.Image = Image.FromFile(Path.Combine(currentdir, "..", "..", "Properties", folder, (list[i][0] + ".jpg")));
                 }
                 catch (FileNotFoundException)
                 {

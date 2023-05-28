@@ -16,6 +16,7 @@ namespace Software_Project
         public admin_register2()
         {
             InitializeComponent();
+            textBox1.PasswordChar = '*';
         }
 
         private void button1_Click(object sender, EventArgs e)
