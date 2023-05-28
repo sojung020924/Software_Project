@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(table_setting));
             this.tablechuga = new Guna.UI2.WinForms.Guna2Button();
             this.reset = new Guna.UI2.WinForms.Guna2Button();
             this.backbutton = new Guna.UI2.WinForms.Guna2Button();
@@ -122,6 +123,7 @@
             this.Controls.Add(this.backbutton);
             this.Controls.Add(this.reset);
             this.Controls.Add(this.tablechuga);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "table_setting";
             this.Text = "table_setting";

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(pay));
             this.paypanel = new System.Windows.Forms.Panel();
             this.cardpay = new Guna.UI2.WinForms.Guna2Button();
             this.cashpay = new Guna.UI2.WinForms.Guna2Button();
@@ -102,7 +103,7 @@
             this.paycosttxt.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.paycosttxt.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.paycosttxt.Location = new System.Drawing.Point(95, 424);
-            this.paycosttxt.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.paycosttxt.Margin = new System.Windows.Forms.Padding(5);
             this.paycosttxt.Name = "paycosttxt";
             this.paycosttxt.PasswordChar = '\0';
             this.paycosttxt.PlaceholderText = "";
@@ -144,7 +145,7 @@
             this.totcosttxt.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.totcosttxt.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.totcosttxt.Location = new System.Drawing.Point(96, 360);
-            this.totcosttxt.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.totcosttxt.Margin = new System.Windows.Forms.Padding(5);
             this.totcosttxt.Name = "totcosttxt";
             this.totcosttxt.PasswordChar = '\0';
             this.totcosttxt.PlaceholderText = "";
@@ -254,6 +255,7 @@
             this.Controls.Add(this.cashpay);
             this.Controls.Add(this.cardpay);
             this.Controls.Add(this.paypanel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "pay";
             this.Text = "Form1";

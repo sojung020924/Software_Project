@@ -46,7 +46,6 @@ namespace Software_Project
         private void Form1_Load(object sender, EventArgs e)
         {
             ChangeFontSize(fontsize);
-            flowLayoutPanel1.SendToBack();
         }
 
         private void choose_deopbab_Click(object sender, EventArgs e)
@@ -102,17 +101,6 @@ namespace Software_Project
 
         }
 
-        private void guna2Button1_Click(object sender, EventArgs e)
-        {
-            fontsize = 18;
-            ChangeFontSize(fontsize);
-        }
-
-        private void guna2Button2_Click(object sender, EventArgs e)
-        {
-            fontsize = 10;
-            ChangeFontSize(fontsize);
-        }
 
         private void 관리자모드ToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -122,6 +110,12 @@ namespace Software_Project
             login.StartPosition = FormStartPosition.Manual;
             login.Location = new Point(parentPoint.X, parentPoint.Y);
             login.ShowDialog();
+        }
+
+        private void guna2HScrollBar1_Scroll(object sender, ScrollEventArgs e)
+        {
+            fontsize = guna2HScrollBar1.Value;
+            ChangeFontSize(fontsize);
         }
     }
     
