@@ -158,6 +158,9 @@ namespace POS
             if (int.Parse(paycosttxt.Text) == 0)
             {
                 MessageBox.Show("금액을 선택해주세요.", "알림");
+            }else if(int.Parse(paycosttxt.Text) < 0)
+            {
+                MessageBox.Show("0원 이상의 금액을 입력해주세요.", "알림");
             }
             else
             {
@@ -195,6 +198,10 @@ namespace POS
             if (int.Parse(paycosttxt.Text) == 0)
             {
                 MessageBox.Show("금액을 선택해주세요.", "알림");
+            }
+            else if (int.Parse(paycosttxt.Text) < 0)
+            {
+                MessageBox.Show("0원 이상의 금액을 입력해주세요.", "알림");
             }
             else
             {
