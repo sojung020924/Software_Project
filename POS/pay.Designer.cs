@@ -38,6 +38,8 @@
             this.totalbtn = new Guna.UI2.WinForms.Guna2Button();
             this.selectcancel = new Guna.UI2.WinForms.Guna2Button();
             this.sellistView = new System.Windows.Forms.ListView();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.SuspendLayout();
             // 
             // paypanel
@@ -49,30 +51,38 @@
             // 
             // cardpay
             // 
+            this.cardpay.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.cardpay.BorderRadius = 5;
+            this.cardpay.BorderThickness = 2;
             this.cardpay.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.cardpay.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.cardpay.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.cardpay.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.cardpay.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.cardpay.ForeColor = System.Drawing.Color.White;
-            this.cardpay.Location = new System.Drawing.Point(243, 283);
+            this.cardpay.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.cardpay.Font = new System.Drawing.Font("휴먼둥근헤드라인", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.cardpay.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.cardpay.Location = new System.Drawing.Point(225, 287);
             this.cardpay.Name = "cardpay";
-            this.cardpay.Size = new System.Drawing.Size(180, 64);
+            this.cardpay.Size = new System.Drawing.Size(94, 87);
             this.cardpay.TabIndex = 0;
             this.cardpay.Text = "카드";
             this.cardpay.Click += new System.EventHandler(this.cardpay_Click);
             // 
             // cashpay
             // 
+            this.cashpay.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.cashpay.BorderRadius = 5;
+            this.cashpay.BorderThickness = 2;
             this.cashpay.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.cashpay.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.cashpay.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.cashpay.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.cashpay.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.cashpay.ForeColor = System.Drawing.Color.White;
-            this.cashpay.Location = new System.Drawing.Point(243, 353);
+            this.cashpay.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.cashpay.Font = new System.Drawing.Font("휴먼둥근헤드라인", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.cashpay.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.cashpay.Location = new System.Drawing.Point(325, 287);
             this.cashpay.Name = "cashpay";
-            this.cashpay.Size = new System.Drawing.Size(180, 62);
+            this.cashpay.Size = new System.Drawing.Size(93, 87);
             this.cashpay.TabIndex = 1;
             this.cashpay.Text = "현금";
             this.cashpay.Click += new System.EventHandler(this.cashpay_Click);
@@ -101,10 +111,10 @@
             // 
             this.cost.AutoSize = true;
             this.cost.CausesValidation = false;
-            this.cost.Font = new System.Drawing.Font("굴림", 13F);
-            this.cost.Location = new System.Drawing.Point(-3, 347);
+            this.cost.Font = new System.Drawing.Font("HY견고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.cost.Location = new System.Drawing.Point(2, 347);
             this.cost.Name = "cost";
-            this.cost.Size = new System.Drawing.Size(80, 18);
+            this.cost.Size = new System.Drawing.Size(71, 16);
             this.cost.TabIndex = 3;
             this.cost.Text = "결제금액";
             // 
@@ -112,10 +122,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.CausesValidation = false;
-            this.label1.Font = new System.Drawing.Font("굴림", 13F);
-            this.label1.Location = new System.Drawing.Point(-3, 298);
+            this.label1.Font = new System.Drawing.Font("HY견고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label1.Location = new System.Drawing.Point(2, 298);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(80, 18);
+            this.label1.Size = new System.Drawing.Size(71, 16);
             this.label1.TabIndex = 4;
             this.label1.Text = "남은금액";
             // 
@@ -142,30 +152,34 @@
             // 
             // totalbtn
             // 
+            this.totalbtn.BorderRadius = 15;
             this.totalbtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.totalbtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.totalbtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.totalbtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.totalbtn.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.totalbtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.totalbtn.Font = new System.Drawing.Font("HY견고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.totalbtn.ForeColor = System.Drawing.Color.White;
-            this.totalbtn.Location = new System.Drawing.Point(0, 380);
+            this.totalbtn.Location = new System.Drawing.Point(5, 380);
             this.totalbtn.Name = "totalbtn";
-            this.totalbtn.Size = new System.Drawing.Size(99, 35);
+            this.totalbtn.Size = new System.Drawing.Size(95, 35);
             this.totalbtn.TabIndex = 6;
             this.totalbtn.Text = "전체 선택";
             this.totalbtn.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
             // selectcancel
             // 
+            this.selectcancel.BorderRadius = 15;
             this.selectcancel.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.selectcancel.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.selectcancel.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.selectcancel.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.selectcancel.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.selectcancel.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.selectcancel.Font = new System.Drawing.Font("HY견고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.selectcancel.ForeColor = System.Drawing.Color.White;
-            this.selectcancel.Location = new System.Drawing.Point(104, 380);
+            this.selectcancel.Location = new System.Drawing.Point(107, 380);
             this.selectcancel.Name = "selectcancel";
-            this.selectcancel.Size = new System.Drawing.Size(99, 35);
+            this.selectcancel.Size = new System.Drawing.Size(95, 35);
             this.selectcancel.TabIndex = 7;
             this.selectcancel.Text = "선택 취소";
             this.selectcancel.Click += new System.EventHandler(this.selectcancel_Click);
@@ -180,12 +194,48 @@
             this.sellistView.UseCompatibleStateImageBehavior = false;
             this.sellistView.View = System.Windows.Forms.View.Tile;
             // 
+            // guna2Button1
+            // 
+            this.guna2Button1.BorderRadius = 15;
+            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.guna2Button1.Font = new System.Drawing.Font("HY견고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.guna2Button1.ForeColor = System.Drawing.Color.White;
+            this.guna2Button1.Location = new System.Drawing.Point(320, 380);
+            this.guna2Button1.Name = "guna2Button1";
+            this.guna2Button1.Size = new System.Drawing.Size(95, 35);
+            this.guna2Button1.TabIndex = 8;
+            this.guna2Button1.Text = "뒤로가기";
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click_1);
+            // 
+            // guna2Button2
+            // 
+            this.guna2Button2.BorderRadius = 15;
+            this.guna2Button2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.guna2Button2.Font = new System.Drawing.Font("HY견고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.guna2Button2.ForeColor = System.Drawing.Color.White;
+            this.guna2Button2.Location = new System.Drawing.Point(208, 380);
+            this.guna2Button2.Name = "guna2Button2";
+            this.guna2Button2.Size = new System.Drawing.Size(95, 35);
+            this.guna2Button2.TabIndex = 9;
+            this.guna2Button2.Text = "주문취소";
+            this.guna2Button2.Click += new System.EventHandler(this.guna2Button2_Click);
+            // 
             // pay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(435, 427);
             this.ControlBox = false;
+            this.Controls.Add(this.guna2Button2);
+            this.Controls.Add(this.guna2Button1);
             this.Controls.Add(this.sellistView);
             this.Controls.Add(this.selectcancel);
             this.Controls.Add(this.totalbtn);
@@ -217,5 +267,7 @@
         private Guna.UI2.WinForms.Guna2Button totalbtn;
         private Guna.UI2.WinForms.Guna2Button selectcancel;
         private System.Windows.Forms.ListView sellistView;
+        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2Button guna2Button2;
     }
 }

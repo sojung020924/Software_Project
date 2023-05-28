@@ -33,7 +33,7 @@ namespace Software_Project
         }
         public void Bockbab_Load(object sender, EventArgs e)
         {
-            ReadCsvFile("menu.CSV",flowLayoutPanel1);
+            ReadCsvFile(Path.Combine("..","..","Properties","menu.CSV"), flowLayoutPanel1);
             Total_cost_TextChanged();
             for(int i = 0; i< jan_btn_combi.Count; i++)
             {
@@ -143,7 +143,18 @@ namespace Software_Project
 
 
                 //이미지 설정
-                button.Image = Image.FromFile(list[i][0] + ".jpg");
+                try
+                {
+                    string currentdir = Directory.GetCurrentDirectory();
+                    string folder = "메뉴사진";
+                    
+                    button.Image = Image.FromFile(Path.Combine(currentdir,"..","..","Properties", folder, (list[i][0] + ".jpg")));
+                }
+                catch (FileNotFoundException)
+                {
+                    // 파일이 존재하지 않는 경우 이미지를 없게 설정합니다.
+                    button.Image = null;
+                }
                 button.ImageSize = new Size(150, 90);
                 button.ImageOffset = new Point(35, -15);
                 button.TextOffset = new Point(0, 55);
@@ -346,12 +357,19 @@ namespace Software_Project
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
-            gyeoljae g = new gyeoljae(jan_btn_combi,location_list , fontsize);
-            Point parentPoint = this.Location; //폼 열리는 위치 설정
-            g.StartPosition = FormStartPosition.Manual;
-            g.Location = new Point(parentPoint.X, parentPoint.Y);
-            g.ShowDialog();
+            if (jan_btn_combi.Count == 0)
+            {
+                MessageBox.Show("메뉴를 선택해주세요.", "알림");
+            }
+            else
+            {
+                this.Visible = false;
+                gyeoljae g = new gyeoljae(jan_btn_combi, location_list, fontsize);
+                Point parentPoint = this.Location; //폼 열리는 위치 설정
+                g.StartPosition = FormStartPosition.Manual;
+                g.Location = new Point(parentPoint.X, parentPoint.Y);
+                g.ShowDialog();
+            }
         }
     }
 }
