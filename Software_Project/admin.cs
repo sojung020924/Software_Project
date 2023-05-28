@@ -44,7 +44,7 @@ namespace Software_Project
 
         private void admin_Load(object sender, EventArgs e)
         {
-            using (StreamReader reader = new StreamReader("menu.CSV"))
+            using (StreamReader reader = new StreamReader(Path.Combine("..", "..", "Properties", "menu.CSV")))
             {
                 reader.ReadLine();
                 while (!reader.EndOfStream)
@@ -95,7 +95,7 @@ namespace Software_Project
             int count = 1;
             List<string> lines = new List<string>();
 
-            StreamReader sr = new StreamReader("menu.CSV");
+            StreamReader sr = new StreamReader(Path.Combine("..", "..", "Properties", "menu.CSV"));
             while (!sr.EndOfStream)
             {
                 string line;
@@ -108,7 +108,7 @@ namespace Software_Project
                 lines.Add(line);
             }
             sr.Close();
-            StreamWriter wr = new StreamWriter("menu.CSV", false);
+            StreamWriter wr = new StreamWriter(Path.Combine("..", "..", "Properties", "menu.CSV"), false);
 
             for (int i = 0; i < lines.Count; i++)
             {
@@ -124,7 +124,7 @@ namespace Software_Project
         private void button2_Click(object sender, EventArgs e) // 메뉴 추가 버튼
         {
             string text = "";
-            using (StreamReader sr = new StreamReader("menu.CSV"))
+            using (StreamReader sr = new StreamReader(Path.Combine("..", "..", "Properties", "menu.CSV")))
             {
                 while (!sr.EndOfStream)//여기에 기존에 존재하는 메뉴라면 해당행 삭제 후 등록 추가해야함(완료)
                 {
@@ -150,7 +150,7 @@ namespace Software_Project
                 }
                 sr.Close();
             }
-            using (StreamWriter sw = new StreamWriter("menu.CSV", false))
+            using (StreamWriter sw = new StreamWriter(Path.Combine("..", "..", "Properties", "menu.CSV"), false))
             {
                 sw.WriteLine(text);
                 sw.Close();
@@ -176,13 +176,21 @@ namespace Software_Project
 
             try
             {
+                string currentdir = Directory.GetCurrentDirectory();
+                string folder = "메뉴사진";
                 // 파일 이름 변경을 위한 대상 파일명을 입력합니다.
                 string newFileName = textBox1.Text + ".jpg";
 
                 // 대상 폴더가 없다면 생성합니다.
 
                 // 파일을 복사하고 이름을 변경하여 붙여넣습니다.
-                string targetFilePath = Path.Combine(".", newFileName);
+                string targetFilePath = Path.Combine(currentdir, "..", "..", "Properties", folder, newFileName);
+
+                if (File.Exists(targetFilePath))
+                {
+                    File.Delete(targetFilePath);
+                }
+
                 File.Copy(textBox4.Text, targetFilePath);
 
                 Console.WriteLine("파일이 복사되었습니다.");

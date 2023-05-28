@@ -38,7 +38,7 @@ namespace Software_Project
 
         public void Deopbab_Load(object sender, EventArgs e)
         {
-            ReadCsvFile("menu.CSV",flowLayoutPanel1);
+            ReadCsvFile(Path.Combine("..", "..", "Properties", "menu.CSV"),flowLayoutPanel1);
             for (int i = 0; i < jan_btn_combi.Count; i++)
             {
                 flowLayoutPanel2.Controls.Add(jan_btn_combi[i].btn);
@@ -150,7 +150,10 @@ namespace Software_Project
                 //이미지 설정
                 try
                 {
-                    button.Image = Image.FromFile(list[i][0] + ".jpg");
+                    string currentdir = Directory.GetCurrentDirectory();
+                    string folder = "메뉴사진";
+
+                    button.Image = Image.FromFile(Path.Combine(currentdir, "..", "..", "Properties", folder, (list[i][0] + ".jpg")));
                 }
                 catch (FileNotFoundException)
                 {

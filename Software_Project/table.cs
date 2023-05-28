@@ -69,7 +69,7 @@ namespace Software_Project
                     button.BackColor = Color.Red;
                 }
                 button.Size = new Size(131, 62);
-                button.Text = "테이블" + (i + 1);
+                button.Text = "테이블" + (i + 1).ToString();
                 button.Name = i.ToString();
                 int x = location_list[i].location_x;
                 int y = location_list[i].location_y;
@@ -158,7 +158,7 @@ namespace Software_Project
                 using (TcpClient client = new TcpClient(serverIP, serverPort))
                 {
                     // 전송할 메시지
-                    string message = (int.Parse(selectedButton.Name) + 1) + "번 테이블에서 주문이 들어왔습니다!";
+                    string message = (int.Parse(selectedButton.Name) + 1).ToString() + "번 테이블에서 주문이 들어왔습니다!";
 
                     // 메시지를 UTF-8로 인코딩하여 바이트 배열로 변환
                     byte[] buffer = Encoding.UTF8.GetBytes(message);
@@ -251,6 +251,7 @@ namespace Software_Project
                     }
                     lineCount++;
                 }
+                reader.Close();
             }
 
             using (StreamWriter writer = new StreamWriter(filePath, false))
@@ -259,6 +260,7 @@ namespace Software_Project
                 {
                     writer.WriteLine(line);
                 }
+                writer.Close();
             }
 
 
