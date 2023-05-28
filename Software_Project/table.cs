@@ -251,6 +251,7 @@ namespace Software_Project
                     }
                     lineCount++;
                 }
+                reader.Close();
             }
 
             using (StreamWriter writer = new StreamWriter(filePath, false))
@@ -259,6 +260,7 @@ namespace Software_Project
                 {
                     writer.WriteLine(line);
                 }
+                writer.Close();
             }
 
 

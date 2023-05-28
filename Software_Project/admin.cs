@@ -176,13 +176,21 @@ namespace Software_Project
 
             try
             {
+                string currentdir = Directory.GetCurrentDirectory();
+                string folder = "메뉴사진";
                 // 파일 이름 변경을 위한 대상 파일명을 입력합니다.
                 string newFileName = textBox1.Text + ".jpg";
 
                 // 대상 폴더가 없다면 생성합니다.
 
                 // 파일을 복사하고 이름을 변경하여 붙여넣습니다.
-                string targetFilePath = Path.Combine(".", newFileName);
+                string targetFilePath = Path.Combine(currentdir, "..","..", "Properties", folder, newFileName);
+
+                if (File.Exists(targetFilePath))
+                {
+                    File.Delete(targetFilePath);
+                }
+
                 File.Copy(textBox4.Text, targetFilePath);
 
                 Console.WriteLine("파일이 복사되었습니다.");
