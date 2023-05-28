@@ -68,7 +68,11 @@ namespace Software_Project
                 {
                     button.BackColor = Color.Red;
                 }
+                button.BackColor = Color.Gray;
                 button.Size = new Size(131, 62);
+                button.FlatStyle = FlatStyle.Flat;
+                button.FlatAppearance.BorderSize = 0;
+                button.Font = new Font("HY견고딕", 10);
                 button.Text = "테이블" + (i + 1).ToString();
                 button.Name = i.ToString();
                 int x = location_list[i].location_x;
@@ -90,7 +94,7 @@ namespace Software_Project
             {
                 if (selectedButton.BackColor == Color.Blue)
                 {
-                    selectedButton.BackColor = SystemColors.Control;
+                    selectedButton.BackColor = Color.Gray;
                 }
             }
 
@@ -195,6 +199,11 @@ namespace Software_Project
             main_ui.Location = new Point(parentPoint.X, parentPoint.Y);
             main_ui.ShowDialog();
             this.Close();
+        }
+
+        private void table_num_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
     public class CsvGenerator

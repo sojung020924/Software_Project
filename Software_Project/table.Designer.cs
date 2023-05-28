@@ -39,9 +39,10 @@
             this.backbutton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.backbutton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.backbutton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.backbutton.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.backbutton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.backbutton.Font = new System.Drawing.Font("HY견고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.backbutton.ForeColor = System.Drawing.Color.White;
-            this.backbutton.Location = new System.Drawing.Point(426, 505);
+            this.backbutton.Location = new System.Drawing.Point(427, 640);
             this.backbutton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.backbutton.Name = "backbutton";
             this.backbutton.Size = new System.Drawing.Size(159, 69);
@@ -55,9 +56,10 @@
             this.tablegola.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.tablegola.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.tablegola.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.tablegola.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.tablegola.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.tablegola.Font = new System.Drawing.Font("HY견고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.tablegola.ForeColor = System.Drawing.Color.White;
-            this.tablegola.Location = new System.Drawing.Point(230, 505);
+            this.tablegola.Location = new System.Drawing.Point(230, 640);
             this.tablegola.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tablegola.Name = "tablegola";
             this.tablegola.Size = new System.Drawing.Size(159, 69);
@@ -74,18 +76,19 @@
             this.table_num.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.table_num.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.table_num.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.table_num.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.table_num.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.table_num.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.table_num.Location = new System.Drawing.Point(230, 418);
+            this.table_num.Location = new System.Drawing.Point(230, 563);
             this.table_num.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.table_num.Multiline = true;
             this.table_num.Name = "table_num";
             this.table_num.PasswordChar = '\0';
             this.table_num.PlaceholderText = "";
             this.table_num.SelectedText = "";
-            this.table_num.Size = new System.Drawing.Size(356, 67);
+            this.table_num.Size = new System.Drawing.Size(356, 46);
             this.table_num.TabIndex = 4;
             this.table_num.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.table_num.TextChanged += new System.EventHandler(this.table_num_TextChanged);
             // 
             // table
             // 
