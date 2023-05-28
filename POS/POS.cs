@@ -58,7 +58,6 @@ namespace POS
         int totcost = 0;
         int maechool = 0;
 
-        public int PassedValue { get; set; }
 
         public POS()
         {
@@ -88,7 +87,13 @@ namespace POS
             }
 
             // 다음 클라이언트 연결을 비동기적으로 수신
-            server.BeginAcceptTcpClient(HandleClientConnection, null);
+            try
+            {
+                server.BeginAcceptTcpClient(HandleClientConnection, null);
+            }catch(Exception ex)
+            {
+                Console.WriteLine($"{ex.Message}");
+            }
         }
 
         private void ReceiveMessages()
@@ -391,12 +396,106 @@ namespace POS
 
         public void Updatemaechool(int value)
         {
+            maechool += value;
             totalmaechool.Text = maechool.ToString() + "원";
         }
 
         private void POS_Load(object sender, EventArgs e)
         {
-            maechool = 0;
+            try
+            {
+                using (StreamReader sra = new StreamReader(Path.Combine("..", "..", "Properties", "totalmaechool.CSV")))
+                {
+                    string maechooltext;
+                    DateTime dateTime = DateTime.Now;
+                    while (!sra.EndOfStream)
+                    {
+                        string line;
+                        line = sra.ReadLine();
+                        string[] value = line.Split(',');
+                        if (value[0] == dateTime.ToString("yyyy-MM-dd"))
+                        {
+                            maechooltext = value[1];
+                            maechool = int.Parse(Regex.Replace(maechooltext, "[^0-9]", ""));
+                            totalmaechool.Text = maechool.ToString() + "원";
+                        }
+                        else
+                        {
+                            return;
+                        }
+                    }
+                    sra.Close();
+                }
+            }catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+        private void POS_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            string newmaechool = totalmaechool.Text;
+            DateTime dateTime = DateTime.Now;
+
+            string text = "";
+            if (!File.Exists(Path.Combine("..", "..", "Properties", "totalmaechool.CSV")))
+            {
+                text = dateTime.ToString("yyyy-MM-dd") + "," + newmaechool.ToString() + '\n';
+                StreamWriter sw = new StreamWriter(Path.Combine("..", "..", "Properties", "totalmaechool.CSV"));
+                sw.WriteLine(text);
+                sw.Close();
+            }
+            else if (File.Exists(Path.Combine("..", "..", "Properties", "totalmaechool.CSV")))
+            {
+                
+                //try
+                {
+                    using (StreamReader sr = new StreamReader(Path.Combine("..", "..", "Properties", "totalmaechool.CSV")))
+                    {
+                        while (!sr.EndOfStream)
+                        {
+                            string line;
+                            line = sr.ReadLine();
+                            string[] value = line.Split(',');
+
+                            
+                            if (value[0] == dateTime.ToString("yyyy-MM-dd"))
+                            {
+                                line = value[0] + "," + newmaechool.ToString();
+                                text += line;
+                                break;
+                            }
+                            else if (sr.Peek() == -1 && !(value[0] == dateTime.ToString("yyyy-MM-dd")))
+                            {
+                                text += line;
+                                line = dateTime.ToString("yyyy-MM-dd") + "," + newmaechool.ToString() + '\n';
+                                text += line;
+                                break;
+                            }
+                            text += line;
+                        }
+                        sr.Close();
+                    }
+                    
+                    File.Delete((Path.Combine("..", "..", "Properties", "totalmaechool.CSV")));
+
+                    StreamWriter sw = new StreamWriter(Path.Combine("..", "..", "Properties", "totalmaechool.CSV"));
+                    sw.WriteLine(text);
+                    sw.Close();
+                }//catch (Exception ex)
+                {
+
+                    //Console.WriteLine(ex.Message);
+
+                }
+            }
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            maechoollist maelist = new maechoollist();
+            maelist.ShowDialog();
         }
     }
     public class CsvGenerator

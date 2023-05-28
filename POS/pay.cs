@@ -6,6 +6,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -21,9 +22,11 @@ namespace POS
         string selectedbutton;
         int totalcost = 0;
         int payedcost;
+        ListView menuview = new ListView();
         public pay(POS pos, string selectedbutton, int totalcost)
         {
             InitializeComponent();
+
 
             posForm = pos;
 
@@ -319,6 +322,7 @@ namespace POS
                     }
 
                 }
+               
 
             }
             reader.Close();
@@ -332,7 +336,7 @@ namespace POS
                     writer.WriteLine(line[0] + "," + line[1] + "," + line[2] + "," + line[3] + "," + line[4] + "," + line[5] + "," + line[6] + "," + line[7]); // 새로운 파일에 라인 쓰기
                 }
             }
-            
+            posForm.Updatemaechool(payedcost - totalcost);
         }
 
         private void guna2Button2_Click(object sender, EventArgs e)

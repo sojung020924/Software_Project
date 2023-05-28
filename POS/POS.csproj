@@ -67,6 +67,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="maechoollist.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="maechoollist.Designer.cs">
+      <DependentUpon>maechoollist.cs</DependentUpon>
+    </Compile>
     <Compile Include="pay.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,6 +93,9 @@
     <Compile Include="table_setting.Designer.cs">
       <DependentUpon>table_setting.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="maechoollist.resx">
+      <DependentUpon>maechoollist.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="pay.resx">
       <DependentUpon>pay.cs</DependentUpon>
     </EmbeddedResource>
