@@ -61,9 +61,12 @@ namespace POS
             Button button = new Button();
             button.Size = new Size(131,62);
             button.Name = table_num.ToString();
-            button.Text = "테이블 "+table_num;
-            
-            
+            button.Text = "테이블 "+(table_num+1);
+            button.FlatStyle = FlatStyle.Flat;
+            button.FlatAppearance.BorderSize = 0;
+            button.Font = new Font("HY견고딕", 10);
+            button.BackColor = Color.LightCoral;
+
             location loc = new location
             {
                 location_x = button.Location.X,
@@ -137,8 +140,12 @@ namespace POS
             {
                 Button button = new Button();
                 button.Size = new Size(131, 62);
-                button.Text = "테이블 " + i;
+                button.Text = "테이블 " + (i + 1);
                 button.Name = i.ToString();
+                button.FlatStyle = FlatStyle.Flat;
+                button.FlatAppearance.BorderSize = 0;
+                button.Font = new Font("HY견고딕", 10);
+                button.BackColor = Color.LightCoral;
                 button.MouseDown += new MouseEventHandler(button_MouseDown);
                 button.MouseMove += new MouseEventHandler(button_MouseMove);
                 button.MouseUp += new MouseEventHandler(button_MouseUp);

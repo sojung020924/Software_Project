@@ -144,6 +144,17 @@ namespace POS
 
         private void OpenSettingForm()
         {
+            if (File.Exists("tablelist.CSV"))
+            {
+                for(int i = 0; i <location_list.Count ; i++)
+                {
+                    if(File.Exists(i.ToString() + ".CSV"))
+                    {
+                        MessageBox.Show("모든 테이블의 결제를 끝내고\n\r다시 실행해주세요.", "실행 실패");
+                        return;
+                    }
+                }
+            }
             if (settingForm == null || settingForm.IsDisposed)
             {
                 settingForm = new table_setting(this); // SettingForm의 생성자에 PosForm 인스턴스를 전달합니다.
@@ -359,10 +370,17 @@ namespace POS
             Pay.StartPosition = FormStartPosition.Manual;
             Pay.FormClosed += pay_FormClosed;
             Pay.Show();
-            selectedButton.BackColor = Color.LightGray;
+            if (!File.Exists(selectedButton.Name + ".CSV"))
+            {
+                selectedButton.BackColor = Color.LightGray;
+                selectedButton = null;
+
+            }
+                
         }
         private void pay_FormClosed(object sender, FormClosedEventArgs e)
         {
+            
             // 다른 폼(Form2)이 닫힌 후에 수행할 작업을 여기에 작성합니다.
             maechool += int.Parse(Regex.Replace(totalcost.Text, @"\D", ""));
             totalmaechool.Text = maechool.ToString() + "원";
