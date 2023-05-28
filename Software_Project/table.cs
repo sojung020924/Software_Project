@@ -212,7 +212,7 @@ namespace Software_Project
             }
             else
             {
-                using (StreamWriter writer = new StreamWriter(filePath))
+                using (StreamWriter writer = new StreamWriter(filePath,false, Encoding.UTF8))
                 {
                     // CSV 파일의 헤더 작성
                     writer.WriteLine("Menu Name,Total Price,Memo,Options,Count");
