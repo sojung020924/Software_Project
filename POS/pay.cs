@@ -360,5 +360,10 @@ namespace POS
                 File.Delete(selectedbutton + ".CSV");
             }
         }
+
+        private void totcosttxt_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

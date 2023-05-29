@@ -189,6 +189,7 @@
             this.Controls.Add(this.choose_bockbab);
             this.Controls.Add(this.choose_deopbab);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Side";
             this.Text = "Side";
             this.Load += new System.EventHandler(this.Side_Load);

@@ -53,7 +53,7 @@
             this.guna2Button1.Name = "guna2Button1";
             this.guna2Button1.Size = new System.Drawing.Size(685, 78);
             this.guna2Button1.TabIndex = 16;
-            this.guna2Button1.Text = "[앙큼 ^핫^ 폭스 덮밥]";
+            this.guna2Button1.Text = "[앙큼 핫 폭스 덮밥]";
             // 
             // gyeoljoeng_hagi
             // 

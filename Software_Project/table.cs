@@ -77,7 +77,7 @@ namespace Software_Project
                 button.Name = i.ToString();
                 int x = location_list[i].location_x;
                 int y = location_list[i].location_y;
-                button.Location = new Point(x, y);
+                button.Location = new Point(x, y + 80);
                 button.MouseClick += button_click;
                 if (location_list[i].used == true)
                     button.BackColor = Color.Red;
@@ -114,6 +114,7 @@ namespace Software_Project
             }
 
             // 선택된 버튼을 추적합니다.
+            table_num.Font= new Font("HY견고딕", 15);
             table_num.Text = "고른 테이블: " + button.Text + " 번";
             selectedButton = button;
             selectedButton.Name = button.Name;
@@ -199,11 +200,6 @@ namespace Software_Project
             main_ui.Location = new Point(parentPoint.X, parentPoint.Y);
             main_ui.ShowDialog();
             this.Close();
-        }
-
-        private void table_num_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
     public class CsvGenerator
