@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(pay));
             this.paypanel = new System.Windows.Forms.Panel();
             this.cardpay = new Guna.UI2.WinForms.Guna2Button();
             this.cashpay = new Guna.UI2.WinForms.Guna2Button();
@@ -45,9 +46,8 @@
             // paypanel
             // 
             this.paypanel.Location = new System.Drawing.Point(0, 0);
-            this.paypanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.paypanel.Name = "paypanel";
-            this.paypanel.Size = new System.Drawing.Size(495, 190);
+            this.paypanel.Size = new System.Drawing.Size(433, 152);
             this.paypanel.TabIndex = 0;
             // 
             // cardpay
@@ -62,10 +62,9 @@
             this.cardpay.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.cardpay.Font = new System.Drawing.Font("휴먼둥근헤드라인", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.cardpay.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.cardpay.Location = new System.Drawing.Point(257, 359);
-            this.cardpay.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cardpay.Location = new System.Drawing.Point(225, 287);
             this.cardpay.Name = "cardpay";
-            this.cardpay.Size = new System.Drawing.Size(107, 109);
+            this.cardpay.Size = new System.Drawing.Size(94, 87);
             this.cardpay.TabIndex = 0;
             this.cardpay.Text = "카드";
             this.cardpay.Click += new System.EventHandler(this.cardpay_Click);
@@ -82,10 +81,9 @@
             this.cashpay.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.cashpay.Font = new System.Drawing.Font("휴먼둥근헤드라인", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.cashpay.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.cashpay.Location = new System.Drawing.Point(371, 359);
-            this.cashpay.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cashpay.Location = new System.Drawing.Point(325, 287);
             this.cashpay.Name = "cashpay";
-            this.cashpay.Size = new System.Drawing.Size(106, 109);
+            this.cashpay.Size = new System.Drawing.Size(93, 87);
             this.cashpay.TabIndex = 1;
             this.cashpay.Text = "현금";
             this.cashpay.Click += new System.EventHandler(this.cashpay_Click);
@@ -101,13 +99,13 @@
             this.paycosttxt.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.paycosttxt.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.paycosttxt.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.paycosttxt.Location = new System.Drawing.Point(95, 424);
-            this.paycosttxt.Margin = new System.Windows.Forms.Padding(5);
+            this.paycosttxt.Location = new System.Drawing.Point(83, 339);
+            this.paycosttxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.paycosttxt.Name = "paycosttxt";
             this.paycosttxt.PasswordChar = '\0';
             this.paycosttxt.PlaceholderText = "";
             this.paycosttxt.SelectedText = "";
-            this.paycosttxt.Size = new System.Drawing.Size(136, 44);
+            this.paycosttxt.Size = new System.Drawing.Size(119, 35);
             this.paycosttxt.TabIndex = 2;
             // 
             // cost
@@ -115,9 +113,9 @@
             this.cost.AutoSize = true;
             this.cost.CausesValidation = false;
             this.cost.Font = new System.Drawing.Font("HY견고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.cost.Location = new System.Drawing.Point(2, 434);
+            this.cost.Location = new System.Drawing.Point(2, 347);
             this.cost.Name = "cost";
-            this.cost.Size = new System.Drawing.Size(89, 20);
+            this.cost.Size = new System.Drawing.Size(71, 16);
             this.cost.TabIndex = 3;
             this.cost.Text = "결제금액";
             // 
@@ -126,9 +124,9 @@
             this.label1.AutoSize = true;
             this.label1.CausesValidation = false;
             this.label1.Font = new System.Drawing.Font("HY견고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label1.Location = new System.Drawing.Point(2, 372);
+            this.label1.Location = new System.Drawing.Point(2, 298);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(89, 20);
+            this.label1.Size = new System.Drawing.Size(71, 16);
             this.label1.TabIndex = 4;
             this.label1.Text = "남은금액";
             // 
@@ -143,15 +141,14 @@
             this.totcosttxt.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.totcosttxt.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.totcosttxt.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-
-            this.totcosttxt.Location = new System.Drawing.Point(95, 361);
-            this.totcosttxt.Margin = new System.Windows.Forms.Padding(6);
+            this.totcosttxt.Location = new System.Drawing.Point(83, 289);
+            this.totcosttxt.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.totcosttxt.Name = "totcosttxt";
             this.totcosttxt.PasswordChar = '\0';
             this.totcosttxt.PlaceholderText = "";
             this.totcosttxt.ReadOnly = true;
             this.totcosttxt.SelectedText = "";
-            this.totcosttxt.Size = new System.Drawing.Size(136, 46);
+            this.totcosttxt.Size = new System.Drawing.Size(119, 37);
             this.totcosttxt.TabIndex = 5;
             this.totcosttxt.TextChanged += new System.EventHandler(this.totcosttxt_TextChanged);
             // 
@@ -165,10 +162,9 @@
             this.totalbtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.totalbtn.Font = new System.Drawing.Font("HY견고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.totalbtn.ForeColor = System.Drawing.Color.White;
-            this.totalbtn.Location = new System.Drawing.Point(6, 475);
-            this.totalbtn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.totalbtn.Location = new System.Drawing.Point(5, 380);
             this.totalbtn.Name = "totalbtn";
-            this.totalbtn.Size = new System.Drawing.Size(109, 44);
+            this.totalbtn.Size = new System.Drawing.Size(95, 35);
             this.totalbtn.TabIndex = 6;
             this.totalbtn.Text = "전체 선택";
             this.totalbtn.Click += new System.EventHandler(this.guna2Button1_Click);
@@ -183,10 +179,9 @@
             this.selectcancel.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.selectcancel.Font = new System.Drawing.Font("HY견고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.selectcancel.ForeColor = System.Drawing.Color.White;
-            this.selectcancel.Location = new System.Drawing.Point(122, 475);
-            this.selectcancel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.selectcancel.Location = new System.Drawing.Point(107, 380);
             this.selectcancel.Name = "selectcancel";
-            this.selectcancel.Size = new System.Drawing.Size(109, 44);
+            this.selectcancel.Size = new System.Drawing.Size(95, 35);
             this.selectcancel.TabIndex = 7;
             this.selectcancel.Text = "선택 취소";
             this.selectcancel.Click += new System.EventHandler(this.selectcancel_Click);
@@ -194,10 +189,9 @@
             // sellistView
             // 
             this.sellistView.HideSelection = false;
-            this.sellistView.Location = new System.Drawing.Point(0, 198);
-            this.sellistView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.sellistView.Location = new System.Drawing.Point(0, 158);
             this.sellistView.Name = "sellistView";
-            this.sellistView.Size = new System.Drawing.Size(494, 153);
+            this.sellistView.Size = new System.Drawing.Size(433, 123);
             this.sellistView.TabIndex = 0;
             this.sellistView.UseCompatibleStateImageBehavior = false;
             this.sellistView.View = System.Windows.Forms.View.Tile;
@@ -212,10 +206,9 @@
             this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.guna2Button1.Font = new System.Drawing.Font("HY견고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.Location = new System.Drawing.Point(366, 475);
-            this.guna2Button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.guna2Button1.Location = new System.Drawing.Point(320, 380);
             this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(109, 44);
+            this.guna2Button1.Size = new System.Drawing.Size(95, 35);
             this.guna2Button1.TabIndex = 8;
             this.guna2Button1.Text = "뒤로가기";
             this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click_1);
@@ -230,19 +223,18 @@
             this.guna2Button2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.guna2Button2.Font = new System.Drawing.Font("HY견고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.guna2Button2.ForeColor = System.Drawing.Color.White;
-            this.guna2Button2.Location = new System.Drawing.Point(238, 475);
-            this.guna2Button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.guna2Button2.Location = new System.Drawing.Point(208, 380);
             this.guna2Button2.Name = "guna2Button2";
-            this.guna2Button2.Size = new System.Drawing.Size(109, 44);
+            this.guna2Button2.Size = new System.Drawing.Size(95, 35);
             this.guna2Button2.TabIndex = 9;
             this.guna2Button2.Text = "주문취소";
             this.guna2Button2.Click += new System.EventHandler(this.guna2Button2_Click);
             // 
             // pay
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(497, 534);
+            this.ClientSize = new System.Drawing.Size(435, 427);
             this.ControlBox = false;
             this.Controls.Add(this.guna2Button2);
             this.Controls.Add(this.guna2Button1);
@@ -257,7 +249,7 @@
             this.Controls.Add(this.cardpay);
             this.Controls.Add(this.paypanel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "pay";
             this.Text = "Form1";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.pay_FormClosed);

@@ -12,6 +12,10 @@ namespace Software_Project
 {
     public partial class FIRST : Form
     {
+        public FIRST()
+        {
+            InitializeComponent();
+        }
         private void guna2Button1_Click(object sender, EventArgs e) //관리자모드
         {
             this.Visible = false;
