@@ -73,6 +73,12 @@
     <Compile Include="choolgeun.Designer.cs">
       <DependentUpon>choolgeun.cs</DependentUpon>
     </Compile>
+    <Compile Include="choolgeunboo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="choolgeunboo.Designer.cs">
+      <DependentUpon>choolgeunboo.cs</DependentUpon>
+    </Compile>
     <Compile Include="maechoollist.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +107,9 @@
     </Compile>
     <EmbeddedResource Include="choolgeun.resx">
       <DependentUpon>choolgeun.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="choolgeunboo.resx">
+      <DependentUpon>choolgeunboo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="maechoollist.resx">
       <DependentUpon>maechoollist.cs</DependentUpon>

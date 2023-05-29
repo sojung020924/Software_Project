@@ -502,6 +502,13 @@ namespace POS
             choolgeun geun = new choolgeun();
             geun.ShowDialog();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            choolgeunboo boo = new choolgeunboo();
+            boo.ShowDialog();
+
+        }
     }
     public class CsvGenerator
         {
