@@ -35,5 +35,10 @@ namespace Software_Project
             main.Location = new Point(parentPoint.X, parentPoint.Y);
             main.ShowDialog();
         }
+
+        private void FIRST_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

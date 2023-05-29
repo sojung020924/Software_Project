@@ -53,6 +53,12 @@ namespace POS
             }
             panel1.Controls.Add(listview);
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Search search = new Search();
+            search.ShowDialog();
+        }
     }
 
 }
