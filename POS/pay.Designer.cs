@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(pay));
             this.paypanel = new System.Windows.Forms.Panel();
             this.cardpay = new Guna.UI2.WinForms.Guna2Button();
             this.cashpay = new Guna.UI2.WinForms.Guna2Button();
@@ -144,6 +143,7 @@
             this.totcosttxt.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.totcosttxt.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.totcosttxt.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+
             this.totcosttxt.Location = new System.Drawing.Point(95, 361);
             this.totcosttxt.Margin = new System.Windows.Forms.Padding(6);
             this.totcosttxt.Name = "totcosttxt";
