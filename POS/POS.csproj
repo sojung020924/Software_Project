@@ -67,6 +67,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="choolgeun.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="choolgeun.Designer.cs">
+      <DependentUpon>choolgeun.cs</DependentUpon>
+    </Compile>
     <Compile Include="maechoollist.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,6 +99,9 @@
     <Compile Include="table_setting.Designer.cs">
       <DependentUpon>table_setting.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="choolgeun.resx">
+      <DependentUpon>choolgeun.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="maechoollist.resx">
       <DependentUpon>maechoollist.cs</DependentUpon>
     </EmbeddedResource>

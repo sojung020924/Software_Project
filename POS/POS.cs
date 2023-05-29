@@ -497,6 +497,12 @@ namespace POS
             maechoollist maelist = new maechoollist();
             maelist.ShowDialog();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            choolgeun geun = new choolgeun();
+            geun.ShowDialog();
+        }
     }
     public class CsvGenerator
         {
