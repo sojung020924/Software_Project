@@ -1,14 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.LinkLabel;
 
 namespace POS
 {
@@ -23,7 +15,7 @@ namespace POS
         {
             DateTime dateTime = DateTime.Now;
             string text = "";
-            string line = dateTime.ToString("MM-dd-HH:mm") + "," + textBox1.Text +"," + "출근";
+            string line = dateTime.ToString("MM-dd-HH:mm") + "," + textBox1.Text + "," + "출근";
             if (File.Exists(Path.Combine("..", "..", "Properties", "geunmoo.CSV")))
             {
                 using (StreamReader sr = new StreamReader(Path.Combine("..", "..", "Properties", "geunmoo.CSV")))

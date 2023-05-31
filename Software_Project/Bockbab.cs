@@ -1,13 +1,8 @@
 ﻿using Guna.UI2.WinForms;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Software_Project
@@ -33,9 +28,9 @@ namespace Software_Project
         }
         public void Bockbab_Load(object sender, EventArgs e)
         {
-            ReadCsvFile(Path.Combine("..","..","Properties","menu.CSV"), flowLayoutPanel1);
+            ReadCsvFile(Path.Combine("..", "..", "Properties", "menu.CSV"), flowLayoutPanel1);
             Total_cost_TextChanged();
-            for(int i = 0; i< jan_btn_combi.Count; i++)
+            for (int i = 0; i < jan_btn_combi.Count; i++)
             {
                 flowLayoutPanel2.Controls.Add(jan_btn_combi[i].btn);
             }
@@ -147,8 +142,8 @@ namespace Software_Project
                 {
                     string currentdir = Directory.GetCurrentDirectory();
                     string folder = "메뉴사진";
-                    
-                    button.Image = Image.FromFile(Path.Combine(currentdir,"..","..","Properties", folder, (list[i][0] + ".jpg")));
+
+                    button.Image = Image.FromFile(Path.Combine(currentdir, "..", "..", "Properties", folder, (list[i][0] + ".jpg")));
                 }
                 catch (FileNotFoundException)
                 {

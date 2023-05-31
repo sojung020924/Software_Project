@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Software_Project
@@ -22,22 +17,22 @@ namespace Software_Project
             InitializeComponent();
             jan_btn_combi = list;
             location_list = loc_list;
-            this.fontsize = fontsize;   
+            this.fontsize = fontsize;
         }
 
         private void gyeoljae_Load(object sender, EventArgs e)
         {
 
             int sum = 0;
-            
+
             for (int i = 0; i < jan_btn_combi.Count; i++)
-            {   
-                string s="";
+            {
+                string s = "";
                 string p = "";
                 TextBox box = new TextBox();
                 TextBox box2 = new TextBox();
                 box.Multiline = true;
-                box.Size = new Size(flowLayoutPanel1.Width-20, 120);
+                box.Size = new Size(flowLayoutPanel1.Width - 20, 120);
                 box2.Multiline = true;
                 box2.Dock = DockStyle.Right;
                 box2.Size = new Size(120, 80);
@@ -45,7 +40,7 @@ namespace Software_Project
                 box2.BorderStyle = BorderStyle.None;
                 string option = "";
                 int num = jan_btn_combi[i].jangbaguni.options.Count;
-                for (int j = 0; j < num; j++) 
+                for (int j = 0; j < num; j++)
                 {
                     if (jan_btn_combi[i].jangbaguni.options[j][3] != "0")
                     {
@@ -55,13 +50,13 @@ namespace Software_Project
                 }
                 if (jan_btn_combi[i].jangbaguni.memo != "")
                 {
-                    option += "\"" + jan_btn_combi[i].jangbaguni.memo +"\"\r\n";
+                    option += "\"" + jan_btn_combi[i].jangbaguni.memo + "\"\r\n";
                 }
                 sum += jan_btn_combi[i].jangbaguni.total_price;
-                s += "\r\n"+jan_btn_combi[i].jangbaguni.menu_name + " " + jan_btn_combi[i].jangbaguni.count + "개\r\n" + option;
+                s += "\r\n" + jan_btn_combi[i].jangbaguni.menu_name + " " + jan_btn_combi[i].jangbaguni.count + "개\r\n" + option;
                 p = jan_btn_combi[i].jangbaguni.total_price + "원\r\n";
                 box.Text = s;
-                box2.Text ="\r\n\r\n" + p;
+                box2.Text = "\r\n\r\n" + p;
 
                 box.Controls.Add(box2);
                 flowLayoutPanel1.Controls.Add(box);
@@ -69,7 +64,7 @@ namespace Software_Project
             total.Text = "total: " + sum.ToString() + "원";
             ChangeFontSize(fontsize);
         }
-        
+
         private void total_TextChanged(object sender, EventArgs e)
         {
 
@@ -84,7 +79,7 @@ namespace Software_Project
         {
             this.Visible = false;
             Deopbab d = new Deopbab(jan_btn_combi, fontsize);
-            Point parentPoint = this.Location; 
+            Point parentPoint = this.Location;
             d.StartPosition = FormStartPosition.Manual;
             d.Location = new Point(parentPoint.X, parentPoint.Y);
             d.ShowDialog();
@@ -93,7 +88,7 @@ namespace Software_Project
         private void gyeoljoeng_hagi_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-            table g = new table(jan_btn_combi,location_list, fontsize);
+            table g = new table(jan_btn_combi, location_list, fontsize);
             Point parentPoint = this.Location;
             g.StartPosition = FormStartPosition.Manual;
             g.Location = new Point(parentPoint.X, parentPoint.Y);

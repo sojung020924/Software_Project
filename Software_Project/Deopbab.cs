@@ -1,17 +1,9 @@
-﻿using System;
+﻿using Guna.UI2.WinForms;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.IO;
-using Guna.UI2.WinForms;
-using System.Net;
-using System.Web.Security;
-using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
 namespace Software_Project
 {
@@ -26,19 +18,19 @@ namespace Software_Project
         {
             InitializeComponent();
             jan_btn_combi = list;
-            for (int i=0; i< jan_btn_combi.Count; i++)
+            for (int i = 0; i < jan_btn_combi.Count; i++)
             {
                 jan_btn_combi[i].btn.Controls[1].Click += clear_menu;
                 jan_btn_combi[i].btn.Controls[2].Controls[0].Click += push_plus_button;
                 jan_btn_combi[i].btn.Controls[2].Controls[1].Click += push_minus_button;
             }
             this.fontsize = fontsize;
-            
+
         }
 
         public void Deopbab_Load(object sender, EventArgs e)
         {
-            ReadCsvFile(Path.Combine("..", "..", "Properties", "menu.CSV"),flowLayoutPanel1);
+            ReadCsvFile(Path.Combine("..", "..", "Properties", "menu.CSV"), flowLayoutPanel1);
             for (int i = 0; i < jan_btn_combi.Count; i++)
             {
                 flowLayoutPanel2.Controls.Add(jan_btn_combi[i].btn);
@@ -50,7 +42,7 @@ namespace Software_Project
         public void choose_bockbab_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-            for(int i =0; i< jan_btn_combi.Count; i++) //이벤트헨들러 지우고 보내기
+            for (int i = 0; i < jan_btn_combi.Count; i++) //이벤트헨들러 지우고 보내기
             {
                 jan_btn_combi[i].btn.Controls[1].Click -= clear_menu;
                 jan_btn_combi[i].btn.Controls[2].Controls[0].Click -= push_plus_button;
@@ -103,7 +95,7 @@ namespace Software_Project
             try
             {
                 var reader = new StreamReader(filePath);
-                
+
                 string[] headers = reader.ReadLine().Split(','); //앞부분은 스키마이므로 생략
                 int numColumns = headers.Length;
                 while (!reader.EndOfStream)
@@ -112,9 +104,9 @@ namespace Software_Project
                     List<string> rowData = new List<string>(row);
                     if (row[2] == "덮밥")
                     {
-                       data.Add(rowData);
+                        data.Add(rowData);
                     }
-                    
+
                 }
                 reader.Close();
             }
@@ -123,7 +115,7 @@ namespace Software_Project
                 Console.WriteLine($"Error reading CSV file: 오류입니다. ");
                 return;
             }
-            Make_menu_button(data,panel);
+            Make_menu_button(data, panel);
         }
         public void Make_menu_button(List<List<string>> list, FlowLayoutPanel panel) //동적으로 메뉴 버튼 만들기
         {
@@ -174,7 +166,7 @@ namespace Software_Project
             this.Visible = false;
             Guna2Button btn = (Guna2Button)sender;
             string name = btn.Name;
-            Choose choose= new Choose(name, fontsize);
+            Choose choose = new Choose(name, fontsize);
             choose.chooseSendEvent += new Choose.FormSendDataHandler(add_Choose);
             Point parentPoint = this.Location;
             choose.StartPosition = FormStartPosition.Manual;
@@ -195,11 +187,11 @@ namespace Software_Project
                 }
 
             }
-            if(jan.memo != "")
+            if (jan.memo != "")
             {
-                option += "\r\n"+jan.memo;
+                option += "\r\n" + jan.memo;
             }
-            
+
             //버튼들 생성
             Button button = new Button(); //고른 메뉴 버튼
             Button X_button = new Button(); //지우는 버튼
@@ -255,7 +247,7 @@ namespace Software_Project
         public void clear_menu(object sender, EventArgs e) //고른 것 패널에서 지우기
         {
             Control button = ((Control)sender).Parent;
-            
+
             for (int i = 0; i < jan_btn_combi.Count; i++)
             {
                 if (jan_btn_combi[i].btn == button)
@@ -265,11 +257,11 @@ namespace Software_Project
                     jan_btn_combi.Remove(jan_btn_combi[i]);
                     break;
                 }
-                
+
             }
             Total_cost_TextChanged();
         }
-        public void push_janbaguni_panel(FlowLayoutPanel panel, Button btn,Jangbaguni j )
+        public void push_janbaguni_panel(FlowLayoutPanel panel, Button btn, Jangbaguni j)
         {
             Jangbaguni_button_set set;
             set.btn = btn;
@@ -281,19 +273,19 @@ namespace Software_Project
         public void push_plus_button(object sender, EventArgs e)
         {
             Control button = ((Control)((Control)sender).Parent).Parent; //메뉴 버튼
-            for (int i=0; i < jan_btn_combi.Count; i++)
+            for (int i = 0; i < jan_btn_combi.Count; i++)
             {
-                if(jan_btn_combi[i].btn == button)
+                if (jan_btn_combi[i].btn == button)
                 {
                     Jangbaguni jang;
                     Jangbaguni_button_set set;
-                    Button bb= jan_btn_combi[i].btn;
+                    Button bb = jan_btn_combi[i].btn;
                     jang = jan_btn_combi[i].jangbaguni;
-                    jang.total_price += jang.total_price/jang.count; //버튼에 속해있는 장바구니 메뉴의 수량과 가격을 수정함
-                    jang.count++; 
+                    jang.total_price += jang.total_price / jang.count; //버튼에 속해있는 장바구니 메뉴의 수량과 가격을 수정함
+                    jang.count++;
                     set.btn = jan_btn_combi[i].btn;
-                    set.jangbaguni = jang; 
-                    jan_btn_combi[i]=set;
+                    set.jangbaguni = jang;
+                    jan_btn_combi[i] = set;
                     TextBox box = (TextBox)button.Controls[2]; //개수 수정
                     box.Text = "\r\n" + jan_btn_combi[i].jangbaguni.count.ToString() + " 개";
                     Label label = (Label)button.Controls[0];
@@ -314,7 +306,7 @@ namespace Software_Project
                     Jangbaguni_button_set set;
                     Button bb = jan_btn_combi[i].btn;
                     jang = jan_btn_combi[i].jangbaguni;
-                    jang.total_price -= jang.total_price/jang.count; //버튼에 속해있는 장바구니 메뉴의 수량과 가격을 수정함
+                    jang.total_price -= jang.total_price / jang.count; //버튼에 속해있는 장바구니 메뉴의 수량과 가격을 수정함
                     jang.count--;
                     if (jang.count == 0)
                     {
@@ -339,7 +331,7 @@ namespace Software_Project
         public void Total_cost_TextChanged()
         {
             int num = 0;
-            for(int i =0; i<jan_btn_combi.Count; i++)
+            for (int i = 0; i < jan_btn_combi.Count; i++)
             {
                 num += jan_btn_combi[i].jangbaguni.total_price;
             }
@@ -348,9 +340,9 @@ namespace Software_Project
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
-            this.Visible= false;
+            this.Visible = false;
             jan_btn_combi.Clear();
-            Main_ui main= new Main_ui();
+            Main_ui main = new Main_ui();
             Point parentPoint = this.Location; //폼 열리는 위치 설정
             main.StartPosition = FormStartPosition.Manual;
             main.Location = new Point(parentPoint.X, parentPoint.Y);

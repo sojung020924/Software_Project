@@ -1,13 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Net;
-using System.Net.Sockets;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Software_Project
@@ -40,9 +33,9 @@ namespace Software_Project
         public Main_ui()
         {
             InitializeComponent();
-            
+
         }
-        
+
         private void Form1_Load(object sender, EventArgs e)
         {
             ChangeFontSize(fontsize);
@@ -54,7 +47,7 @@ namespace Software_Project
             Deopbab deopbab = new Deopbab(jan_btn_combi, fontsize); //객체 생성
             deopbab.ChangeFontSize(fontsize);
             Point parentPoint = this.Location; //폼 열리는 위치 설정
-            deopbab.StartPosition = FormStartPosition.Manual;  
+            deopbab.StartPosition = FormStartPosition.Manual;
             deopbab.Location = new Point(parentPoint.X, parentPoint.Y);
             deopbab.ShowDialog(); //폼 open
             this.Close();
@@ -66,7 +59,7 @@ namespace Software_Project
             Bockbab bockbab = new Bockbab(jan_btn_combi, fontsize);
             bockbab.ChangeFontSize(fontsize);
             Point parentPoint = this.Location;
-            bockbab.StartPosition = FormStartPosition.Manual; 
+            bockbab.StartPosition = FormStartPosition.Manual;
             bockbab.Location = new Point(parentPoint.X, parentPoint.Y);
             bockbab.ShowDialog();
             this.Close();
@@ -90,7 +83,7 @@ namespace Software_Project
             Drink drink = new Drink(jan_btn_combi, fontsize);
             drink.ChangeFontSize(fontsize);
             Point parentPoint = this.Location;
-            drink.StartPosition = FormStartPosition.Manual;  
+            drink.StartPosition = FormStartPosition.Manual;
             drink.Location = new Point(parentPoint.X, parentPoint.Y);
             drink.ShowDialog();
             this.Close();
@@ -118,5 +111,5 @@ namespace Software_Project
             ChangeFontSize(fontsize);
         }
     }
-    
+
 }

@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace POS
@@ -53,7 +46,8 @@ namespace POS
                 }
                 sr.Close();
                 panel1.Controls.Add(list);
-            }catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show("아직 매출 내역이 없습니다.", "알림");
                 this.Close();

@@ -1,14 +1,8 @@
 ﻿using Guna.UI2.WinForms;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Software_Project
@@ -52,8 +46,8 @@ namespace Software_Project
                 jan_btn_combi[i].btn.Controls[2].Controls[0].Click -= push_plus_button;
                 jan_btn_combi[i].btn.Controls[2].Controls[1].Click -= push_minus_button;
             }
-            Deopbab deopbab = new Deopbab(jan_btn_combi, fontsize); 
-            Point parentPoint = this.Location; 
+            Deopbab deopbab = new Deopbab(jan_btn_combi, fontsize);
+            Point parentPoint = this.Location;
             deopbab.StartPosition = FormStartPosition.Manual;
             deopbab.Location = new Point(parentPoint.X, parentPoint.Y);
             deopbab.ShowDialog();

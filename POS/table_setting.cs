@@ -1,13 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Drawing.Text;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace POS
@@ -47,21 +41,22 @@ namespace POS
                     location_list.Add(loc);
                 }
                 streamreader.Close();
-            }catch(FileNotFoundException ex)
+            }
+            catch (FileNotFoundException ex)
             {
                 Console.WriteLine(ex.Message);
             }
             int v = location_list.Count;
             table_num = v;
         }
-       
+
         private void tablechuga_Click(object sender, EventArgs e)
         {
             //table_num=location_list.Count;
             Button button = new Button();
-            button.Size = new Size(131,62);
+            button.Size = new Size(131, 62);
             button.Name = table_num.ToString();
-            button.Text = "테이블 "+(table_num+1);
+            button.Text = "테이블 " + (table_num + 1);
             button.FlatStyle = FlatStyle.Flat;
             button.FlatAppearance.BorderSize = 0;
             button.Font = new Font("HY견고딕", 10);
@@ -74,7 +69,7 @@ namespace POS
             };
             if (location_list.Count == 0)
             {
-                location_list.Add (loc);
+                location_list.Add(loc);
                 button.MouseDown += new MouseEventHandler(button_MouseDown);
                 button.MouseMove += new MouseEventHandler(button_MouseMove);
                 button.MouseUp += new MouseEventHandler(button_MouseUp);
@@ -84,58 +79,58 @@ namespace POS
             }
             location_list.Add(loc);
 
-            
+
             button.MouseDown += new MouseEventHandler(button_MouseDown);
             button.MouseMove += new MouseEventHandler(button_MouseMove);
             button.MouseUp += new MouseEventHandler(button_MouseUp);
             Controls.Add(button);
             table_num++;
-            
+
         }
-       
+
 
         private bool isDragging = false;
         private Point lastLocation;
 
-         private void button_MouseDown(object sender, MouseEventArgs e)
-         {
+        private void button_MouseDown(object sender, MouseEventArgs e)
+        {
             isDragging = true;
             lastLocation = e.Location;
         }
 
         private void button_MouseMove(object sender, MouseEventArgs e)
-         {
-             Button btn = sender as Button;
+        {
+            Button btn = sender as Button;
             if (isDragging)
             {
                 btn.Left += e.X - lastLocation.X;
-                btn.Top += e.Y - lastLocation.Y;              
+                btn.Top += e.Y - lastLocation.Y;
             }
-             
-         }
+
+        }
         private void button_MouseUp(object sender, MouseEventArgs e)
         {
-             Button btn = sender as Button;
-             isDragging = false;
-             location loc = new location
-             {
-                 location_x = btn.Location.X,
-                 location_y = btn.Location.Y
-             };
+            Button btn = sender as Button;
+            isDragging = false;
+            location loc = new location
+            {
+                location_x = btn.Location.X,
+                location_y = btn.Location.Y
+            };
             location_list[int.Parse(btn.Name)] = loc;
 
-            
 
 
-            
+
+
         }
 
 
         private void table_setting_Load(object sender, EventArgs e)
         {
-            
 
-            
+
+
             for (int i = 0; i < location_list.Count; i++)
             {
                 Button button = new Button();
@@ -166,7 +161,8 @@ namespace POS
             try
             {
                 File.Delete("tablelist.CSV");
-            }catch(FileNotFoundException ex)
+            }
+            catch (FileNotFoundException ex)
             {
                 Console.WriteLine(ex.Message);
             }
@@ -184,7 +180,7 @@ namespace POS
             //posForm.updateposlist(sharedlist/*, location_list*/);
             CsvGenerator csvgenerator = new CsvGenerator();
             csvgenerator.GenerateCsv(location_list, "tablelist.CSV");
-            
+
 
             posForm.Show();
             this.Hide();

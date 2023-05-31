@@ -1,13 +1,8 @@
 ﻿using Guna.UI2.WinForms;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Software_Project
@@ -33,7 +28,7 @@ namespace Software_Project
         }
         public void Side_Load(object sender, EventArgs e)
         {
-            ReadCsvFile(Path.Combine("..", "..", "Properties", "menu.CSV"),flowLayoutPanel1);
+            ReadCsvFile(Path.Combine("..", "..", "Properties", "menu.CSV"), flowLayoutPanel1);
             Total_cost_TextChanged();
             for (int i = 0; i < jan_btn_combi.Count; i++)
             {

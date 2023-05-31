@@ -1,13 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web.ModelBinding;
 using System.Windows.Forms;
 
 namespace POS
@@ -38,7 +30,7 @@ namespace POS
 
             using (StreamReader sr = new StreamReader(Path.Combine("..", "..", "Properties", "geunmoo.CSV")))
             {
-                while(!sr.EndOfStream)
+                while (!sr.EndOfStream)
                 {
                     string line = sr.ReadLine();
                     string[] value = line.Split(',');

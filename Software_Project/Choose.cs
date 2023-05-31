@@ -1,18 +1,9 @@
 ﻿using Guna.UI2.WinForms;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml.Linq;
-using static Software_Project.Main_ui;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace Software_Project
 {
@@ -44,13 +35,13 @@ namespace Software_Project
         {
             List<List<string>> data = new List<List<string>>();
             var reader = new StreamReader(filePath);
-            
+
             string[] headers = reader.ReadLine().Split(','); //앞부분은 스키마이므로 생략
             while (!reader.EndOfStream) // 메뉴파일 다시 읽기
             {
                 string[] row = new string[4];
                 string[] read_menu = reader.ReadLine().Split(',');
-                for(int i=0; i < 3; i++) { row[i] = read_menu[i]; }
+                for (int i = 0; i < 3; i++) { row[i] = read_menu[i]; }
                 row[3] = "0"; //장바구니에 담긴 수량 넣기
                 List<string> rowData = new List<string>(row);
                 data.Add(rowData);
@@ -65,7 +56,7 @@ namespace Software_Project
                 {
                     price = Convert.ToInt32(data[i][1]); //총 가격 초기화
 
-                    total.Text = "총 " + data[i][1] +" 원";
+                    total.Text = "총 " + data[i][1] + " 원";
                     if (data[i][2] == "덮밥" || data[i][2] == "볶음밥")
                     {
                         make_option(option_list, option_panel);
@@ -78,7 +69,8 @@ namespace Software_Project
 
             }
         }
-        private void make_option(List<List<string>> list, FlowLayoutPanel panel) {
+        private void make_option(List<List<string>> list, FlowLayoutPanel panel)
+        {
             List<Guna2Button> buttonList = new List<Guna2Button>();
             for (int i = 0; i < list.Count; i++)
             {
@@ -108,13 +100,13 @@ namespace Software_Project
 
         private void choosed_option(string name, FlowLayoutPanel panel) //옵션 선택한 것 버튼 추가
         {
-            int num=0;
+            int num = 0;
             int i;
-            for (i = 0;i<option_list.Count;i++)
+            for (i = 0; i < option_list.Count; i++)
             {
                 if (option_list[i][0] == name)
                 {
-                    num =Convert.ToInt32(option_list[i][3]);
+                    num = Convert.ToInt32(option_list[i][3]);
                     //장바구니 수량 수정
                     num++;
                     option_list[i][3] = Convert.ToString(num);
@@ -122,7 +114,7 @@ namespace Software_Project
                 }
 
             }
-            if(num == 1) //새롭게 누른 경우
+            if (num == 1) //새롭게 누른 경우
             { //새롭게 박스를 생성
                 System.Windows.Forms.TextBox txt = new System.Windows.Forms.TextBox();
                 System.Windows.Forms.Button plus = new System.Windows.Forms.Button();
@@ -130,17 +122,17 @@ namespace Software_Project
 
                 //박스 설정
                 txt.Name = name;
-                txt.Multiline= true;
+                txt.Multiline = true;
                 txt.Height = 60;
                 txt.Width = 164;
                 txt.Text = "\r\n" + name + "\r\n수량: " + num + "개";
                 txt.ForeColor = System.Drawing.Color.SlateGray;
-                txt.HideSelection= false;
+                txt.HideSelection = false;
                 txt.Font = new Font("휴먼둥근헤드라인", 10);
                 txt.TextAlign = HorizontalAlignment.Center;
 
                 //+,- 버튼 넣기
-                plus.Name= name; //현재 무슨 버튼인지 알아보기 위해
+                plus.Name = name; //현재 무슨 버튼인지 알아보기 위해
                 plus.Text = "+";
                 plus.Size = new Size(30, 10);
                 plus.Dock = DockStyle.Right;
@@ -149,10 +141,10 @@ namespace Software_Project
                 plus.BackColor = Color.Coral;
                 plus.Click += plus_Click;
                 txt.Controls.Add(plus);
-                minus.Name= name;
+                minus.Name = name;
                 minus.Text = "-";
                 minus.Dock = DockStyle.Left;
-                minus.Size = new Size(30,10);
+                minus.Size = new Size(30, 10);
                 minus.FlatStyle = FlatStyle.Flat;
                 minus.FlatAppearance.BorderSize = 0;
                 minus.BackColor = Color.Coral;
@@ -167,9 +159,9 @@ namespace Software_Project
             }
             else //있던 것을 누른 경우
             {
-                for (int j =0; j< option_txt.Count;j++)
+                for (int j = 0; j < option_txt.Count; j++)
                 {
-                    if(option_txt[j].Name == name) //현재 수량을 추가한 것인 경우
+                    if (option_txt[j].Name == name) //현재 수량을 추가한 것인 경우
                     {
                         option_txt[j].Text = "\r\n" + name + "\r\n수량: " + num + "개";
                         break;
@@ -180,7 +172,7 @@ namespace Software_Project
 
         private void plus_Click(object sender, EventArgs e)
         {
-            Button btn =(Button)sender;
+            Button btn = (Button)sender;
             int num = 0;
             for (int i = 0; i < option_list.Count; i++)
             {
@@ -222,8 +214,8 @@ namespace Software_Project
                     for (int j = 0; j < option_txt.Count; j++)
                     {
                         if (option_txt[j].Name == btn.Name) //현재 수량을 뺀 것인 경우
-                        {   
-                            if(num == 0)//수량이 0인 경우
+                        {
+                            if (num == 0)//수량이 0인 경우
                             {
                                 get_out(option_txt[j], choosed_option_panel);
                                 break;
@@ -239,9 +231,9 @@ namespace Software_Project
             }
         }
 
-        private void price_setting(int pri, bool oper,Guna2TextBox txtbox) //true : plus, false : minus
+        private void price_setting(int pri, bool oper, Guna2TextBox txtbox) //true : plus, false : minus
         {
-            if(oper == true)
+            if (oper == true)
             {
                 price += pri;
             }

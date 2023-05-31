@@ -1,14 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Net.Sockets;
 using System.Text;
-using System.Threading.Tasks;
-using System.Web.UI.WebControls;
 using System.Windows.Forms;
 
 namespace Software_Project
@@ -81,11 +75,11 @@ namespace Software_Project
         private void button2_Click(object sender, EventArgs e)
         {
             string pw;
-            using(StreamReader reader = new StreamReader("pw.CSV"))
+            using (StreamReader reader = new StreamReader("pw.CSV"))
             {
                 pw = reader.ReadLine();
-                
-                if ( pw == textBox1.Text)
+
+                if (pw == textBox1.Text)
                 {
                     admin admin = new admin();
                     Point parentPoint = this.Location;
@@ -106,7 +100,7 @@ namespace Software_Project
 
         private void textBox1_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Enter)
             {
                 button2.PerformClick();
             }

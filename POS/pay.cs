@@ -1,18 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace POS
 {
-    
+
     public partial class pay : Form
     {
         List<location> location_list = new List<location>();
@@ -58,7 +52,7 @@ namespace POS
 
             }
         }
-        
+
         private void pay_Load(object sender, EventArgs e)
         {
             StreamReader reader = new StreamReader(selectedbutton + ".CSV");
@@ -80,7 +74,7 @@ namespace POS
                 ColumnHeader column = menuview.Columns[i];
                 column.Width = colwidth;
             }
-            
+
             while (!reader.EndOfStream)
             {
                 mline = reader.ReadLine();
@@ -94,7 +88,7 @@ namespace POS
                 lv.SubItems.Add(values[7]);
                 menuview.Items.Add(lv);
             }
-            
+
             paypanel.Controls.Add(menuview);
             reader.Close();
 
@@ -126,7 +120,7 @@ namespace POS
                 string column1Value = e.Item.SubItems[1].Text;
                 selectcost += int.Parse(column1Value);
             }
-            
+
             paycosttxt.Text = selectcost.ToString();
         }
 
@@ -134,13 +128,13 @@ namespace POS
         {
             ListView listview1 = menuview;
             ListView listview2 = sellistView;
-            if(listview2.Items.Count == 0)
+            if (listview2.Items.Count == 0)
             {
                 MessageBox.Show("선택된 메뉴가 없습니다.", "알림");
                 return;
-            }            
+            }
 
-            while(listview2.Items.Count > 0)
+            while (listview2.Items.Count > 0)
             {
                 ListViewItem item = listview2.Items[0];
                 sellistView.Items.Remove(item);
@@ -156,7 +150,8 @@ namespace POS
             if (int.Parse(paycosttxt.Text) == 0)
             {
                 MessageBox.Show("금액을 선택해주세요.", "알림");
-            }else if(int.Parse(paycosttxt.Text) < 0)
+            }
+            else if (int.Parse(paycosttxt.Text) < 0)
             {
                 MessageBox.Show("0원 이상의 금액을 입력해주세요.", "알림");
             }
@@ -284,30 +279,30 @@ namespace POS
 
         private void pay_FormClosed(object sender, FormClosedEventArgs e)
         {
-            
+
         }
 
         private void guna2Button1_Click_1(object sender, EventArgs e) //뒤로가기 버튼
         {
             ListView listview1 = menuview;
             ListView listview2 = sellistView;
-            if (listview2.Items.Count!=0)
+            if (listview2.Items.Count != 0)
             {
-                MessageBox.Show("선택된 메뉴를 취소해주세요.","알림"); 
+                MessageBox.Show("선택된 메뉴를 취소해주세요.", "알림");
                 return;
             }
-            
-            var reader = new StreamReader(selectedbutton + ".CSV" ,Encoding.UTF8);
+
+            var reader = new StreamReader(selectedbutton + ".CSV", Encoding.UTF8);
             string[] headers = reader.ReadLine().Split(','); //앞부분은 스키마이므로 생략
 
             List<List<string>> data = new List<List<string>>();
             int num = 0;
             while (!reader.EndOfStream) //현재 테이블의 모든 메뉴를 순회하면서
             {
-                
+
                 string[] row = reader.ReadLine().Split(',');
 
-                for (int i=0;i<listview1.Items.Count;i++)
+                for (int i = 0; i < listview1.Items.Count; i++)
                 {
                     ListViewItem item = listview1.Items[i];
                     num++;
@@ -315,14 +310,14 @@ namespace POS
                     int menucost = int.Parse(item.SubItems[1].Text);
                     int menucount = int.Parse(item.SubItems[2].Text);
                     // row의 첫 번째 요소와 메뉴 이름 비교
-                    if (menuname == row[0] && menucost/ menucount == int.Parse(row[1])/int.Parse(row[7]))
+                    if (menuname == row[0] && menucost / menucount == int.Parse(row[1]) / int.Parse(row[7]))
                     {
                         List<string> buf = new List<string>(row);
                         data.Add(buf);
                     }
 
                 }
-               
+
 
             }
             reader.Close();
@@ -330,7 +325,7 @@ namespace POS
             File.Delete(selectedbutton + ".CSV");
             using (StreamWriter writer = new StreamWriter(selectedbutton + ".CSV"))
             {
-                writer.WriteLine(headers[0]+","+ headers[1]+","+ headers[2]+","+ headers[3] + "," + headers[4]);
+                writer.WriteLine(headers[0] + "," + headers[1] + "," + headers[2] + "," + headers[3] + "," + headers[4]);
                 foreach (List<string> line in data)
                 {
                     writer.WriteLine(line[0] + "," + line[1] + "," + line[2] + "," + line[3] + "," + line[4] + "," + line[5] + "," + line[6] + "," + line[7]); // 새로운 파일에 라인 쓰기
@@ -346,7 +341,7 @@ namespace POS
             selectcost = 0;
             totcosttxt.Text = totalcost.ToString();
             sellistView.Clear();
-            if(totalcost == 0) //만약에 모든 메뉴를 삭제한 경우
+            if (totalcost == 0) //만약에 모든 메뉴를 삭제한 경우
             {
                 this.Close();
                 location loc = new location()

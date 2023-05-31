@@ -1,18 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Net;
 using System.Net.Sockets;
-using System.Windows.Forms;
-using System.IO;
-using System.Threading;
-using System.Diagnostics;
+using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading;
+using System.Windows.Forms;
 
 
 
@@ -89,7 +86,8 @@ namespace POS
             try
             {
                 server.BeginAcceptTcpClient(HandleClientConnection, null);
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 Console.WriteLine($"{ex.Message}");
             }
@@ -101,7 +99,8 @@ namespace POS
             {
                 // 클라이언트로부터 메시지를 수신하고 메시지 박스로 표시
                 //while (true)
-                { for(int i = 0; i <location_list.Count ; i++)
+                {
+                    for (int i = 0; i < location_list.Count; i++)
                     {
                         Button targetButton = Controls.OfType<Button>().FirstOrDefault(button => button.Name == i.ToString());
                         if (File.Exists(i.ToString() + ".CSV"))
@@ -152,9 +151,9 @@ namespace POS
         {
             if (File.Exists("tablelist.CSV"))
             {
-                for(int i = 0; i <location_list.Count ; i++)
+                for (int i = 0; i < location_list.Count; i++)
                 {
-                    if(File.Exists(i.ToString() + ".CSV"))
+                    if (File.Exists(i.ToString() + ".CSV"))
                     {
                         MessageBox.Show("모든 테이블의 결제를 끝내고\n\r다시 실행해주세요.", "실행 실패");
                         return;
@@ -210,7 +209,7 @@ namespace POS
             {
                 StreamReader reader = new StreamReader(selectedButton.Name + ".CSV");
                 string fline = reader.ReadLine();
-                
+
                 List<string[]> mlist = new List<string[]>();
                 while (!reader.EndOfStream)
                 {
@@ -265,7 +264,7 @@ namespace POS
                     menuview.TileSize = new Size(menuview.ClientSize.Width, menuview.TileSize.Height);
                     menuview.BorderStyle = BorderStyle.None;
 
-                    
+
                     reader.Close();
                 }
                 totalcost.Text = (totcost.ToString() + "원");
@@ -309,7 +308,7 @@ namespace POS
             catch (FileNotFoundException ex)
             {
                 Console.WriteLine(ex.Message);
-                
+
             }
 
 
@@ -321,7 +320,7 @@ namespace POS
                 button.FlatStyle = FlatStyle.Flat;
                 button.FlatAppearance.BorderSize = 0;
                 button.Font = new Font("HY견고딕", 10);
-                button.Text = "테이블" + (i+1);
+                button.Text = "테이블" + (i + 1);
                 button.Name = i.ToString();
                 int x = location_list[i].location_x;
                 int y = location_list[i].location_y;
@@ -340,7 +339,7 @@ namespace POS
 
         }
 
-        
+
         private void RemoveButtonByName(string buttonName)
         {
             Control[] foundButtons = this.Controls.Find(buttonName, true);
@@ -370,7 +369,7 @@ namespace POS
             {
                 return;
             }
-            pay Pay = new pay(this, selectedButton.Name, int.Parse(Regex.Replace(totalcost.Text, @"\D", ""))) ;
+            pay Pay = new pay(this, selectedButton.Name, int.Parse(Regex.Replace(totalcost.Text, @"\D", "")));
             Point parentpoint = this.Location;
             Pay.Location = new Point(parentpoint.X, parentpoint.Y);
             Pay.StartPosition = FormStartPosition.Manual;
@@ -382,7 +381,7 @@ namespace POS
                 selectedButton = null;
 
             }
-                
+
         }
         //private void pay_FormClosed(object sender, FormClosedEventArgs e)
         //{
@@ -391,7 +390,7 @@ namespace POS
         //    totalmaechool.Text = maechool.ToString() + "원";
         //}
 
-        
+
 
         public void Updatemaechool(int value)
         {
@@ -425,7 +424,8 @@ namespace POS
                     }
                     sra.Close();
                 }
-            }catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
@@ -446,7 +446,7 @@ namespace POS
             }
             else if (File.Exists(Path.Combine("..", "..", "Properties", "totalmaechool.CSV")))
             {
-                
+
                 //try
                 {
                     using (StreamReader sr = new StreamReader(Path.Combine("..", "..", "Properties", "totalmaechool.CSV")))
@@ -457,7 +457,7 @@ namespace POS
                             line = sr.ReadLine();
                             string[] value = line.Split(',');
 
-                            
+
                             if (value[0] == dateTime.ToString("yyyy-MM-dd"))
                             {
                                 line = value[0] + "," + newmaechool.ToString();
@@ -475,7 +475,7 @@ namespace POS
                         }
                         sr.Close();
                     }
-                    
+
                     File.Delete((Path.Combine("..", "..", "Properties", "totalmaechool.CSV")));
 
                     StreamWriter sw = new StreamWriter(Path.Combine("..", "..", "Properties", "totalmaechool.CSV"));
@@ -511,10 +511,10 @@ namespace POS
         }
     }
     public class CsvGenerator
-        {
+    {
         public void GenerateCsv(List<location> location_list, string filePath)
         {
-            
+
             using (StreamWriter writer = new StreamWriter(filePath))
             {
 
@@ -527,10 +527,10 @@ namespace POS
                 }
                 writer.Close();
             }
-            
+
             Console.WriteLine("CSV 파일이 생성되었습니다.");
         }
 
     }
-   
+
 }

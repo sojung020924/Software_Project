@@ -1,15 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net.Sockets;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows.Markup;
 
 namespace Software_Project
 {
@@ -32,7 +28,7 @@ namespace Software_Project
             this.MinimumSize = new Size(698, 792);
             this.MaximumSize = new Size(698, 792);
             this.MinimumSize = this.MaximumSize = this.Size; // 최소 크기와 최대 크기를 현재 크기로 설정
-            
+
             ChangeFontSize(fontsize);
         }
 
@@ -40,7 +36,7 @@ namespace Software_Project
         {
             try
             {
-                StreamReader streamreader = new StreamReader(Path.Combine("..","..","..","POS","bin","Debug","tablelist.CSV"));
+                StreamReader streamreader = new StreamReader(Path.Combine("..", "..", "..", "POS", "bin", "Debug", "tablelist.CSV"));
 
                 while (!streamreader.EndOfStream)
                 {
@@ -62,7 +58,7 @@ namespace Software_Project
             }
             for (int i = 0; i < location_list.Count; i++)
             {
-                
+
                 Button button = new Button();
                 if (location_list[i].used == true)
                 {
@@ -106,7 +102,7 @@ namespace Software_Project
                 {
                     return;
                 }
-                
+
             }
             else
             {
@@ -114,7 +110,7 @@ namespace Software_Project
             }
 
             // 선택된 버튼을 추적합니다.
-            table_num.Font= new Font("HY견고딕", 15);
+            table_num.Font = new Font("HY견고딕", 15);
             table_num.Text = "고른 테이블: " + button.Text + " 번";
             selectedButton = button;
             selectedButton.Name = button.Name;
@@ -130,9 +126,9 @@ namespace Software_Project
             g.ShowDialog();
         }
         public List<Jangbaguni> menulist = new List<Jangbaguni>();
-        
-        
-        
+
+
+
         private void tablegola_Click(object sender, EventArgs e)
         {
             for (int i = 0; i < jan_btn_combi.Count; i++)
@@ -144,8 +140,8 @@ namespace Software_Project
                 MessageBox.Show("테이블을 선택해주세요.", "테이블 선택은 필수!");
                 return;
             }
-            
-            
+
+
             location loc = new location
             {
                 location_x = selectedButton.Location.X,
@@ -184,11 +180,11 @@ namespace Software_Project
             }
 
 
-            
+
             CsvGenerator menucsv = new CsvGenerator();
             menucsv.GenerateCsv(menulist, Path.Combine("..", "..", "..", "POS", "bin", "Debug", selectedButton.Name + ".CSV"));
             CsvGenerator tablecsv = new CsvGenerator();
-            tablecsv.bGenerateCsv(location_list,Path.Combine("..", "..", "..", "POS", "bin", "Debug", "tablelist.CSV"), int.Parse(selectedButton.Name));
+            tablecsv.bGenerateCsv(location_list, Path.Combine("..", "..", "..", "POS", "bin", "Debug", "tablelist.CSV"), int.Parse(selectedButton.Name));
             location_list[int.Parse(selectedButton.Name)] = loc;
 
 
@@ -217,7 +213,7 @@ namespace Software_Project
             }
             else
             {
-                using (StreamWriter writer = new StreamWriter(filePath,false, Encoding.UTF8))
+                using (StreamWriter writer = new StreamWriter(filePath, false, Encoding.UTF8))
                 {
                     // CSV 파일의 헤더 작성
                     writer.WriteLine("Menu Name,Total Price,Memo,Options,Count");
@@ -251,7 +247,7 @@ namespace Software_Project
                     if (lineCount == currentline)
                     {
                         // 수정해야 할 줄을 찾았을 때, 새로운 값을 준비합니다.
-                        string newLine = $"{location_list[currentline-1].location_x.ToString()},{location_list[currentline-1].location_y.ToString()},{location_list[currentline-1].used.ToString()}";
+                        string newLine = $"{location_list[currentline - 1].location_x.ToString()},{location_list[currentline - 1].location_y.ToString()},{location_list[currentline - 1].used.ToString()}";
                         lines[lineCount - 1] = newLine;
                     }
                     lineCount++;
