@@ -15,7 +15,7 @@ namespace POS
         {
             DateTime dateTime = DateTime.Now;
             string text = "";
-            string line = dateTime.ToString("MM-dd-HH:mm") + "," + textBox1.Text + "," + "출근";
+            string line = dateTime.ToString("MM-dd-HH-mm") + "," + textBox1.Text + "," + "출근";
             if (File.Exists(Path.Combine("..", "..", "Properties", "geunmoo.CSV")))
             {
                 using (StreamReader sr = new StreamReader(Path.Combine("..", "..", "Properties", "geunmoo.CSV")))
@@ -60,7 +60,7 @@ namespace POS
         private void button2_Click(object sender, EventArgs e)//퇴근 버튼
         {
             DateTime dateTime = DateTime.Now;
-            string line = dateTime.ToString("MM-dd-HH:mm") + "," + textBox1.Text + "," + "퇴근";
+            string line = dateTime.ToString("MM-dd-HH-mm") + "," + textBox1.Text + "," + "퇴근";
             if (File.Exists(Path.Combine("..", "..", "Properties", "geunmoo.CSV")))
             {
                 bool chool = false; //true면 출근 상태, false 면 퇴근상태
