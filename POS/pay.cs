@@ -110,7 +110,6 @@ namespace POS
 
 
         }
-        // ListView의 ItemSelectionChanged 이벤트 핸들러
 
         int selectcost = 0;
         private void listView_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)

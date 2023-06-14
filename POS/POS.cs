@@ -460,7 +460,7 @@ namespace POS
 
                             if (value[0] == dateTime.ToString("yyyy-MM-dd"))
                             {
-                                line = value[0] + "," + newmaechool.ToString();
+                                line = value[0] + "," + newmaechool.ToString() + '\n';
                                 text += line;
                                 break;
                             }

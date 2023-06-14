@@ -27,23 +27,28 @@ namespace POS
                 ColumnHeader column = listview.Columns[i];
                 column.Width = colwidth;
             }
-
-            using (StreamReader sr = new StreamReader(Path.Combine("..", "..", "Properties", "geunmoo.CSV")))
+            try
             {
-                while (!sr.EndOfStream)
+                using (StreamReader sr = new StreamReader(Path.Combine("..", "..", "Properties", "geunmoo.CSV")))
                 {
-                    string line = sr.ReadLine();
-                    string[] value = line.Split(',');
+                    while (!sr.EndOfStream)
+                    {
+                        string line = sr.ReadLine();
+                        string[] value = line.Split(',');
 
-                    ListViewItem item = new ListViewItem(value[0]);
-                    item.SubItems.Add(value[1]);
-                    item.SubItems.Add((string)value[2]);
+                        ListViewItem item = new ListViewItem(value[0]);
+                        item.SubItems.Add(value[1]);
+                        item.SubItems.Add((string)value[2]);
 
-                    listview.Items.Add(item);
+                        listview.Items.Add(item);
+                    }
+                    sr.Close();
                 }
-                sr.Close();
+                panel1.Controls.Add(listview);
+            }catch(FileNotFoundException ex)
+            {
+                Console.Write(ex.Message);
             }
-            panel1.Controls.Add(listview);
         }
 
         private void button1_Click(object sender, EventArgs e)
