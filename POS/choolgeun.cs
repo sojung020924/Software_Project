@@ -106,6 +106,11 @@ namespace POS
                 MessageBox.Show("저장된 출/퇴근 기록이 없습니다.", "알림");
             }
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }
