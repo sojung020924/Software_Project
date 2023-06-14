@@ -131,7 +131,7 @@ namespace Software_Project
 
         private void tablegola_Click(object sender, EventArgs e)
         {
-            selectedButton.Location= new Point(selectedButton.Location.X, selectedButton.Location.Y - 800);
+            selectedButton.Location= new Point(selectedButton.Location.X, selectedButton.Location.Y - 80);
             for (int i = 0; i < jan_btn_combi.Count; i++)
             {
                 menulist.Add(jan_btn_combi[i].jangbaguni);
