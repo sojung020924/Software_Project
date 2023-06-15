@@ -100,6 +100,20 @@ namespace POS
                 // 클라이언트로부터 메시지를 수신하고 메시지 박스로 표시
                 //while (true)
                 {
+                    
+                    // 클라이언트와의 데이터 통신을 위한 네트워크 스트림
+                    NetworkStream stream = client.GetStream();
+
+                    // 수신할 데이터를 담을 버퍼
+                    byte[] buffer = new byte[1024];
+
+                    // 데이터 수신
+                    int bytesRead = stream.Read(buffer, 0, buffer.Length);
+
+                    // 수신된 데이터를 문자열로 변환
+                    string message = Encoding.UTF8.GetString(buffer, 0, bytesRead);
+                    // 수신된 메시지를 메시지 박스로 표시
+                    MessageBox.Show(message, "주문 알림", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     for (int i = 0; i < location_list.Count; i++)
                     {
                         Button targetButton = Controls.OfType<Button>().FirstOrDefault(button => button.Name == i.ToString());
@@ -112,20 +126,6 @@ namespace POS
                             targetButton.BackColor = Color.LightGray;
                         }
                     }
-                    // 클라이언트와의 데이터 통신을 위한 네트워크 스트림
-                    NetworkStream stream = client.GetStream();
-
-                    // 수신할 데이터를 담을 버퍼
-                    byte[] buffer = new byte[1024];
-
-                    // 데이터 수신
-                    int bytesRead = stream.Read(buffer, 0, buffer.Length);
-
-                    // 수신된 데이터를 문자열로 변환
-                    string message = Encoding.UTF8.GetString(buffer, 0, bytesRead);
-
-                    // 수신된 메시지를 메시지 박스로 표시
-                    MessageBox.Show(message, "주문 알림", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
